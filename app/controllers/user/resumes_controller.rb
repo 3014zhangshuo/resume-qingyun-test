@@ -1,12 +1,31 @@
 class User::ResumesController < ApplicationController
+  layout "pdf", only: [:download]
 
   def index
-    @resumes = Resume.all    
+    @resumes = Resume.all
   end
 
+  def show
+    @resumes = Resume.all
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "resume.pdf",
+        template: "user/resumes/show.pdf.erb"
+      end
+    end
+  end
+  def download
+    @resumes = Resume.all
+    html = render_to_string(:action => :show)
+    pdf = WickedPdf.new.pdf_from_string(html)
 
+    send_data(pdf,
+      :filename => "resume.pdf",
+      :disposition => 'attachment')
+  end
   def new
-    @resume = Resume.new 
+    @resume = Resume.new
   end
 
   def create

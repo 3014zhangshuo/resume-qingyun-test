@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :welcomes do
   end
 
-  get 'welcome/pdf' => 'welcome#download'
+  get 'user/resumes/pdf' => 'user/resumes#download'
 
   root 'welcome#index'
 
