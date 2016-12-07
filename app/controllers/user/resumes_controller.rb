@@ -5,6 +5,7 @@ class User::ResumesController < ApplicationController
     @resumes = Resume.all
   end
 
+
   def show
     @resumes = Resume.all
     respond_to do |format|
@@ -15,6 +16,7 @@ class User::ResumesController < ApplicationController
       end
     end
   end
+
   def download
     @resumes = Resume.all
     html = render_to_string(:action => :show)
@@ -24,6 +26,12 @@ class User::ResumesController < ApplicationController
       :filename => "resume.pdf",
       :disposition => 'attachment')
   end
+
+  def preview
+    @resume = Resume.find(params[:resume_id])
+  end
+
+
   def new
     @resume = Resume.new
   end
