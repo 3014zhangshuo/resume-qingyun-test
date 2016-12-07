@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   # 用户下简历路由
   namespace :user do
-    resources :resumes
+    resources :resumes do
+    	get :preview
+    end
   end
 
 end

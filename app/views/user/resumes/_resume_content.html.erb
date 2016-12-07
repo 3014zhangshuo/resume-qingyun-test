@@ -1,24 +1,13 @@
-<div class="col-md-12">
-<%= link_to '新建简历',new_user_resume_path ,:class => 'btn btn-primary btn-lg' %>
+ <div id="froala-editor">
 
 
+   <h3>你好，我是<%= resume.answer00 %></h3>
 
-  <!-- 一个resume模型 -->
-  <% @resumes.each do |resume| %>
-  <div class="row">
-
-  <%= link_to "预览并编辑", user_resume_preview_path(resume), class: "btn btn-primary pull-right" %>
-
-
-  <!-- template_v1 -->
-
-  <h3>你好，我是<%= resume.answer00 %></h3>
-
-  <p>
-  一个具有<%= resume.answer01 %>，
-  充满<%= resume.answer02 %>，
-  并善于<%= resume.answer03 %>
-  的<%= resume.answer04 %>。
+   <p>
+    一个具有<%= resume.answer01 %>，
+    充满<%= resume.answer02 %>，
+    并善于<%= resume.answer03 %>
+    的<%= resume.answer04 %>。
   </p>
 
 
@@ -75,21 +64,21 @@
 
 
   <p>
-  在
-  <%= resume.answer27 %>
-  中，良好的
-  <%= resume.answer28 %>
-  让我建立了
-  <%= resume.answer29 %>
-  。繁琐并具有挑战的
-  <%= resume.answer30 %>
-  工作也让我
-  <%= resume.answer31 %>
-  。我相信我的加入能为贵公司带来
-  <%= resume.answer32 %>
-  ，以及
-  <%= resume.answer33 %>
-  。  
+    在
+    <%= resume.answer27 %>
+    中，良好的
+    <%= resume.answer28 %>
+    让我建立了
+    <%= resume.answer29 %>
+    。繁琐并具有挑战的
+    <%= resume.answer30 %>
+    工作也让我
+    <%= resume.answer31 %>
+    。我相信我的加入能为贵公司带来
+    <%= resume.answer32 %>
+    ，以及
+    <%= resume.answer33 %>
+    。  
   </p>
 
 
@@ -97,8 +86,8 @@
   <h3>我做过什么</h3>
 
   <h5>
-  <%= resume.answer34 %> 
-  <%= resume.answer35 %>  
+    <%= resume.answer34 %> 
+    <%= resume.answer35 %>  
   </h5>
   <p>
     作为
@@ -110,17 +99,17 @@
   </p>
 
   <p>
-  <%= resume.answer39 %>
+    <%= resume.answer39 %>
     
   </p>
 
 
 
   <h5>
-  * 
-  <%= resume.answer40 %> 
+    * 
+    <%= resume.answer40 %> 
 
-  <%= resume.answer41 %>
+    <%= resume.answer41 %>
   </h5>
 
   <p>
@@ -133,27 +122,27 @@
   </p>
 
   <p>
-  <%= resume.answer45 %>  
+    <%= resume.answer45 %>  
   </p>
 
   <p>
-  *
-  <%= resume.answer46 %> 
-  <%= resume.answer47 %> 
+    *
+    <%= resume.answer46 %> 
+    <%= resume.answer47 %> 
   </p>
 
   <p>
-  作为
-  <%= resume.answer48 %>
-  ，耗时
-  <%= resume.answer49 %>
-  ，
-  <%= resume.answer50 %>
+    作为
+    <%= resume.answer48 %>
+    ，耗时
+    <%= resume.answer49 %>
+    ，
+    <%= resume.answer50 %>
     
   </p>
 
   <p>
-  <%= resume.answer51 %>  
+    <%= resume.answer51 %>  
   </p>
 
 
@@ -181,43 +170,41 @@
   </h3>
 
   <p>
-  我是 
-  <%= resume.answer55 %> 
-  ，期待您的回复。
+    我是 
+    <%= resume.answer55 %> 
+    ，期待您的回复。
   </p> 
 
   <p>
-  手机：
-  <%= resume.answer56 %>  
+    手机：
+    <%= resume.answer56 %>  
   </p>
 
   <p>
-  E-mail: 
-  <%= resume.answer57 %>
-     
+    E-mail: 
+    <%= resume.answer57 %>
+
   </p>
 
   <p>
-  我的GitHub: 
-  <%= resume.answer58 %>
+    我的GitHub: 
+    <%= resume.answer58 %>
   </p>
 
   <p>
-  我的博客:
-  <%= resume.answer59 %>
+    我的博客:
+    <%= resume.answer59 %>
   </p>
-
-
-
-
-
-
-
-  </div>
-  <hr>
-  <p>一个简历结束</p>
-  <hr>
-  <% end %>
-  
-
 </div>
+
+
+<script>
+  $(function() {
+    $('div#froala-editor').froalaEditor({
+      toolbarInline: true,
+      charCounterCount: false,
+      toolbarButtons: ['bold', 'italic', 'underline', 'strikeThrough', '-', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'indent', 'outdent', '-', 'insertImage', 'insertLink', 'undo', 'redo'],
+      toolbarVisibleWithoutSelection: false
+    })
+  });
+</script>

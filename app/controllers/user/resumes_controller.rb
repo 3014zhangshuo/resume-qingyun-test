@@ -4,6 +4,9 @@ class User::ResumesController < ApplicationController
     @resumes = Resume.all    
   end
 
+  def preview
+    @resume = Resume.find(params[:resume_id])
+  end
 
   def new
     @resume = Resume.new 
