@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>ResumeHack </title>
-        <%= csrf_meta_tags %>
+<head>
+    <title>ResumeHack </title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css">
 
-        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    </head>
 
-    <body>
 
-        <div class="container-fluid">
-            <%= render "common/navbar" %>
-             <%= render "common/flashes" %>
-            <%= yield %>
-        </div>
+</head>
 
-        <%= render "common/footer" %>
+<body>
 
-    </body>
+    <div class="container-fluid">
+        <%= render "common/navbar" %>
+        <%= render "common/flashes" %>
+        <%= yield %>
+    </div>
+
+    <%= render "common/footer" %>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.min.js"></script>
+
+</body>
 </html>
