@@ -28,7 +28,7 @@ gem 'simple_form'
 gem 'font-awesome-rails'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
-gem 'sqlite3'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -40,6 +40,7 @@ gem 'sqlite3'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'sqlite3'
 end
 
 group :production do
