@@ -1,15 +1,52 @@
 class User::ResumesController < ApplicationController
+  layout "pdf", only: [:download, :preview_download]
+  # layout "preview_layout", only: [:preview]
+
 
   def index
-    @resumes = Resume.all    
+    @resumes = Resume.all
+  end
+
+
+  def show
+    @resumes = Resume.all
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "resume.pdf",
+        template: "user/resumes/show.pdf.erb"
+      end
+    end
+  end
+
+  def download
+    @resumes = Resume.all
+    html = render_to_string(:action => :show)
+    pdf = WickedPdf.new.pdf_from_string(html)
+
+    send_data(pdf,
+      :filename => "resume.pdf",
+      :disposition => 'attachment')
+  end
+
+  def preview_download
+    @resume = Resume.find(params[:resume_id])
+    html = render_to_string(:action => :preview)
+    pdf = WickedPdf.new.pdf_from_string(html)
+
+    send_data(pdf,
+      :filename => "preview_resume.pdf",
+      :disposition => 'attachment')
   end
 
   def preview
+    render layout: "preview_layout", locals: { resume: Resume.find(params[:resume_id]) }
     @resume = Resume.find(params[:resume_id])
   end
 
+
   def new
-    @resume = Resume.new 
+    @resume = Resume.new
   end
 
   def create

@@ -1,5 +1,5 @@
 <div class="col-md-12">
-<%= link_to '新建简历',new_user_resume_path ,:class => 'btn btn-primary btn-lg' %>
+
 
 
 
@@ -7,7 +7,6 @@
   <% @resumes.each do |resume| %>
   <div class="row">
 
-  <%= link_to "预览并编辑", user_resume_preview_path(resume), class: "btn btn-primary pull-right" %>
 
 
   <!-- template_v1 -->
@@ -215,7 +214,7 @@
 
   </div>
   <hr>
-<%= link_to "下载简历", user_resumes_pdf_path %>
+
   <p>一个简历结束</p>
   <hr>
   <% end %>

@@ -1,5 +1,6 @@
  <div id="froala-editor">
 
+   <% resume ||= Resume.find(params[:resume_id]) %>
 
    <h3>你好，我是<%= resume.answer00 %></h3>
 
@@ -78,7 +79,7 @@
     <%= resume.answer32 %>
     ，以及
     <%= resume.answer33 %>
-    。  
+    。
   </p>
 
 
@@ -86,8 +87,8 @@
   <h3>我做过什么</h3>
 
   <h5>
-    <%= resume.answer34 %> 
-    <%= resume.answer35 %>  
+    <%= resume.answer34 %>
+    <%= resume.answer35 %>
   </h5>
   <p>
     作为
@@ -95,19 +96,19 @@
     ，耗时
     <%= resume.answer37 %>
     ，
-    <%= resume.answer38 %>  
+    <%= resume.answer38 %>
   </p>
 
   <p>
     <%= resume.answer39 %>
-    
+
   </p>
 
 
 
   <h5>
-    * 
-    <%= resume.answer40 %> 
+    *
+    <%= resume.answer40 %>
 
     <%= resume.answer41 %>
   </h5>
@@ -122,13 +123,13 @@
   </p>
 
   <p>
-    <%= resume.answer45 %>  
+    <%= resume.answer45 %>
   </p>
 
   <p>
     *
-    <%= resume.answer46 %> 
-    <%= resume.answer47 %> 
+    <%= resume.answer46 %>
+    <%= resume.answer47 %>
   </p>
 
   <p>
@@ -138,11 +139,11 @@
     <%= resume.answer49 %>
     ，
     <%= resume.answer50 %>
-    
+
   </p>
 
   <p>
-    <%= resume.answer51 %>  
+    <%= resume.answer51 %>
   </p>
 
 
@@ -151,12 +152,12 @@
   </h3>
 
   <p>
-    - 
+    -
     <%= resume.answer52 %>
   </p>
   <p>
     - <%= resume.answer53 %>
-    
+
   </p>
   <p>
     -
@@ -170,24 +171,24 @@
   </h3>
 
   <p>
-    我是 
-    <%= resume.answer55 %> 
+    我是
+    <%= resume.answer55 %>
     ，期待您的回复。
-  </p> 
-
-  <p>
-    手机：
-    <%= resume.answer56 %>  
   </p>
 
   <p>
-    E-mail: 
+    手机：
+    <%= resume.answer56 %>
+  </p>
+
+  <p>
+    E-mail:
     <%= resume.answer57 %>
 
   </p>
 
   <p>
-    我的GitHub: 
+    我的GitHub:
     <%= resume.answer58 %>
   </p>
 
