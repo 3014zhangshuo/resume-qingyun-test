@@ -3,60 +3,293 @@
   <%= simple_form_for  [:user, @resume] do |r| %>
 
 
-  <!-- 50个input点 -->
-  <div class="form-group">
-      <%= r.input :answer00, label: '问题00',input_html: { class: "form-control"} %>
-      <%= r.input :answer01, label: '问题01',input_html: { class: "form-control"} %>
-      <%= r.input :answer02, label: '问题02',input_html: { class: "form-control"} %>
-      <%= r.input :answer03, label: '问题03',input_html: { class: "form-control"} %>
-      <%= r.input :answer04, label: '问题04',input_html: { class: "form-control"} %>
-      <%= r.input :answer05, label: '问题05',input_html: { class: "form-control"} %>
-      <%= r.input :answer06, label: '问题06',input_html: { class: "form-control"} %>
-      <%= r.input :answer07, label: '问题07',input_html: { class: "form-control"} %>
-      <%= r.input :answer08, label: '问题08',input_html: { class: "form-control"} %>
-      <%= r.input :answer09, label: '问题09',input_html: { class: "form-control"} %>
-      <%= r.input :answer10, label: '问题10',input_html: { class: "form-control"} %>
-      <%= r.input :answer11, label: '问题11',input_html: { class: "form-control"} %>
-      <%= r.input :answer12, label: '问题12',input_html: { class: "form-control"} %>
-      <%= r.input :answer13, label: '问题13',input_html: { class: "form-control"} %>
-      <%= r.input :answer14, label: '问题14',input_html: { class: "form-control"} %>
-      <%= r.input :answer15, label: '问题15',input_html: { class: "form-control"} %>
-      <%= r.input :answer16, label: '问题16',input_html: { class: "form-control"} %>
-      <%= r.input :answer17, label: '问题17',input_html: { class: "form-control"} %>
-      <%= r.input :answer18, label: '问题18',input_html: { class: "form-control"} %>
-      <%= r.input :answer19, label: '问题19',input_html: { class: "form-control"} %>
-      <%= r.input :answer20, label: '问题20',input_html: { class: "form-control"} %>
-      <%= r.input :answer21, label: '问题21',input_html: { class: "form-control"} %>
-      <%= r.input :answer22, label: '问题22',input_html: { class: "form-control"} %>
-      <%= r.input :answer23, label: '问题23',input_html: { class: "form-control"} %>
-      <%= r.input :answer24, label: '问题24',input_html: { class: "form-control"} %>
-      <%= r.input :answer25, label: '问题25',input_html: { class: "form-control"} %>
-      <%= r.input :answer26, label: '问题26',input_html: { class: "form-control"} %>
-      <%= r.input :answer27, label: '问题27',input_html: { class: "form-control"} %>
-      <%= r.input :answer28, label: '问题28',input_html: { class: "form-control"} %>
-      <%= r.input :answer29, label: '问题29',input_html: { class: "form-control"} %>
-      <%= r.input :answer30, label: '问题30',input_html: { class: "form-control"} %>
-      <%= r.input :answer31, label: '问题31',input_html: { class: "form-control"} %>
-      <%= r.input :answer32, label: '问题32',input_html: { class: "form-control"} %>
-      <%= r.input :answer33, label: '问题33',input_html: { class: "form-control"} %>
-      <%= r.input :answer34, label: '问题34',input_html: { class: "form-control"} %>
-      <%= r.input :answer35, label: '问题35',input_html: { class: "form-control"} %>
-      <%= r.input :answer36, label: '问题36',input_html: { class: "form-control"} %>
-      <%= r.input :answer37, label: '问题37',input_html: { class: "form-control"} %>
-      <%= r.input :answer38, label: '问题38',input_html: { class: "form-control"} %>
-      <%= r.input :answer39, label: '问题39',input_html: { class: "form-control"} %>
-      <%= r.input :answer40, label: '问题40',input_html: { class: "form-control"} %>
-      <%= r.input :answer41, label: '问题41',input_html: { class: "form-control"} %>
-      <%= r.input :answer42, label: '问题42',input_html: { class: "form-control"} %>
-      <%= r.input :answer43, label: '问题43',input_html: { class: "form-control"} %>
-      <%= r.input :answer44, label: '问题44',input_html: { class: "form-control"} %>
-      <%= r.input :answer45, label: '问题45',input_html: { class: "form-control"} %>
-      <%= r.input :answer46, label: '问题46',input_html: { class: "form-control"} %>
-      <%= r.input :answer47, label: '问题47',input_html: { class: "form-control"} %>
-      <%= r.input :answer48, label: '问题48',input_html: { class: "form-control"} %>
-      <%= r.input :answer49, label: '问题49',input_html: { class: "form-control"} %>
 
-  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <!-- 50个input点 -->
+<!--   <div class="form-group">
+      <%#= r.input :answer00, label: '问题00',input_html: { class: "form-control"} %>
+      <%#= r.input :answer01, label: '问题01',input_html: { class: "form-control"} %>
+      <%#= r.input :answer02, label: '问题02',input_html: { class: "form-control"} %>
+      <%#= r.input :answer03, label: '问题03',input_html: { class: "form-control"} %>
+      <%#= r.input :answer04, label: '问题04',input_html: { class: "form-control"} %>
+      <%#= r.input :answer05, label: '问题05',input_html: { class: "form-control"} %>
+      <%#= r.input :answer06, label: '问题06',input_html: { class: "form-control"} %>
+      <%#= r.input :answer07, label: '问题07',input_html: { class: "form-control"} %>
+      <%#= r.input :answer08, label: '问题08',input_html: { class: "form-control"} %>
+      <%#= r.input :answer09, label: '问题09',input_html: { class: "form-control"} %>
+      <%#= r.input :answer10, label: '问题10',input_html: { class: "form-control"} %>
+      <%#= r.input :answer11, label: '问题11',input_html: { class: "form-control"} %>
+      <%#= r.input :answer12, label: '问题12',input_html: { class: "form-control"} %>
+      <%#= r.input :answer13, label: '问题13',input_html: { class: "form-control"} %>
+      <%#= r.input :answer14, label: '问题14',input_html: { class: "form-control"} %>
+      <%#= r.input :answer15, label: '问题15',input_html: { class: "form-control"} %>
+      <%#= r.input :answer16, label: '问题16',input_html: { class: "form-control"} %>
+      <%#= r.input :answer17, label: '问题17',input_html: { class: "form-control"} %>
+      <%#= r.input :answer18, label: '问题18',input_html: { class: "form-control"} %>
+      <%#= r.input :answer19, label: '问题19',input_html: { class: "form-control"} %>
+      <%#= r.input :answer20, label: '问题20',input_html: { class: "form-control"} %>
+      <%#= r.input :answer21, label: '问题21',input_html: { class: "form-control"} %>
+      <%#= r.input :answer22, label: '问题22',input_html: { class: "form-control"} %>
+      <%#= r.input :answer23, label: '问题23',input_html: { class: "form-control"} %>
+      <%#= r.input :answer24, label: '问题24',input_html: { class: "form-control"} %>
+      <%#= r.input :answer25, label: '问题25',input_html: { class: "form-control"} %>
+      <%#= r.input :answer26, label: '问题26',input_html: { class: "form-control"} %>
+      <%#= r.input :answer27, label: '问题27',input_html: { class: "form-control"} %>
+      <%#= r.input :answer28, label: '问题28',input_html: { class: "form-control"} %>
+      <%#= r.input :answer29, label: '问题29',input_html: { class: "form-control"} %>
+      <%#= r.input :answer30, label: '问题30',input_html: { class: "form-control"} %>
+      <%#= r.input :answer31, label: '问题31',input_html: { class: "form-control"} %>
+      <%#= r.input :answer32, label: '问题32',input_html: { class: "form-control"} %>
+      <%#= r.input :answer33, label: '问题33',input_html: { class: "form-control"} %>
+      <%#= r.input :answer34, label: '问题34',input_html: { class: "form-control"} %>
+      <%#= r.input :answer35, label: '问题35',input_html: { class: "form-control"} %>
+      <%#= r.input :answer36, label: '问题36',input_html: { class: "form-control"} %>
+      <%#= r.input :answer37, label: '问题37',input_html: { class: "form-control"} %>
+      <%#= r.input :answer38, label: '问题38',input_html: { class: "form-control"} %>
+      <%#= r.input :answer39, label: '问题39',input_html: { class: "form-control"} %>
+      <%#= r.input :answer40, label: '问题40',input_html: { class: "form-control"} %>
+      <%#= r.input :answer41, label: '问题41',input_html: { class: "form-control"} %>
+      <%#= r.input :answer42, label: '问题42',input_html: { class: "form-control"} %>
+      <%#= r.input :answer43, label: '问题43',input_html: { class: "form-control"} %>
+      <%#= r.input :answer44, label: '问题44',input_html: { class: "form-control"} %>
+      <%#= r.input :answer45, label: '问题45',input_html: { class: "form-control"} %>
+      <%#= r.input :answer46, label: '问题46',input_html: { class: "form-control"} %>
+      <%#= r.input :answer47, label: '问题47',input_html: { class: "form-control"} %>
+      <%#= r.input :answer48, label: '问题48',input_html: { class: "form-control"} %>
+      <%#= r.input :answer49, label: '问题49',input_html: { class: "form-control"} %>
+
+  </div> -->
+
+
+
+
+
+
+
+
+
+
+<!-- template_v1 -->
+
+<h3>你好，我是<%= r.input :answer00, label: false,placeholder: '姓名',input_html: { class: "form-control"} %></h3>
+
+<p>
+一个具有<%= r.input :answer01, label: false,placeholder: '核心技能',input_html: { class: "form-control"} %>，
+充满<%= r.input :answer02, label: false,placeholder: '辅助技能1',input_html: { class: "form-control"} %>，
+并善于<%= r.input :answer03, label: false,placeholder: '辅助技能2',input_html: { class: "form-control"} %>
+的<%= r.input :answer04, label: false,placeholder: '主要标签',input_html: { class: "form-control"} %>。
+</p>
+
+
+<h3>关于我</h3>
+<p>
+  <%= r.input :answer05, label: false,placeholder: '大学名称',input_html: { class: "form-control"} %>
+  <%= r.input :answer06, label: false,placeholder: '专业',input_html: { class: "form-control"} %>
+  <%= r.input :answer07, label: false,placeholder: '学历',input_html: { class: "form-control"} %>
+  专业毕业后，我做为
+  <%= r.input :answer08, label: false,placeholder: '最近一份工作名称+部门',input_html: { class: "form-control"} %>
+  的
+  <%= r.input :answer09, label: false,placeholder: '工作岗位',input_html: { class: "form-control"} %>
+  从业
+  <%= r.input :answer10, label: false,placeholder: '工作年限',input_html: { class: "form-control"} %>
+  年，负责
+  <%= r.input :answer11, label: false,placeholder: '最核心职能',input_html: { class: "form-control"} %>
+  。面临
+  <%= r.input :answer12, label: false,placeholder: '工作中碰到过最大的困难',input_html: { class: "form-control"} %>
+  ，我主动
+  <%= r.input :answer13, label: false,placeholder: '自己想出的解决方案',input_html: { class: "form-control"} %>
+  ，
+  <%= r.input :answer14, label: false,placeholder: '具体如何执行了解决方案',input_html: { class: "form-control"} %>
+  ，使公司的
+  <%= r.input :answer15, label: false,placeholder: '困难细节',input_html: { class: "form-control"} %>
+  从
+  <%= r.input :answer16, label: false,placeholder: '该困难以前的状态',input_html: { class: "form-control"} %>
+  达到
+  <%= r.input :answer17, label: false,placeholder: '该困难在解决之后的状态',input_html: { class: "form-control"} %>
+  ，带来了
+  <%= r.input :answer18, label: false,placeholder: '解决方案产生的量化效益',input_html: { class: "form-control"} %>
+  。
+</p>
+
+<p>
+  工作之余，我也在不断学习新的技能，利用业余时间学习了
+  <%= r.input :answer19, label: false,placeholder: '学习点1',input_html: { class: "form-control"} %>
+  和
+  <%= r.input :answer20, label: false,placeholder: '学习点2',input_html: { class: "form-control"} %>
+  。为了更好的提升我的
+  <%= r.input :answer21, label: false,placeholder: '知识点',input_html: { class: "form-control"} %>
+  ，我于
+  <%= r.input :answer22, label: false,placeholder: '学习时间节点',input_html: { class: "form-control"} %>
+  开始
+  <%= r.input :answer23, label: false,placeholder: '学习知识来源',input_html: { class: "form-control"} %>
+  ，在
+  <%= r.input :answer24, label: false,placeholder: '学习时长',input_html: { class: "form-control"} %>
+  内完成了
+  <%= r.input :answer25, label: false,placeholder: '学习成果',input_html: { class: "form-control"} %>
+  。同时还
+  <%= r.input :answer26, label: false,placeholder: '学习的补充',input_html: { class: "form-control"} %>
+  。
+</p>
+
+
+
+<p>
+在
+<%= r.input :answer27, label: false,placeholder: '过去工作描述',input_html: { class: "form-control"} %>
+中，良好的
+<%= r.input :answer28, label: false,placeholder: '辅助技能2来源',input_html: { class: "form-control"} %>
+让我建立了
+<%= r.input :answer29, label: false,placeholder: '辅助技能2的两个子技能',input_html: { class: "form-control"} %>
+。繁琐并具有挑战的
+<%= r.input :answer30, label: false,placeholder: '核心职能重述',input_html: { class: "form-control"} %>
+工作也让我
+<%= r.input :answer31, label: false,placeholder: '核心职能重述',input_html: { class: "form-control"} %>
+。我相信我的加入能为贵公司带来
+<%= r.input :answer32, label: false,placeholder: '价值总结1',input_html: { class: "form-control"} %>
+，以及
+<%= r.input :answer33, label: false,placeholder: '价值总结2',input_html: { class: "form-control"} %>
+。  
+</p>
+
+
+
+<h3>我做过什么</h3>
+
+<h5>
+<%= r.input :answer34, label: false,placeholder: '项目1名称',input_html: { class: "form-control"} %> 
+<%= r.input :answer35, label: false,placeholder: '项目1名称',input_html: { class: "form-control"} %>  
+</h5>
+<p>
+  作为
+  <%= r.input :answer36, label: false,placeholder: '项目1角色',input_html: { class: "form-control"} %>
+  ，耗时
+  <%= r.input :answer37, label: false,placeholder: '项目1耗时',input_html: { class: "form-control"} %>
+  ，
+  <%= r.input :answer38, label: false,placeholder: '项目1成果描述',input_html: { class: "form-control"} %>  
+</p>
+
+<p>
+<%= r.input :answer39, label: false,placeholder: '项目1截图JPG',input_html: { class: "form-control"} %>
+  
+</p>
+
+
+
+<h5>
+* 
+<%= r.input :answer40, label: false,placeholder: '项目2名称',input_html: { class: "form-control"} %> 
+
+<%= r.input :answer41, label: false,placeholder: '项目2网址',input_html: { class: "form-control"} %>
+</h5>
+
+<p>
+  作为
+  <%= r.input :answer42, label: false,placeholder: '项目2角色',input_html: { class: "form-control"} %>
+  ，耗时
+  <%= r.input :answer43, label: false,placeholder: '项目2耗时',input_html: { class: "form-control"} %>
+  ，
+  <%= r.input :answer44, label: false,placeholder: '项目2成果描述',input_html: { class: "form-control"} %>
+</p>
+
+<p>
+<%= r.input :answer45, label: false,placeholder: '项目2截图JPG',input_html: { class: "form-control"} %>  
+</p>
+
+<p>
+*
+<%= r.input :answer46, label: false,placeholder: '项目3名称',input_html: { class: "form-control"} %> 
+<%= r.input :answer47, label: false,placeholder: '项目3网址',input_html: { class: "form-control"} %> 
+</p>
+
+<p>
+作为
+<%= r.input :answer48, label: false,placeholder: '项目3角色',input_html: { class: "form-control"} %>
+，耗时
+<%= r.input :answer49, label: false,placeholder: '项目3耗时',input_html: { class: "form-control"} %>
+，
+<%= r.input :answer50, label: false,placeholder: '项目3成果描述',input_html: { class: "form-control"} %>
+  
+</p>
+
+<p>
+<%= r.input :answer51, label: false,placeholder: '项目3截图JPG',input_html: { class: "form-control"} %>  
+</p>
+
+
+<h3>
+  为什么你要选择我
+</h3>
+
+<p>
+  - 
+  <%= r.input :answer52, label: false,placeholder: '核心技能总结',input_html: { class: "form-control"} %>
+</p>
+<p>
+  - <%= r.input :answer53, label: false,placeholder: '辅助技能2总结',input_html: { class: "form-control"} %>
+  
+</p>
+<p>
+  -
+  <%= r.input :answer54, label: false,placeholder: '辅助技能1细节',input_html: { class: "form-control"} %>
+</p>
+
+
+
+<h3>
+  请联系我
+</h3>
+
+<p>
+我是 
+<%= r.input :answer55, label: false,placeholder: '姓名',input_html: { class: "form-control"} %> 
+，期待您的回复。
+</p> 
+
+<p>
+手机：
+<%= r.input :answer56, label: false,placeholder: '手机号码',input_html: { class: "form-control"} %>  
+</p>
+
+<p>
+E-mail: 
+<%= r.input :answer57, label: false,placeholder: '邮箱',input_html: { class: "form-control"} %>
+   
+</p>
+
+<p>
+我的GitHub: 
+<%= r.input :answer58, label: false,placeholder: 'GitHub URL',input_html: { class: "form-control"} %>
+</p>
+
+<p>
+我的博客:
+<%= r.input :answer59, label: false,placeholder: '博客URL',input_html: { class: "form-control"} %>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <%= r.submit "生成", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
   <% end %>
 

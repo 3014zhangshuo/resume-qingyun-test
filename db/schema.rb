@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161207191601) do
+ActiveRecord::Schema.define(version: 20161207211210) do
 
   create_table "resumes", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -65,6 +65,16 @@ ActiveRecord::Schema.define(version: 20161207191601) do
     t.string   "answer47"
     t.string   "answer48"
     t.string   "answer49"
+    t.string   "answer50"
+    t.string   "answer51"
+    t.string   "answer52"
+    t.string   "answer53"
+    t.string   "answer54"
+    t.string   "answer55"
+    t.string   "answer56"
+    t.string   "answer57"
+    t.string   "answer58"
+    t.string   "answer59"
   end
 
   create_table "users", force: :cascade do |t|
