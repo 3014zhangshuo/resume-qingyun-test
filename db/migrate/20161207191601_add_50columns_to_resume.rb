@@ -1,0 +1,55 @@
+class Add50columnsToResume < ActiveRecord::Migration[5.0]
+  def change
+    # 添加50个列
+    add_column :resumes, :answer00, :string
+    add_column :resumes, :answer01, :string
+    add_column :resumes, :answer02, :string
+    add_column :resumes, :answer03, :string
+    add_column :resumes, :answer04, :string
+    add_column :resumes, :answer05, :string
+    add_column :resumes, :answer06, :string
+    add_column :resumes, :answer07, :string
+    add_column :resumes, :answer08, :string
+    add_column :resumes, :answer09, :string
+    add_column :resumes, :answer10, :string
+    add_column :resumes, :answer11, :string
+    add_column :resumes, :answer12, :string
+    add_column :resumes, :answer13, :string
+    add_column :resumes, :answer14, :string
+    add_column :resumes, :answer15, :string
+    add_column :resumes, :answer16, :string
+    add_column :resumes, :answer17, :string
+    add_column :resumes, :answer18, :string
+    add_column :resumes, :answer19, :string
+    add_column :resumes, :answer20, :string
+    add_column :resumes, :answer21, :string
+    add_column :resumes, :answer22, :string
+    add_column :resumes, :answer23, :string
+    add_column :resumes, :answer24, :string
+    add_column :resumes, :answer25, :string
+    add_column :resumes, :answer26, :string
+    add_column :resumes, :answer27, :string
+    add_column :resumes, :answer28, :string
+    add_column :resumes, :answer29, :string
+    add_column :resumes, :answer30, :string
+    add_column :resumes, :answer31, :string
+    add_column :resumes, :answer32, :string
+    add_column :resumes, :answer33, :string
+    add_column :resumes, :answer34, :string
+    add_column :resumes, :answer35, :string
+    add_column :resumes, :answer36, :string
+    add_column :resumes, :answer37, :string
+    add_column :resumes, :answer38, :string
+    add_column :resumes, :answer39, :string
+    add_column :resumes, :answer40, :string
+    add_column :resumes, :answer41, :string
+    add_column :resumes, :answer42, :string
+    add_column :resumes, :answer43, :string
+    add_column :resumes, :answer44, :string
+    add_column :resumes, :answer45, :string
+    add_column :resumes, :answer46, :string
+    add_column :resumes, :answer47, :string
+    add_column :resumes, :answer48, :string
+    add_column :resumes, :answer49, :string
+  end
+end
