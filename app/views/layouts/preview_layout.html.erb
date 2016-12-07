@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <%= javascript_include_tag "http://code.jquery.com/jquery-1.10.0.min.js" %>
+        <%= javascript_include_tag "http://code.jquery.com/ui/1.10.3/jquery-ui.min.js" %>
+  </head>
+  <body onload='number_pages'>
+
+    <div id="content">
+      <%= yield %>
+      <%= link_to "下载简历",   preview_download_path(resume) %>
+    </div>
+  </body>
+</html>

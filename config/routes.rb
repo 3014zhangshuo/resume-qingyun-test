@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
 
   get 'user/resumes/pdf' => 'user/resumes#download'
-
+  get 'user/resumes/:resume_id/preview_pdf' => 'user/resumes#preview_download', as: :preview_download
   root 'welcome#index'
 
 
