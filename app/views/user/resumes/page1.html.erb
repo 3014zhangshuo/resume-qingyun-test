@@ -1,0 +1,18 @@
+<div class="col-md-12">
+
+  <h1>第一步</h1>
+
+  <%= simple_form_for  [:user, @resume],url: page1_commit_user_resumes_path do |r| %>
+    <h3>你好，我是<%= r.input :answer00, label: false,placeholder: '姓名',input_html: { class: "form-control"} %></h3>
+
+    <p>
+    一个具有<%= r.input :answer01, label: false,placeholder: '核心技能',input_html: { class: "form-control"} %>，
+    充满<%= r.input :answer02, label: false,placeholder: '辅助技能1',input_html: { class: "form-control"} %>，
+    并善于<%= r.input :answer03, label: false,placeholder: '辅助技能2',input_html: { class: "form-control"} %>
+    的<%= r.input :answer04, label: false,placeholder: '主要标签',input_html: { class: "form-control"} %>。
+    </p>
+
+  <%= r.submit "下一步", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
+  <% end %>
+
+</div>  
