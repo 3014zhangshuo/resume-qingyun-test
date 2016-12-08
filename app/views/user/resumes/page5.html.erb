@@ -3,35 +3,28 @@
   <h1>第五步</h1>
 
   <%= simple_form_for  [:user, @resume],url: page5_commit_user_resume_path(@resume),method: :post do |r| %>
-    <h3>
-      请联系我
-    </h3>
+
 
     <p>
-    我是
-    <%= r.input :answer55, label: false,placeholder: '姓名',input_html: { class: "form-control"} %>
-    ，期待您的回复。
+
+      <%= r.input :answer55, label: '姓名',placeholder: '全名',input_html: { class: "form-control"} %>
     </p>
 
     <p>
-    手机：
-    <%= r.input :answer56, label: false,placeholder: '手机号码',input_html: { class: "form-control"} %>
+      <%= r.input :answer56, label: '手机号码',placeholder: '能随时打通的手机号码',input_html: { class: "form-control"} %>
     </p>
 
     <p>
-    E-mail:
-    <%= r.input :answer57, label: false,placeholder: '邮箱',input_html: { class: "form-control"} %>
-
+      <%= r.input :answer57, label: '邮箱',placeholder: '会每天查看的邮箱',input_html: { class: "form-control"} %>
     </p>
 
     <p>
-    我的GitHub:
-    <%= r.input :answer58, label: false,placeholder: 'GitHub URL',input_html: { class: "form-control"} %>
+      <%= r.input :answer58, label: 'GitHub URL',placeholder: '拥有2个Git以上，如果没有可以先不填',input_html: { class: "form-control"} %>
+ 
     </p>
 
     <p>
-    我的博客:
-    <%= r.input :answer59, label: false,placeholder: '博客URL',input_html: { class: "form-control"} %>
+      <%= r.input :answer59, label: '博客URL',placeholder: '拥有2个Git以上，如果没有可以先不填',input_html: { class: "form-control"} %>
     </p>
 
   <%= r.submit "下一步", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>

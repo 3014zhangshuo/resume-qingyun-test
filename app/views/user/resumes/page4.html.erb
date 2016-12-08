@@ -4,22 +4,17 @@
 
   <%= simple_form_for  [:user, @resume],url: page4_commit_user_resume_path(@resume),method: :post do |r| %>
 
-    <h3>
-      为什么你要选择我
-    </h3>
 
-    <p>
-      -
-      <%= r.input :answer52, label: false,placeholder: '核心技能总结',input_html: { class: "form-control"} %>
-    </p>
-    <p>
-      - <%= r.input :answer53, label: false,placeholder: '辅助技能2总结',input_html: { class: "form-control"} %>
-
-    </p>
-    <p>
-      -
-      <%= r.input :answer54, label: false,placeholder: '辅助技能1细节',input_html: { class: "form-control"} %>
-    </p>
+  <p>
+    <%= r.input :answer52, label: '核心技能总结',placeholder: '将核心技能再总结一次，如：团队作战和独立开发能力兼备，具有极强的抗压能力',input_html: { class: "form-control"} %>
+  </p>
+  <p>
+    <%= r.input :answer53, label: '辅助技能总结',placeholder: '将辅助技能再总结一次，如：强烈的学习欲望，敢于跳出舒适区，学习各个领域的新知识',input_html: { class: "form-control"} %>
+  </p>
+  <p>
+    <%= r.input :answer54, label: '辅助技能细节',placeholder: '将辅助技能1与学习的技能相关部分罗列出来，如：熟悉敏捷开发模式，有过使⽤User Story分析需求，使⽤CSS、HTML、jQuery写前端，使⽤Ruby on Rails写后端，测试上线的项目经历',input_html: { class: "form-control"} %>
+  </p>
+ 
 
 
   <%= r.submit "下一步", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
