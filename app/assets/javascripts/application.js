@@ -42,5 +42,18 @@
 //= require plugins/table.min.js
 //= require plugins/url.min.js
 //= require plugins/video.min.js
+/*
+ *= require plugins/char_counter.min.css
+ *= require plugins/code_view.min.css
+ *= require plugins/colors.min.css
+ *= require plugins/emoticons.min.css
+ *= require plugins/file.min.css
+ *= require plugins/fullscreen.min.css
+ *= require plugins/image_manager.min.css
+ *= require plugins/image.min.css
+ *= require plugins/line_breaker.min.css
+ *= require plugins/quick_insert.min.css
+ *= require plugins/table.min.css
+ *= require plugins/video.min.css
 
 //= require_tree .
