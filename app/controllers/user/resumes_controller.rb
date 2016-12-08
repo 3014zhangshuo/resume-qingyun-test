@@ -50,16 +50,73 @@ class User::ResumesController < ApplicationController
   end
 
   def create
-    @resume = Resume.new(question_params)
+    @resume = Resume.new(resume_params)
     @resume.save
     redirect_to user_resumes_path
   end
 
 
 
+  # 拆分页面
+  def page1
+    @resume = Resume.new
+  end
+
+  def page1_commit
+    @resume = Resume.new(resume_params)
+    @resume.save
+    # 重定向到下一页
+    redirect_to page2_user_resume_path(@resume)
+  end
+
+  def page2
+    @resume = Resume.find(params[:id])
+  end
+
+  def page2_commit
+    @resume = Resume.find(params[:id])
+    Resume.update(resume_params)
+    redirect_to page3_user_resume_path(@resume.id)
+  end
+
+  def page3
+    @resume = Resume.find(params[:id])
+  end
+
+  def page3_commit
+    @resume = Resume.find(params[:id])
+    Resume.update(resume_params)
+    redirect_to page4_user_resume_path(@resume)
+  end
+
+  def page4
+    @resume = Resume.find(params[:id])
+  end
+
+  def page4_commit
+    @resume = Resume.find(params[:id])
+    Resume.update(resume_params)
+    redirect_to page5_user_resume_path(@resume)
+  end
+
+  def page5
+    @resume = Resume.find(params[:id])
+  end
+
+  def page5_commit
+    @resume = Resume.find(params[:id])
+    Resume.update(resume_params)
+    redirect_to finish_user_resume_path
+  end
+
+  def finish
+    @resume = Resume.find(params[:id])
+  end
+
+
   private
   # 50列参数
-  def question_params
+  def resume_params
     params.require(:resume).permit(
       :answer00,:answer01,:answer02,:answer03,:answer04,:answer05,:answer06,:answer07,:answer08,:answer09,
       :answer10,:answer11,:answer12,:answer13,:answer14,:answer15,:answer16,:answer17,:answer18,:answer19,

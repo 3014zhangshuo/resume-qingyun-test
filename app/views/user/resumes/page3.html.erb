@@ -1,0 +1,77 @@
+<div class="col-md-12">
+
+  <h1>第三步</h1>
+    
+  <%= simple_form_for  [:user, @resume],url: page3_commit_user_resume_path(@resume),method: :post do |r| %>
+
+
+
+    <h3>我做过什么</h3>
+
+    <h5>
+    <%= r.input :answer34, label: false,placeholder: '项目1名称',input_html: { class: "form-control"} %> 
+    <%= r.input :answer35, label: false,placeholder: '项目1名称',input_html: { class: "form-control"} %>  
+    </h5>
+    <p>
+      作为
+      <%= r.input :answer36, label: false,placeholder: '项目1角色',input_html: { class: "form-control"} %>
+      ，耗时
+      <%= r.input :answer37, label: false,placeholder: '项目1耗时',input_html: { class: "form-control"} %>
+      ，
+      <%= r.input :answer38, label: false,placeholder: '项目1成果描述',input_html: { class: "form-control"} %>  
+    </p>
+
+    <p>
+    <%= r.input :answer39, label: false,placeholder: '项目1截图JPG',input_html: { class: "form-control"} %>
+      
+    </p>
+
+
+
+    <h5>
+    * 
+    <%= r.input :answer40, label: false,placeholder: '项目2名称',input_html: { class: "form-control"} %> 
+
+    <%= r.input :answer41, label: false,placeholder: '项目2网址',input_html: { class: "form-control"} %>
+    </h5>
+
+    <p>
+      作为
+      <%= r.input :answer42, label: false,placeholder: '项目2角色',input_html: { class: "form-control"} %>
+      ，耗时
+      <%= r.input :answer43, label: false,placeholder: '项目2耗时',input_html: { class: "form-control"} %>
+      ，
+      <%= r.input :answer44, label: false,placeholder: '项目2成果描述',input_html: { class: "form-control"} %>
+    </p>
+
+    <p>
+    <%= r.input :answer45, label: false,placeholder: '项目2截图JPG',input_html: { class: "form-control"} %>  
+    </p>
+
+    <p>
+    *
+    <%= r.input :answer46, label: false,placeholder: '项目3名称',input_html: { class: "form-control"} %> 
+    <%= r.input :answer47, label: false,placeholder: '项目3网址',input_html: { class: "form-control"} %> 
+    </p>
+
+    <p>
+    作为
+    <%= r.input :answer48, label: false,placeholder: '项目3角色',input_html: { class: "form-control"} %>
+    ，耗时
+    <%= r.input :answer49, label: false,placeholder: '项目3耗时',input_html: { class: "form-control"} %>
+    ，
+    <%= r.input :answer50, label: false,placeholder: '项目3成果描述',input_html: { class: "form-control"} %>
+      
+    </p>
+
+    <p>
+    <%= r.input :answer51, label: false,placeholder: '项目3截图JPG',input_html: { class: "form-control"} %>  
+    </p>
+
+
+
+
+  <%= r.submit "下一步", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
+  <% end %>
+
+</div>  
