@@ -36,7 +36,10 @@
 
 
 
-
+.auto-min-height{
+  margin-bottom: 50px;
+  min-height: 800px;
+}
 
 /******************landing page********************/
 
@@ -153,3 +156,170 @@
  .auth-bottom-row{border-top: 5px solid rgba(255, 255, 255, 0.1);clear: both;overflow: hidden;padding-top: 20px}
  .section{padding:50px 0}
 /******************end landing page********************/
+
+/************************** navbar ***************************/
+
+.wrap-main {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -117px;
+}
+.wrap-main:after{content:" ";display:block;height: 117px}
+
+.row-wrp {
+    width: 100%;
+    *zoom: 1;
+}
+
+    .row-wrp:before, .row-wrp:after {
+        display: table;
+        line-height: 0;
+        content: "";
+    }
+
+    .row-wrp:after {
+        clear: both;
+    }
+    .hdr-wrp {
+        width: 960px;
+        margin: 0 auto;
+        height: 90px;
+    }
+    .lc-block {
+        float: right;
+        clear: right;
+        font-family: 'proxima_novasemibold';
+        color: #666;
+        padding: 30px 10px 0 0;
+    }
+
+        .lc-block strong {
+            float: left;
+            display: inline-block;
+            font-size: 14px;
+            text-transform: uppercase;
+            margin-right: 5px;
+            line-height: 18px;
+            font-weight: normal;
+        }
+
+        .lc-block .live-chat-bx {
+            float: left;
+            font-size: 14px;
+            line-height: 18px;
+        }
+
+            .lc-block .live-chat-bx a {
+                color: #666;
+                text-decoration: underline;
+                font-size: 14px;
+            }
+
+                .lc-block .live-chat-bx a span {
+                    font-family: 'proxima_novasemibold' !important;
+                }
+
+                .brdr-cont {
+                    box-shadow: inset 1px 4px 9px -6px #CCC;
+                    padding-top: 5px;
+                }
+
+                .how-it-work-wrp {
+                    margin: 0 auto;
+                    width: 960px;
+                    padding: 35px 0;
+                    background-color: #FFF;
+                    min-height: 800px;
+                }
+
+                    .how-it-work-wrp h2 {
+                        font-size: 42px;
+                        text-align: center;
+                        font-family: 'proxima_novasemibold';
+                        color: #444;
+                        margin: 0 0 5px 0;
+                        line-height: 42px;
+                    }
+
+                    .how-it-work-wrp .sub-title {
+                        font-size: 24px;
+                        text-align: center;
+                        font-family: 'proxima_nova_rgregular';
+                        color: #333;
+                        margin: 0 0 40px 0;
+                        line-height: 24px;
+                    }
+                    .step-wrap-cln {
+                        background: url(//cdn-us-ec.yottaa.net/52e2a59b63e31e54d4003d89/www.livecareer.com/v~13.3e6/builder/images/hiw/hiw-banner.png?yocs=p_&yoloc=us) no-repeat 0 0;
+                        padding: 98px 51px 0 39px;
+                        overflow: hidden;
+                        margin: 0 0 40px 0;
+                    }
+
+                        .step-wrap-cln .steps {
+                            float: left;
+                        }
+
+                            .step-wrap-cln .steps:first-child {
+                                margin: 0 94px 0 0;
+                                padding-top: 11px;
+                            }
+
+                            .step-wrap-cln .steps:last-child {
+                                margin: 0 0 0 84px;
+                                padding-top: 29px;
+                            }
+
+                            .cta-hiw-wrp {
+                                text-align: center;
+                            }
+                            .nudge {
+                                height: 112px;
+                                clear: both;
+                            }
+                            .ftr-wrp {
+                                clear: both;
+                                background-color: #f7f6f2;
+                                border-top: 4px solid #283865;
+                            }
+                            .ftr-cln {
+                                text-align: center;
+                                width: 960px;
+                                margin: 0 auto;
+                                padding: 30px 0;
+                                position: relative;
+                                font-family: 'proxima_nova_rgregular';
+                            }
+
+                                .ftr-cln .ftr-link-cln {
+                                    margin: 0 0 10px 0;
+                                }
+
+                                    .ftr-cln .ftr-link-cln li {
+                                        list-style: none;
+                                        display: inline;
+                                        border-right: 1px solid #333;
+                                    }
+
+                                        .ftr-cln .ftr-link-cln li:last-child {
+                                            border: none;
+                                        }
+
+                                        .ftr-cln .ftr-link-cln li a {
+                                            color: #333;
+                                            font-size: 12px;
+                                            line-height: 18px;
+                                            padding: 0 10px;
+                                            text-decoration: none;
+                                            font-family: 'proxima_nova_rgregular';
+                                        }
+                                        .mem-ftr-cln {
+                                            display: block;
+                                            width: 175px;
+                                            height: 53px;
+                                            position: absolute;
+                                            right: 0;
+                                            top: 20px;
+                                        }
+/************************** end navbar ***************************/

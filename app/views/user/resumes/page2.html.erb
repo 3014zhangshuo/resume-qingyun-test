@@ -1,7 +1,7 @@
-<div class="col-md-12">
+<div class="col-md-12 auto-min-height">
 
   <h1>第二步</h1>
-    
+
   <%= simple_form_for  [:user, @resume],url: page2_commit_user_resume_path(@resume),method: :post do |r| %>
 
   <h3>关于我</h3>
@@ -71,11 +71,11 @@
   <%= r.input :answer32, label: false,placeholder: '价值总结1',input_html: { class: "form-control"} %>
   ，以及
   <%= r.input :answer33, label: false,placeholder: '价值总结2',input_html: { class: "form-control"} %>
-  。  
+  。
   </p>
 
 
   <%= r.submit "下一步", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
   <% end %>
 
-</div>  
+</div>
