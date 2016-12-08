@@ -1,0 +1,81 @@
+<div class="col-md-12">
+
+  <h1>第二步</h1>
+    
+  <%= simple_form_for  [:user, @resume],url: page2_commit_user_resume_path(@resume),method: :post do |r| %>
+
+  <h3>关于我</h3>
+  <p>
+    <%= r.input :answer05, label: false,placeholder: '大学名称',input_html: { class: "form-control"} %>
+    <%= r.input :answer06, label: false,placeholder: '专业',input_html: { class: "form-control"} %>
+    <%= r.input :answer07, label: false,placeholder: '学历',input_html: { class: "form-control"} %>
+    专业毕业后，我做为
+    <%= r.input :answer08, label: false,placeholder: '最近一份工作名称+部门',input_html: { class: "form-control"} %>
+    的
+    <%= r.input :answer09, label: false,placeholder: '工作岗位',input_html: { class: "form-control"} %>
+    从业
+    <%= r.input :answer10, label: false,placeholder: '工作年限',input_html: { class: "form-control"} %>
+    年，负责
+    <%= r.input :answer11, label: false,placeholder: '最核心职能',input_html: { class: "form-control"} %>
+    。面临
+    <%= r.input :answer12, label: false,placeholder: '工作中碰到过最大的困难',input_html: { class: "form-control"} %>
+    ，我主动
+    <%= r.input :answer13, label: false,placeholder: '自己想出的解决方案',input_html: { class: "form-control"} %>
+    ，
+    <%= r.input :answer14, label: false,placeholder: '具体如何执行了解决方案',input_html: { class: "form-control"} %>
+    ，使公司的
+    <%= r.input :answer15, label: false,placeholder: '困难细节',input_html: { class: "form-control"} %>
+    从
+    <%= r.input :answer16, label: false,placeholder: '该困难以前的状态',input_html: { class: "form-control"} %>
+    达到
+    <%= r.input :answer17, label: false,placeholder: '该困难在解决之后的状态',input_html: { class: "form-control"} %>
+    ，带来了
+    <%= r.input :answer18, label: false,placeholder: '解决方案产生的量化效益',input_html: { class: "form-control"} %>
+    。
+  </p>
+
+  <p>
+    工作之余，我也在不断学习新的技能，利用业余时间学习了
+    <%= r.input :answer19, label: false,placeholder: '学习点1',input_html: { class: "form-control"} %>
+    和
+    <%= r.input :answer20, label: false,placeholder: '学习点2',input_html: { class: "form-control"} %>
+    。为了更好的提升我的
+    <%= r.input :answer21, label: false,placeholder: '知识点',input_html: { class: "form-control"} %>
+    ，我于
+    <%= r.input :answer22, label: false,placeholder: '学习时间节点',input_html: { class: "form-control"} %>
+    开始
+    <%= r.input :answer23, label: false,placeholder: '学习知识来源',input_html: { class: "form-control"} %>
+    ，在
+    <%= r.input :answer24, label: false,placeholder: '学习时长',input_html: { class: "form-control"} %>
+    内完成了
+    <%= r.input :answer25, label: false,placeholder: '学习成果',input_html: { class: "form-control"} %>
+    。同时还
+    <%= r.input :answer26, label: false,placeholder: '学习的补充',input_html: { class: "form-control"} %>
+    。
+  </p>
+
+
+
+  <p>
+  在
+  <%= r.input :answer27, label: false,placeholder: '过去工作描述',input_html: { class: "form-control"} %>
+  中，良好的
+  <%= r.input :answer28, label: false,placeholder: '辅助技能2来源',input_html: { class: "form-control"} %>
+  让我建立了
+  <%= r.input :answer29, label: false,placeholder: '辅助技能2的两个子技能',input_html: { class: "form-control"} %>
+  。繁琐并具有挑战的
+  <%= r.input :answer30, label: false,placeholder: '核心职能重述',input_html: { class: "form-control"} %>
+  工作也让我
+  <%= r.input :answer31, label: false,placeholder: '核心职能重述',input_html: { class: "form-control"} %>
+  。我相信我的加入能为贵公司带来
+  <%= r.input :answer32, label: false,placeholder: '价值总结1',input_html: { class: "form-control"} %>
+  ，以及
+  <%= r.input :answer33, label: false,placeholder: '价值总结2',input_html: { class: "form-control"} %>
+  。  
+  </p>
+
+
+  <%= r.submit "下一步", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
+  <% end %>
+
+</div>  
