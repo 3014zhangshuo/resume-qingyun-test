@@ -1,14 +1,15 @@
-<div class="col-md-12">
+<div class="col-md-12 auto-min-height">
 
   <h1>第三步</h1>
-    
+
   <%= simple_form_for  [:user, @resume],url: page3_commit_user_resume_path(@resume),method: :post do |r| %>
 
+
   <p>
-    <%= r.input :answer34, label: '项目1名称',placeholder: '项目好听的名字，英文名会略显高大上',input_html: { class: "form-control"} %>   
+    <%= r.input :answer34, label: '项目1名称',placeholder: '项目好听的名字，英文名会略显高大上',input_html: { class: "form-control"} %>
   </p>
   <p>
-    <%= r.input :answer35, label: '项目1名称',placeholder: '项目最好有上线URL，如果有自己的域名更好',input_html: { class: "form-control"} %> 
+    <%= r.input :answer35, label: '项目1名称',placeholder: '项目最好有上线URL，如果有自己的域名更好',input_html: { class: "form-control"} %>
   </p>
   <p>
     <%= r.input :answer36, label: '项目1角色',placeholder: '你在项目中扮演的角色，如：组长、主程、主设计',input_html: { class: "form-control"} %>
@@ -17,7 +18,7 @@
     <%= r.input :answer37, label: '项目1耗时',placeholder: '项目多少天完成，最好比普遍期望值快，否则可以不写',input_html: { class: "form-control"} %>
   </p>
   <p>
-    <%= r.input :answer38, label: '项目1成果描述',placeholder: '完成了什么，如：成功上线了一款LBS社交平台、顺利实现了3个城市的地推团队的10个活动',input_html: { class: "form-control"} %> 
+    <%= r.input :answer38, label: '项目1成果描述',placeholder: '完成了什么，如：成功上线了一款LBS社交平台、顺利实现了3个城市的地推团队的10个活动',input_html: { class: "form-control"} %>
   </p>
   <p>
     <%= r.input :answer39, label: '项目1截图JPG',placeholder: '0. 上传一张展示项目的截图，请确保图片高清精美，大小不低于100KB
@@ -25,7 +26,7 @@
   </p>
 
   <p>
-    <%= r.input :answer40, label: '项目2名称',placeholder: '项目好听的名字，英文名会略显高大上',input_html: { class: "form-control"} %> 
+    <%= r.input :answer40, label: '项目2名称',placeholder: '项目好听的名字，英文名会略显高大上',input_html: { class: "form-control"} %>
   </p>
   <p>
     <%= r.input :answer41, label: '项目2网址',placeholder: '项目最好有上线URL，如果有自己的域名更好',input_html: { class: "form-control"} %>
@@ -42,14 +43,14 @@
   </p>
 
   <p>
-    <%= r.input :answer45, label: '项目2截图JPG',placeholder: '0. 上传一张展示项目的截图，请确保图片高清精美，大小不低于100KB',input_html: { class: "form-control"} %>  
+    <%= r.input :answer45, label: '项目2截图JPG',placeholder: '0. 上传一张展示项目的截图，请确保图片高清精美，大小不低于100KB',input_html: { class: "form-control"} %>
   </p>
 
   <p>
     <%= r.input :answer46, label: '项目3名称',placeholder: '项目好听的名字，英文名会略显高大上',input_html: { class: "form-control"} %>
   </p>
   <p>
-    <%= r.input :answer47, label: '项目3网址',placeholder: '项目最好有上线URL，如果有自己的域名更好',input_html: { class: "form-control"} %> 
+    <%= r.input :answer47, label: '项目3网址',placeholder: '项目最好有上线URL，如果有自己的域名更好',input_html: { class: "form-control"} %>
   </p>
 
   <p>
@@ -63,8 +64,9 @@
   </p>
 
   <p>
-    <%= r.input :answer51, label: '项目3截图JPG',placeholder: '0. 上传一张展示项目的截图，请确保图片高清精美，大小不低于100KB',input_html: { class: "form-control"} %>  
+    <%= r.input :answer51, label: '项目3截图JPG',placeholder: '0. 上传一张展示项目的截图，请确保图片高清精美，大小不低于100KB',input_html: { class: "form-control"} %>
   </p>
+ 
 
 
 
@@ -72,4 +74,4 @@
   <%= r.submit "下一步", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
   <% end %>
 
-</div>  
+</div>

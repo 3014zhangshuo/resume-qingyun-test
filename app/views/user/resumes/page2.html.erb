@@ -1,7 +1,7 @@
-<div class="col-md-12">
+<div class="col-md-12 auto-min-height">
 
   <h1>第二步</h1>
-    
+
   <%= simple_form_for  [:user, @resume],url: page2_commit_user_resume_path(@resume),method: :post do |r| %>
   <p>
     <%= r.input :answer05, label: '大学名称',placeholder: '大学的全称',input_html: { class: "form-control"} %>
@@ -13,6 +13,7 @@
     <%= r.input :answer07, label: '学历',placeholder: '毕业学历：大专、本科、硕士、博士',input_html: { class: "form-control"} %>
   </p>
   <p>
+
     <%= r.input :answer08, label: '最近一份工作名称+部门',placeholder: '公司最熟知的名字，大公司可尽量详细，如：阿里巴巴宁波分公司客户管理部、平安银行北京分行；小公司可尽量模糊，如：一家团购A轮企业、吉林本地市场第一的外卖O2O平台',input_html: { class: "form-control"} %>
   </p>
   <p>
@@ -44,6 +45,7 @@
   </p>
   <p>
     <%= r.input :answer18, label: '解决方案产生的量化效益',placeholder: '重述一遍困难细节，如：月增长35%的效益、活跃度上升200%的效益、人力成本节省50%的效益',input_html: { class: "form-control"} %>
+ 
   </p>
 
   <p>
@@ -74,25 +76,25 @@
     <%= r.input :answer27, label: '过去工作描述',placeholder: '过去工作跟辅助技能2相关部分，作为总结段落的开始，如：多次团队协作（如辅助技能2=团队精神）、多次产品迭代（如辅助技能2=开发能力）、频繁的活动策划（如辅助技能2=地推能力）',input_html: { class: "form-control"} %>
   </p>
   <p>
-    <%= r.input :answer28, label: '辅助技能2来源',placeholder: '在工作中什么经历带来了辅助技能2？如：良好的沟通表达能力（带来团队协作）、对客户的强烈洞察能力（带来销售额）、对用户体验的深刻理解（带来用户增长、留存）',input_html: { class: "form-control"} %>  
+    <%= r.input :answer28, label: '辅助技能2来源',placeholder: '在工作中什么经历带来了辅助技能2？如：良好的沟通表达能力（带来团队协作）、对客户的强烈洞察能力（带来销售额）、对用户体验的深刻理解（带来用户增长、留存）',input_html: { class: "form-control"} %>
   </p>
   <p>
-    <%= r.input :answer29, label: '辅助技能2的两个子技能',placeholder: '把辅助技能2分拆成2个子部分，如：团队协作能力和工作习惯（团队精神）、坚实的自信心和超人的服务精神（销售能力）、严谨的产品逻辑和用户体验方法论（用户增长能力）',input_html: { class: "form-control"} %>  
+    <%= r.input :answer29, label: '辅助技能2的两个子技能',placeholder: '把辅助技能2分拆成2个子部分，如：团队协作能力和工作习惯（团队精神）、坚实的自信心和超人的服务精神（销售能力）、严谨的产品逻辑和用户体验方法论（用户增长能力）',input_html: { class: "form-control"} %>
   </p>
   <p>
-    <%= r.input :answer30, label: '核心职能重述',placeholder: '重述从业经验的核心部分，如：销售、产品开发、客户拓展',input_html: { class: "form-control"} %>  
+    <%= r.input :answer30, label: '核心职能重述',placeholder: '重述从业经验的核心部分，如：销售、产品开发、客户拓展',input_html: { class: "form-control"} %>
   </p>
   <p>
-    <%= r.input :answer31, label: '核心职能重述',placeholder: '换一种说法重述个人核心技能，如：了解客户心理、对产品开发形成了自己的方法论',input_html: { class: "form-control"} %>  
+    <%= r.input :answer31, label: '核心职能重述',placeholder: '换一种说法重述个人核心技能，如：了解客户心理、对产品开发形成了自己的方法论',input_html: { class: "form-control"} %>
   </p>
   <p>
-    <%= r.input :answer32, label: '价值总结1',placeholder: '总结能为公司带来的价值，如：高效敏捷的开发能力、坚实可靠的协作能力、清秀脱俗的产品设计能力、管理高效团队的领导才能',input_html: { class: "form-control"} %>  
+    <%= r.input :answer32, label: '价值总结1',placeholder: '总结能为公司带来的价值，如：高效敏捷的开发能力、坚实可靠的协作能力、清秀脱俗的产品设计能力、管理高效团队的领导才能',input_html: { class: "form-control"} %>
   </p>
   <p>
-    <%= r.input :answer33, label: '价值总结2',placeholder: '总结能为公司带来的价值，如：高效敏捷的开发能力、坚实可靠的协作能力、清秀脱俗的产品设计能力、管理高效团队的领导才能',input_html: { class: "form-control"} %>  
+    <%= r.input :answer33, label: '价值总结2',placeholder: '总结能为公司带来的价值，如：高效敏捷的开发能力、坚实可靠的协作能力、清秀脱俗的产品设计能力、管理高效团队的领导才能',input_html: { class: "form-control"} %>
   </p>
 
   <%= r.submit "下一步", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
   <% end %>
 
-</div>  
+</div>
