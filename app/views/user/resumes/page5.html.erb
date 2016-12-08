@@ -1,16 +1,17 @@
-<div class="col-md-12">
+<div class="col-md-12 auto-min-height">
 
   <h1>第五步</h1>
-    
+
   <%= simple_form_for  [:user, @resume],url: page5_commit_user_resume_path(@resume),method: :post do |r| %>
 
 
     <p>
-      <%= r.input :answer55, label: '姓名',placeholder: '全名',input_html: { class: "form-control"} %> 
-    </p> 
+
+      <%= r.input :answer55, label: '姓名',placeholder: '全名',input_html: { class: "form-control"} %>
+    </p>
 
     <p>
-      <%= r.input :answer56, label: '手机号码',placeholder: '能随时打通的手机号码',input_html: { class: "form-control"} %>  
+      <%= r.input :answer56, label: '手机号码',placeholder: '能随时打通的手机号码',input_html: { class: "form-control"} %>
     </p>
 
     <p>
@@ -19,6 +20,7 @@
 
     <p>
       <%= r.input :answer58, label: 'GitHub URL',placeholder: '拥有2个Git以上，如果没有可以先不填',input_html: { class: "form-control"} %>
+ 
     </p>
 
     <p>
@@ -28,4 +30,4 @@
   <%= r.submit "下一步", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
   <% end %>
 
-</div>  
+</div>
