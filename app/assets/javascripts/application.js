@@ -12,9 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap/alert
 //= require bootstrap/dropdown
+//= require bootstrap/tab
+//= require bootstrap/transition
+//= require bootstrap-sprockets
 //= require froala_editor.min.js
 
 //= require plugins/align.min.js
