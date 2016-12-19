@@ -12,10 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap/alert
 //= require bootstrap/dropdown
+//= require bootstrap/tab
+//= require bootstrap/transition
+//= require bootstrap-sprockets
 //= require froala_editor.min.js
+//= require_tree .
 
 //= require plugins/align.min.js
 //= require plugins/char_counter.min.js
@@ -55,5 +58,3 @@
  *= require plugins/quick_insert.min.css
  *= require plugins/table.min.css
  *= require plugins/video.min.css
-
-//= require_tree .

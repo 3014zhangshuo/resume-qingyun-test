@@ -2,7 +2,7 @@
         <div class="row-wrp brdr-cont">
             <div class="how-it-work-wrp">
                 <h2>开始填写简历</h2>
-                <div id="letterSubTitle" class="sub-title">It's the easiest way to create a perfect cover letter!</div>
+                <div id="letterSubTitle" class="sub-title">It's the easiest way to create a perfect resume!</div>
                 <!--end sub-title-->
                 <div class="step-wrap-cln">
                     <div class="steps">
@@ -17,7 +17,8 @@
                 </div>
                 <!--end step-wrap-cln-->
                 <div class="cta-hiw-wrp">
-                  <%= link_to '开始',page1_user_resumes_path,class: "col-md-4 col-md-offset-4 btn btn-primary"  %>
+                  <%#= link_to '申请测试Beta', "#signupModal", 'data-toggle' => "modal", class: "col-md-4 col-md-offset-4 btn btn-primary" %>
+									<%= link_to '申请测试Beta', new_tester_path, class: "col-md-4 col-md-offset-4 btn btn-primary" %>
                 </div>
             </div>
             <!--end how-it-work-wrp-->
@@ -25,3 +26,5 @@
         <!--end row-wrp-->
 
     <!--end wrap-main-->
+
+		<%= render "common/signup" %>

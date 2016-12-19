@@ -11,8 +11,8 @@
 
       <ul class="nav navbar-nav navbar-right nav-pills">
         <% if !current_user %>
-          <li><%= link_to(content_tag(:i, "注册", class: "fa fa-user"), new_user_registration_path) %> </li>
-          <li><%= link_to(content_tag(:i, '登入', class: 'fa fa-sign-in'), new_user_session_path) %></li>
+          <li><%#= link_to(content_tag(:i, "注册", class: "fa fa-user"), new_user_registration_path) %> </li>
+          <li><%#= link_to(content_tag(:i, '登入', class: 'fa fa-sign-in'), new_user_session_path) %></li>
         <% else %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -127,7 +127,7 @@
     <div class="container">
 			<h1 class="h1">你，可以与众不同</h1>
 			<p class="p-lg hidden-xs">注册简历黑客，立刻从海量简历中脱引而出</p>
-      <a href="/membership/RegisterGuestUser.aspx?doctypecode=LETR" class="btn btn-primary btn-lg text-uppercase">这就开始，改变人生</a>
+      <%= link_to '这就开始，改变人生',new_user_resume_path,class: "btn btn-primary btn-lg" %>
     </div>
   </div>
 
