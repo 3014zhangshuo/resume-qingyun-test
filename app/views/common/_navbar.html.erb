@@ -5,7 +5,7 @@
               <button data-toggle="collapse" class="navbar-toggle collapsed" type="button"> <span id="open-nav" class="open-nav"><i class="fa fa-bars"></i> Menu</span><span id="close-nav" class="hidden-xs"><i class="fa fa-times"></i> Close</span></button>
             <a href="/" class="navbar-brand"><img src="https://ooo.0o0.ooo/2016/12/08/584900550f9c8.png
 " width="150"  alt="LiveCareer" title="LiveCareer"></a>
-
+ 
 
             <div class="navbar-collapse collapse pull-right">
               <div class="row">
@@ -13,8 +13,8 @@
               </div>
               <ul class="nav navbar-nav navbar-right nav-pills">
                 <% if !current_user %>
-                  <li><%= link_to(" ", new_user_registration_path) %> </li>
-                  <li><%= link_to(" ", new_user_session_path) %></li>
+                  <li><%= link_to("注册", new_user_registration_path) %> </li>
+                  <li><%= link_to(content_tag(:i, '登入', class: 'fa fa-sign-in'), new_user_session_path) %></li>
                 <% else %>
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">

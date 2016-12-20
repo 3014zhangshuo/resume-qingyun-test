@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
   layout "pdf", only: [:show, :download]
   def index
-
+    flash[:notice] = "早安！你好！"
   end
 
   def show
