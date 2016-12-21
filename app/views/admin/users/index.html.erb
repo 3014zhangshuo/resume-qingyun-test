@@ -1,22 +1,35 @@
 <div class="container">
-  <div class="col-md-10 col-md-offset-1">
-    <table class="table-boldered">
-      <thead>
-        <tr>
-            Email
-        </tr>
-      </thead>
-      <tbody>
-        <% @users.each do |user| %>
-          <tr><td><%= user.email %><td><tr>
-                  <%# binding.pry %>
-                  <% if user.resumes.present? %>
-                  <%= user.resumes.last.answer00 %>
-                  <% end%>
-        <% end %>
-      </tbody>
-    </table>
+    <div class="col-md-10 col-md-offset-1">
+        <table class="table table-boldered">
+            <thead>
+                <tr>
+                    <td>Email</td>
+                    <td>权限变更</td>
+                </tr>
+            </thead>
+            <tbody>
+                <% @users.each do |user| %>
+                <tr>
+                    <td><%= user.email %></td>
+                    <td>
+                      <% if user.admin? %>
+                        <%= link_to("User", user_state_admin_user_path(user), method: :post, :data => { :confirm => "确定要取消此账号admin权限？？" }) %>
+                      <% else %>
+                        <%= link_to("Admin", admin_state_admin_user_path(user), method: :post, :data => { :confirm => "确定将此账号提升为admin？？" }) %>
+                      <% end %>
+                    </td>
+                            <%# binding.pry %>
+                            <td><% if user.resumes.present? %>
+                                <%= user.resumes.last.answer00 %>
+                                <% else %>
+                                无
 
-  </div>
+                                <% end %></td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
 
-</div>
+            </div>
+
+        </div>

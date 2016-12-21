@@ -3,8 +3,12 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users do
+      member do
+        post :admin_state
+        post :user_state
+      end
+    end
   end
-end
 
 
   resources :welcomes do
