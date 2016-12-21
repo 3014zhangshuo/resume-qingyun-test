@@ -1,100 +1,27 @@
 <div class="col-md-12 auto-min-height">
 
-  <h1>第二步</h1>
+  <h1>第二步：一段200-300字的自我介绍</h1>
+	<h2>用200-300字，描述过去的经历（需要与开发有关）</h2>
 
   <%= simple_form_for  [:user, @resume],url: page2_commit_user_resume_path(@resume),method: :post do |r| %>
   <p>
-    <%= r.input :answer05, label: '大学名称',placeholder: '大学的全称',input_html: { class: "form-control"} %>
-  </p>
-  <p>
-    <%= r.input :answer06, label: '专业',placeholder: '专业全称',input_html: { class: "form-control"} %>
-  </p>
-  <p>
-    <%= r.input :answer07, label: '学历',placeholder: '毕业学历：大专、本科、硕士、博士',input_html: { class: "form-control"} %>
-  </p>
-  <p>
-
-    <%= r.input :answer08, label: '最近一份工作名称+部门',placeholder: '公司最熟知的名字，大公司可尽量详细，如：阿里巴巴宁波分公司客户管理部、平安银行北京分行；小公司可尽量模糊，如：一家团购A轮企业、吉林本地市场第一的外卖O2O平台',input_html: { class: "form-control"} %>
-  </p>
-  <p>
-    <%= r.input :answer09, label: '工作岗位',placeholder: '工作岗位最漂亮的叫法，如：客户服务顾问（电销专员）、理财规划师（营业厅销售）',input_html: { class: "form-control"} %>
-  </p>
-  <p>
-    <%= r.input :answer10, label: '工作年限',placeholder: '从业年限，5舍6入：超过6个月 = 1年、2年5个月=2年',input_html: { class: "form-control"} %>
-  </p>
-  <p>
-    <%= r.input :answer11, label: '最核心职能',placeholder: '在公司所承担最重大的责任，如：总裁每日行程规划和会议记录（总助）、绩效考核的数据统计和分析（数据库专员）',input_html: { class: "form-control"} %>
-  </p>
-  <p>
-    <%= r.input :answer12, label: '工作中碰到过最大的困难',placeholder: '描述一个常人容易理解的工作上的问题，如：总部下达的绩效考核升级要求、因产品体验不够好导致的用户流失',input_html: { class: "form-control"} %>
-  </p>
-  <p>
-    <%= r.input :answer13, label: '自己想出的解决方案',placeholder: '你所作出的方案大概描述，如：提出10天系统升级方案、找到导致销售下滑问题根源',input_html: { class: "form-control"} %>
-  </p>
-  <p>
-    <%= r.input :answer14, label: '具体如何执行了解决方案',placeholder: '解决方案的详细描述，如：将团队分成两队，用两种不同方案迅速测试和迭代解决方案；独自将首页排版重新规划，根据用户反馈设计出更具吸引力的首页',input_html: { class: "form-control"} %>
-  </p>
-  <p>
-    <%= r.input :answer15, label: '困难细节',placeholder: '困难的简单说法，如：销售业绩、用户留存、用户转化率',input_html: { class: "form-control"} %>
-  </p>
-  <p>
-    <%= r.input :answer16, label: '该困难以前的状态',placeholder: '困难在被解决之前有多糟糕，如：连续下滑3个月、连续亏损2季度、80%的流失率',input_html: { class: "form-control"} %>
-  </p>
-  <p>
-    <%= r.input :answer17, label: '该困难在解决之后的状态',placeholder: '解决之后有多么棒，如：稳定盈利、持续增长、转亏为盈',input_html: { class: "form-control"} %>
-  </p>
-  <p>
-    <%= r.input :answer18, label: '解决方案产生的量化效益',placeholder: '重述一遍困难细节，如：月增长35%的效益、活跃度上升200%的效益、人力成本节省50%的效益',input_html: { class: "form-control"} %>
- 
+    <%= r.input :self_description, label: '自我介绍',placeholder: '如何用200-300字让HR或者面试官迅速了解你？',input_html: { class: "form-control"} %>
   </p>
 
-  <p>
-    <%= r.input :answer19, label: '学习点1',placeholder: '学习的第一种知识，如：HTML、CSS、JavaScript、Ruby on Rails、日语、会计从业资格考试',input_html: { class: "form-control"} %>
-  </p>
-  <p>
-    <%= r.input :answer20, label: '学习点2',placeholder: '学习的第二种知识，如：HTML、CSS、JavaScript、Ruby on Rails、日语、会计从业资格考试',input_html: { class: "form-control"} %>
-  </p>
-  <p>
-    <%= r.input :answer21, label: '知识点',placeholder: '集中学习的目标知识点，如：技术背景、口语能力、软件开发知识、对其他国家的了解',input_html: { class: "form-control"} %>
-  </p>
-  <p>
-    <%= r.input :answer22, label: '学习时间节点',placeholder: '开始学习的时间，建议不要太久以前否则会体现学习慢，如：半年前、6个月前',input_html: { class: "form-control"} %>
-  </p>
-  <p>
-    <%= r.input :answer23, label: '学习知识来源',placeholder: '报的什么课、参加的什么培训班、读的什么书，如：报名参加新生大学全栈训练营、密集观看Udacity线上人工智能课程、详细阅读Growth Hacking的文章/PPT/博客',input_html: { class: "form-control"} %>
-  </p>
-  <p>
-    <%= r.input :answer24, label: '学习时长',placeholder: '学习了多久，建议不要超过1年',input_html: { class: "form-control"} %>
-  </p>
-  <p>
-    <%= r.input :answer25, label: '学习成果',placeholder: '学习中都完成了什么，如：100篇学习笔记博客、20本后端架构书籍的阅读、3个独立开发的iOS App',input_html: { class: "form-control"} %>
-  </p>
-  <p>
-    <%= r.input :answer26, label: '学习的补充',placeholder: '较小一点的学习成就，如：在知乎上帮助解答编程问题',input_html: { class: "form-control"} %>
-  </p>
-  <p>
-    <%= r.input :answer27, label: '过去工作描述',placeholder: '过去工作跟辅助技能2相关部分，作为总结段落的开始，如：多次团队协作（如辅助技能2=团队精神）、多次产品迭代（如辅助技能2=开发能力）、频繁的活动策划（如辅助技能2=地推能力）',input_html: { class: "form-control"} %>
-  </p>
-  <p>
-    <%= r.input :answer28, label: '辅助技能2来源',placeholder: '在工作中什么经历带来了辅助技能2？如：良好的沟通表达能力（带来团队协作）、对客户的强烈洞察能力（带来销售额）、对用户体验的深刻理解（带来用户增长、留存）',input_html: { class: "form-control"} %>
-  </p>
-  <p>
-    <%= r.input :answer29, label: '辅助技能2的两个子技能',placeholder: '把辅助技能2分拆成2个子部分，如：团队协作能力和工作习惯（团队精神）、坚实的自信心和超人的服务精神（销售能力）、严谨的产品逻辑和用户体验方法论（用户增长能力）',input_html: { class: "form-control"} %>
-  </p>
-  <p>
-    <%= r.input :answer30, label: '核心职能重述',placeholder: '重述从业经验的核心部分，如：销售、产品开发、客户拓展',input_html: { class: "form-control"} %>
-  </p>
-  <p>
-    <%= r.input :answer31, label: '核心职能重述',placeholder: '换一种说法重述个人核心技能，如：了解客户心理、对产品开发形成了自己的方法论',input_html: { class: "form-control"} %>
-  </p>
-  <p>
-    <%= r.input :answer32, label: '价值总结1',placeholder: '总结能为公司带来的价值，如：高效敏捷的开发能力、坚实可靠的协作能力、清秀脱俗的产品设计能力、管理高效团队的领导才能',input_html: { class: "form-control"} %>
-  </p>
-  <p>
-    <%= r.input :answer33, label: '价值总结2',placeholder: '总结能为公司带来的价值，如：高效敏捷的开发能力、坚实可靠的协作能力、清秀脱俗的产品设计能力、管理高效团队的领导才能',input_html: { class: "form-control"} %>
-  </p>
+	<p>实例：我曾是一名产品经理,毕业于四川大学。在过去的两年里,我从零开始主导上线了www.example.com,
+		一个跨境电子商务平台，并参与了世界工厂网的迭代工作,这份工作经历让我具备良好的逻辑思维能力,
+		锻炼了我的团队协作能力,培养了我在高强度工作环境下的“作战”能 力。在团队研发项⺫的过程中，
+		我逐渐对开发产生了浓厚的兴趣，希望自己通过写code实现心中的功能，于是开始学习程序的基础知识，
+		自己写一些简单的html。后来报名XXX课程并经过了3个月的高强度训练，快速学习到了编程的高阶技能。
+		<p>
 
-  <%= r.submit "下一步", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
+	<p>不要写什么：<br>
+		“我什么都不会，但我愿意学习”<br>
+		“我家里有四个人，分别是...”<br>
+		“我有（此处省略1000字...），就是没有开发经验也没有作品...”<br>
+		这种语言出现会被第一时间扔进垃圾箱</p>
+
+  <%= r.submit "保存并进入下一步", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
   <% end %>
 
 </div>

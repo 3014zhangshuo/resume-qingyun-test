@@ -1,4 +1,11 @@
 <%= render partial: "resume_content", locals: { resume: @resume } %>
 
 
-<a href="#" class="col-md-4 col-md-offset-4 btn btn-primary" id="print">下载</a>
+<a href="#" class="col-md-4 col-md-offset-4 btn btn-primary" id="print">点击按钮弹出打印框，选择另存为PDF</a>
+
+<script>
+$("#print").on('click',function(){
+    $(this).addClass('hide');
+});
+
+</script>

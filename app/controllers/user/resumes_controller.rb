@@ -99,11 +99,31 @@ class User::ResumesController < ApplicationController
     redirect_to page5_user_resume_path(@resume)
   end
 
-  def page5
+	def page5
+		@resume = Resume.find(params[:id])
+	end
+
+	def page5_commit
+		@resume = Resume.find(params[:id])
+		Resume.update(resume_params)
+		redirect_to page6_user_resume_path(@resume)
+	end
+
+	def page6
     @resume = Resume.find(params[:id])
   end
 
-  def page5_commit
+  def page6_commit
+    @resume = Resume.find(params[:id])
+    Resume.update(resume_params)
+    redirect_to page7_user_resume_path(@resume)
+  end
+
+  def page7
+    @resume = Resume.find(params[:id])
+  end
+
+  def page7_commit
     @resume = Resume.find(params[:id])
     Resume.update(resume_params)
     redirect_to user_resume_preview_path(@resume)
@@ -117,13 +137,12 @@ class User::ResumesController < ApplicationController
   private
   # 50列参数
   def resume_params
-    params.require(:resume).permit(
-      :answer00,:answer01,:answer02,:answer03,:answer04,:answer05,:answer06,:answer07,:answer08,:answer09,
-      :answer10,:answer11,:answer12,:answer13,:answer14,:answer15,:answer16,:answer17,:answer18,:answer19,
-      :answer20,:answer21,:answer22,:answer23,:answer24,:answer25,:answer26,:answer27,:answer28,:answer29,
-      :answer30,:answer31,:answer32,:answer33,:answer34,:answer35,:answer36,:answer37,:answer38,:answer39,
-      :answer40,:answer41,:answer42,:answer43,:answer44,:answer45,:answer46,:answer47,:answer48,:answer49,
-      :answer50,:answer51,:answer52,:answer53,:answer54,:answer55,:answer56,:answer57,:answer58,:answer59)
+    params.require(:resume).permit(:name_resume,:one_line_description,:self_description,
+		:past_description1,:past_description2,:why_employer,:why_employee1,:why_employee2,
+		:why_employee3,:past_project_title1,:past_project_title2,:past_project_title3,
+		:past_project_description1,:past_project_description2,:past_project_description3,
+		:past_project_image1,:past_project_image2,:past_project_image3,:contact_details1,
+		:contact_details2,:contact_details3,:contact_details4)
   end
 
 end
