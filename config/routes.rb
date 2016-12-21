@@ -30,6 +30,10 @@ Rails.application.routes.draw do
         post :page4_commit
         get :page5
         post :page5_commit
+				get :page6
+				post :page6_commit
+				get :page7
+				post :page7_commit
         get :finish
       end
 

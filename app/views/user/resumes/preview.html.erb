@@ -1,6 +1,7 @@
 <%= render partial: "resume_content", locals: { resume: @resume } %>
 
 
+
 <a href="#" class="col-md-4 col-md-offset-4 btn btn-primary" id="print">下载</a>
 <%#= link_to "查看pdf", user_resume_preview_path(@resume, format: :pdf), class: "btn btn-primary" %>
 
@@ -16,7 +17,7 @@
 
       // $.ajax('preview.pdf', {
       	// data: {content: $('#cv').html()},
-      	
+
       // });
 
       $.ajax({
