@@ -1,7 +1,7 @@
+
+
 class User::ResumesController < ApplicationController
   layout "pdf", only: [:download, :preview_download]
-  # layout "preview_layout", only: [:preview]
-
 
   def index
     @resumes = Resume.all
@@ -22,6 +22,7 @@ class User::ResumesController < ApplicationController
   def download
     @resumes = Resume.all
     html = render_to_string(:action => :show)
+    # binding.pry
     pdf = WickedPdf.new.pdf_from_string(html)
 
     send_data(pdf,
@@ -31,17 +32,40 @@ class User::ResumesController < ApplicationController
 
   def preview_download
     @resume = Resume.find(params[:resume_id])
-    html = render_to_string(:action => :preview)
-    pdf = WickedPdf.new.pdf_from_string(html)
+    # html = render_to_string(params[:content])
+    # pdf = WickedPdf.new.pdf_from_string(html)
+
+    pdf = render_to_string pdf: "some_file_name", template: "user/resumes/show.pdf.erb", encoding: "UTF-8"
 
     send_data(pdf,
       :filename => "preview_resume.pdf",
       :disposition => 'attachment')
   end
 
+
+  # 接受web发过来的编辑好的html数据，处理（如保存），之后redirect到显示这个html的pdf
+  def relay
+    @resume = Resume.find(params[:resume_id])    
+    @resume_html = resume_html_for_resume(@resume)
+    @resume_html.content = params[:content]
+    @resume_html.save
+    redirect_to user_resume_preview_path(@resume, format: :pdf)
+  end
+
+
   def preview
-    render layout: "preview_layout", locals: { resume: Resume.find(params[:resume_id]) }
+    # render layout: "preview_layout", locals: { resume: Resume.find(params[:resume_id]) }
     @resume = Resume.find(params[:resume_id])
+    # binding.pry
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "resume.pdf",
+               template: "user/resumes/preview.pdf.erb",
+               layout: "preview_layout.html.erb"
+      end
+    end
+    # redirect_to user_resume_preview_path(@resume, format: :pdf)
   end
 
 
@@ -124,6 +148,14 @@ class User::ResumesController < ApplicationController
       :answer30,:answer31,:answer32,:answer33,:answer34,:answer35,:answer36,:answer37,:answer38,:answer39,
       :answer40,:answer41,:answer42,:answer43,:answer44,:answer45,:answer46,:answer47,:answer48,:answer49,
       :answer50,:answer51,:answer52,:answer53,:answer54,:answer55,:answer56,:answer57,:answer58,:answer59)
+  end
+
+  def resume_html_for_resume(resume)
+    if resume.resume_html.nil?
+      resume.build_resume_html
+    else
+      resume.resume_html
+    end
   end
 
 end
