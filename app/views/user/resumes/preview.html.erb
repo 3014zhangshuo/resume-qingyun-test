@@ -1,11 +1,63 @@
 <%= render partial: "resume_content", locals: { resume: @resume } %>
 
 
-<a href="#" class="col-md-4 col-md-offset-4 btn btn-primary" id="print">点击按钮弹出打印框，选择另存为PDF</a>
 
-<script>
-$("#print").on('click',function(){
-    $(this).addClass('hide');
-});
+<a href="#" class="col-md-4 col-md-offset-4 btn btn-primary" id="print">下载</a>
+<%#= link_to "查看pdf", user_resume_preview_path(@resume, format: :pdf), class: "btn btn-primary" %>
+
+<script type="text/javascript">
+	$('#print').click(function(event) {
+      // window.print();
+      // return false;
+
+      // PrintElem("content");
+      // alert($('#content').html());
+
+      event.preventDefault();
+
+      // $.ajax('preview.pdf', {
+      	// data: {content: $('#cv').html()},
+
+      // });
+
+      $.ajax({
+      	url: '<%= user_resume_relay_path(@resume) %>',
+      	type: 'post',
+      	data: { content: $('#cv').html() }
+
+      });
+      return false;
+  });
+
+	$(function() {
+		$('div#froala-editor').froalaEditor({
+			toolbarInline: true,
+			charCounterCount: false,
+			toolbarButtons: ['bold', 'italic', 'underline', 'strikeThrough', '-', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'indent', 'outdent', '-', 'insertImage', 'insertLink', 'undo', 'redo'],
+			toolbarVisibleWithoutSelection: false
+
+		})
+	});
+
+	// function PrintElem(elem) {
+	// 	var mywindow = window.open('', 'PRINT', 'height=400,width=600');
+
+	// 	mywindow.document.write('<html><head><title>' + document.title  + '</title>');
+	// 	mywindow.document.write('<link rel="stylesheet" href="application.css" type="text/css" />');
+	// 	mywindow.document.write('</head><body >');
+	// 	mywindow.document.write('<h1>' + document.title  + '</h1>');
+	// 	mywindow.document.write(document.getElementById(elem).innerHTML);
+	// 	mywindow.document.write('</body></html>');
+
+ //        // mywindow.document.close(); // necessary for IE >= 10
+ //        mywindow.focus(); // necessary for IE >= 10*/
+
+ //        mywindow.print();
+ //        // mywindow.close();
+
+ //        return true;
+ //    }
+
+
 
 </script>
