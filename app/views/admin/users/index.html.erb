@@ -1,6 +1,6 @@
 <div class="container">
   <div class="col-md-10 col-md-offset-1">
-    <table>
+    <table class="table-boldered">
       <thead>
         <tr>
             Email
@@ -9,7 +9,10 @@
       <tbody>
         <% @users.each do |user| %>
           <tr><td><%= user.email %><td><tr>
-                  <%= user.resume.first.answer00 %>
+                  <%# binding.pry %>
+                  <% if user.resumes.present? %>
+                  <%= user.resumes.last.answer00 %>
+                  <% end%>
         <% end %>
       </tbody>
     </table>
