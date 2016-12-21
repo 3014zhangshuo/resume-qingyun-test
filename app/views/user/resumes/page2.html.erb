@@ -1,4 +1,6 @@
-<div class="col-md-12 auto-min-height">
+<%= render "common/progress_bar" %>
+<div class="container">
+	<div class="col-md-12 auto-min-height">
 
   <h1>第二步：一段200-300字的自我介绍</h1>
 	<h2>用200-300字，描述过去的经历（需要与开发有关）</h2>
@@ -24,4 +26,5 @@
   <%= r.submit "保存并进入下一步", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
   <% end %>
 
+	</div>
 </div>

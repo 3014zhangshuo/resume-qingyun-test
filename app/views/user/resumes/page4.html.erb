@@ -1,4 +1,6 @@
-<div class="col-md-12 auto-min-height">
+<%= render "common/progress_bar" %>
+<div class="container">
+	<div class="col-md-12 auto-min-height">
 
   <h1>第四步：为什么想应征这份工作</h1>
 	<h2>用一段话表达你为什么想要应征这份工作，最好透露出你对该公司有一定的研究</h2>
@@ -25,8 +27,9 @@
 		这种深刻洞见和实干精神深深的吸引着我，所以我非常希望能加入贵公司，用自己的 Rails 、
 		Growth Hack 等技术为公司贡献自己的力量，推进区块链的发展。
 	</p>
-	
+
   <%= r.submit "保存并进入下一步", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
   <% end %>
 
+	</div>
 </div>
