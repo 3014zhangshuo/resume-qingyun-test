@@ -1,14 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  namespace :admin do
-    resources :users do
-      member do
-        post :admin_state
-        post :user_state
-      end
-    end
-  end
 
 
   resources :welcomes do
