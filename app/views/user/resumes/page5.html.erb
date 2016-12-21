@@ -1,4 +1,6 @@
-<div class="col-md-12 auto-min-height">
+<%= render "common/progress_bar" %>
+<div class="container">
+	<div class="col-md-12 auto-min-height">
 
   <h1>第五步：自己对该岗位的竞争优势</h1>
 	<h2>相对于其他竞争者，你有什么特殊的优点或突出的经历？</h2>
@@ -21,8 +23,9 @@
 			<li>性格：喜欢学习，不断接触新的知识；性格独立，能够独挡一面；性格随和，能够和不同背景的人团队作战</li>
 			<li>经历：曾经从事过相关行业；不同行业培养出的新视角；某个高强度、高压力工作带来的抗压能力和高效率工作习惯</li>
 		</ul>
-		
+
   <%= r.submit "保存并进入下一步", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
   <% end %>
 
+	</div>
 </div>
