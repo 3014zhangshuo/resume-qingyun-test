@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :resumes
+
   def admin?
     is_admin
   end
@@ -17,5 +19,5 @@ class User < ApplicationRecord
     self.is_admin = false
     self.save
   end
-  
+
 end

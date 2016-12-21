@@ -7,7 +7,22 @@
 		<p><%= r.input :name_resume, label: '你的全名',placeholder: '如果有英文名，可以加在中文名的后面',input_html: { class: "form-control"} %></p>
 		<p><%= r.input :one_line_description, label: '用一句话形容自己',placeholder: '你能够给对方公司带来什么样的价值？',input_html: { class: "form-control"} %></p>
 
+
 	<p>(例如：我是一个擅长解决问题、乐于助人的快速学习者)</p>
+
+    <p>
+    <%= r.input :answer01, label: '核心技能',placeholder: '最具个人特色、最与众不同的职场技能，如：进取意识、新事物接受能力、团队合作精神',input_html: { class: "form-control"} %>
+    </p> 
+    <p>
+      <%= r.input :answer02, label: '辅助技能1',placeholder: '能够帮助你更好地完成工作的第一个技能，跟学习相关，如：好奇心、创意创新精神、 求知欲望、精益求精的精神',input_html: { class: "form-control"} %>
+    </p>
+    <p>
+      <%= r.input :answer03, label: '辅助技能2',placeholder: '能够帮助你更好地完成工作的第二个技能，如：团队合作、管理团队、独立作战、准时完成任务、分析解决问题、快速融入团队、严格要求自己',input_html: { class: "form-control"} %>
+    </p>
+    <p>
+      <%= r.input :answer04, label: '主要标签',placeholder: '对自己期望岗位的定义，如：程序员、开发者、设计师',input_html: { class: "form-control"} %>
+    </p>
+
 
   <%= r.submit "保存并进入下一步", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
   <% end %>

@@ -64,7 +64,8 @@ class User::ResumesController < ApplicationController
 
   def page1_commit
     @resume = Resume.new(resume_params)
-    @resume.save
+    @resume.user = current_user
+    @resume.save!
     # 重定向到下一页
     redirect_to page2_user_resume_path(@resume)
   end
@@ -75,7 +76,7 @@ class User::ResumesController < ApplicationController
 
   def page2_commit
     @resume = Resume.find(params[:id])
-    Resume.update(resume_params)
+    @resume.update(resume_params)
     redirect_to page3_user_resume_path(@resume.id)
   end
 
@@ -85,7 +86,7 @@ class User::ResumesController < ApplicationController
 
   def page3_commit
     @resume = Resume.find(params[:id])
-    Resume.update(resume_params)
+    @resume.update(resume_params)
     redirect_to page4_user_resume_path(@resume)
   end
 
@@ -95,7 +96,7 @@ class User::ResumesController < ApplicationController
 
   def page4_commit
     @resume = Resume.find(params[:id])
-    Resume.update(resume_params)
+    @resume.update(resume_params)
     redirect_to page5_user_resume_path(@resume)
   end
 
@@ -125,7 +126,7 @@ class User::ResumesController < ApplicationController
 
   def page7_commit
     @resume = Resume.find(params[:id])
-    Resume.update(resume_params)
+    @resume.update(resume_params)
     redirect_to user_resume_preview_path(@resume)
   end
 
@@ -142,7 +143,8 @@ class User::ResumesController < ApplicationController
 		:why_employee3,:past_project_title1,:past_project_title2,:past_project_title3,
 		:past_project_description1,:past_project_description2,:past_project_description3,
 		:past_project_image1,:past_project_image2,:past_project_image3,:contact_details1,
-		:contact_details2,:contact_details3,:contact_details4)
+		:contact_details2,:contact_details3,:contact_details4,:user_id)
+
   end
 
 end

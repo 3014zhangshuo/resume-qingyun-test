@@ -6,6 +6,12 @@
             Email
         </tr>
       </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr><td><%= user.email %><td><tr>
+                  <%= user.resume.first.answer00 %>
+        <% end %>
+      </tbody>
     </table>
 
   </div>

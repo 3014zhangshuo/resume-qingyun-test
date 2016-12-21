@@ -10,14 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
+
 
 ActiveRecord::Schema.define(version: 20161221125454) do
 
 
-=======
-ActiveRecord::Schema.define(version: 20161220104713) do
->>>>>>> add is_admin to user
+
 
   create_table "resumes", force: :cascade do |t|
     t.datetime "created_at",                null: false
@@ -82,6 +80,7 @@ ActiveRecord::Schema.define(version: 20161220104713) do
     t.string   "answer57"
     t.string   "answer58"
     t.string   "answer59"
+    t.integer  "user_id"
   end
 
 
