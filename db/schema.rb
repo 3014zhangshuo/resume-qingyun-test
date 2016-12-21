@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161221061454) do
+ActiveRecord::Schema.define(version: 20161221125454) do
 
   create_table "resumes", force: :cascade do |t|
     t.datetime "created_at",                null: false
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20161221061454) do
     t.string   "contact_details2"
     t.string   "contact_details3"
     t.string   "contact_details4"
-    t.string   "answer21"
+    t.string   "name_resume"
     t.string   "answer22"
     t.string   "answer23"
     t.string   "answer24"

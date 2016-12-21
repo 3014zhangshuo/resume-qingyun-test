@@ -1,23 +1,26 @@
 <div class="col-md-12 auto-min-height">
 
-  <h1>第四步</h1>
+  <h1>第四步：为什么想应征这份工作</h1>
+	<h2>用一段话表达你为什么想要应征这份工作，最好透露出你对该公司有一定的研究</h2>
 
   <%= simple_form_for  [:user, @resume],url: page4_commit_user_resume_path(@resume),method: :post do |r| %>
 
 
   <p>
-    <%= r.input :answer52, label: '核心技能总结',placeholder: '将核心技能再总结一次，如：团队作战和独立开发能力兼备，具有极强的抗压能力',input_html: { class: "form-control"} %>
+    <%= r.input :why_employer, label: '为什么选择公司？',placeholder: '显示出你对公司有一定了解，会能够从众多简历中脱引而出',input_html: { class: "form-control"} %>
   </p>
-  <p>
-    <%= r.input :answer53, label: '辅助技能总结',placeholder: '将辅助技能再总结一次，如：强烈的学习欲望，敢于跳出舒适区，学习各个领域的新知识',input_html: { class: "form-control"} %>
-  </p>
-  <p>
-    <%= r.input :answer54, label: '辅助技能细节',placeholder: '将辅助技能1与学习的技能相关部分罗列出来，如：熟悉敏捷开发模式，有过使⽤User Story分析需求，使⽤CSS、HTML、jQuery写前端，使⽤Ruby on Rails写后端，测试上线的项目经历',input_html: { class: "form-control"} %>
-  </p>
- 
+
+	<p>注意事项：</p>
+
+	<ul>
+		<li>不要没研究，就跑去面试</li>
+		<li>面试头三间选择“不是最想去的公司”，当做练兵</li>
+		<li>最想去的三件公司放在最后，好好研究好好写</li>
+		<li>可以在表现不理想的面试最后，问一下自己有没有需要增强的地方</li>
+	</ul>
 
 
-  <%= r.submit "下一步", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
+  <%= r.submit "保存并进入下一步", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
   <% end %>
 
 </div>
