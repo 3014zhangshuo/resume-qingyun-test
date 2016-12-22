@@ -4,10 +4,10 @@
 <%= render "common/progress_bar" %>
 
 <div class="container" style="text-align:center;">
-	<i style="font-size:25px">在下载之前，可以点击页面任何地方进行最终格式调整</i><br><br>
+	<i style="font-size:25px">在下载之前，可以点击<bold>页面任何地方</bold>进行最终格式调整</i><br><br>
 	<%= link_to "保存", "#", class: "btn btn-primary", id: "save" %>
 </div>
-	
+
 	<% if @resume.resume_html.present? && @resume.resume_html.content.present? %>
 		<div id="froala-editor">
 			<div id="cv" class="instaFade">
@@ -18,7 +18,7 @@
 		<%= render partial: "resume_content", locals: { resume: @resume } %>
 	<% end %>
 	<a href="#" class="col-md-4 col-md-offset-4 btn btn-primary" id="print">生成并下载PDF格式简历</a>
-	
+
 
 
 <br><br><br><br><br><br>
