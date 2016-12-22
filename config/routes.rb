@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
 
-
-
   resources :welcomes do
   end
 
@@ -10,6 +8,14 @@ Rails.application.routes.draw do
   # get 'user/resumes/:resume_id/preview_pdf' => 'user/resumes#preview_download', as: :preview_download
   root 'welcome#index'
 
+	namespace :admin do
+		resources :users do
+			member do
+				post :admin_state
+				post :user_state
+			end
+		end
+	end
 
   # 用户下简历路由
   namespace :user do

@@ -69,4 +69,5 @@
 
 class Resume < ApplicationRecord
 	has_one :resume_html
+	belongs_to :user
 end
