@@ -48,7 +48,7 @@
 			<% if current_user.blank? %>
         <%= link_to '注册提升简历',welcome_entry_path,class: "btn btn-primary btn-lg" %>
 			<% else %>
-				<%= link_to '开始提升简历',new_user_resume_path,class: "btn btn-primary btn-lg" %>
+				<%= link_to '开始提升简历',user_resumes_path,class: "btn btn-primary btn-lg" %>
 			<% end %>
     </div>
   </div>

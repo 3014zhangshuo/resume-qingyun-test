@@ -7,6 +7,14 @@ class ApplicationController < ActionController::Base
 		end
 	end
 
+	def after_sign_up_path_for
+		user_resumes_path
+	end
+
+	def after_sign_in_path_for(resource)
+		user_resumes_path
+	end
+
 	private
 
 	def resource_name
