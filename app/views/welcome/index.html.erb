@@ -42,8 +42,11 @@
 			<br>
       <h1 class="h1">再也不让自己辛苦撰写的简历石沉大海</h1>
       <p class="p-lg hidden-xs">通过专业的详细指引升级简历，迅速成为HR眼中闪亮的自己</p>
+			<% if current_user.present? %>
         <%= link_to '注册提升简历',new_user_resume_path,class: "btn btn-primary btn-lg" %>
-
+			<% else %>
+				<%= link_to '开始提升简历',new_user_resume_path,class: "btn btn-primary btn-lg" %>
+			<% end %>
     </div>
   </div>
 
