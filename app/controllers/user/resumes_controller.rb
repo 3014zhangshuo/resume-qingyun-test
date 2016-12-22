@@ -4,7 +4,7 @@ class User::ResumesController < ApplicationController
   layout "pdf", only: [:download, :preview_download]
 
   def index
-    @resumes = Resume.all
+    @resumes = Resume.all.order(created_at: :DESC)
   end
 
 
@@ -45,7 +45,7 @@ class User::ResumesController < ApplicationController
 
   # 接受web发过来的编辑好的html数据，处理（如保存），之后redirect到显示这个html的pdf
   def relay
-    @resume = Resume.find(params[:resume_id])    
+    @resume = Resume.find(params[:resume_id])
     @resume_html = resume_html_for_resume(@resume)
     @resume_html.content = params[:content]
     @resume_html.save
