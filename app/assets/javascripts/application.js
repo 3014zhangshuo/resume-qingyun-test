@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require bootstrap/alert
 //= require bootstrap/dropdown
+//= require bootstrap/tab
 //= require froala_editor.min.js
 
 //= require plugins/align.min.js
