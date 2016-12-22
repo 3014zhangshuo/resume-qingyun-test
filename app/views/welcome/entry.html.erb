@@ -14,7 +14,7 @@
 	</div>
 	<!--功能解释图案结束 -->
 		<!-- 登陆或注册的nav-tab -->
-<div class="col-md-6 col-xs-12" style="margin-top:5%; padding-bottom:5%;">
+<div class="well col-md-6 col-xs-12" style="margin-top:5%; padding-bottom:5%;">
   <ul class="nav nav-tabs">
     <li class="active"><a href="#home" data-toggle="tab">登陆</a></li>
     <li><a href="#profile" data-toggle="tab">注册</a></li>
@@ -25,16 +25,16 @@
       <div id="tab">
 				<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 				  <div class="form-inputs">
-				    <%= f.input :email, required: false, autofocus: true %>
-				    <%= f.input :password, required: false %>
-				    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+				    <%= f.input :email, label: "邮箱", required: false, autofocus: true %>
+				    <%= f.input :password, label: "密码", required: false %>
+				    <%= f.input :remember_me, label: "记住我", as: :boolean if devise_mapping.rememberable? %>
 				  </div>
 
 				  <div class="form-actions">
-				    <%= f.button :submit, "Log in" %>
+				    <%= f.button :submit, "点击登陆" %>
 				  </div>
 				<% end %>
-				<%= render "devise/shared/links" %>
+				<%#= render "devise/shared/links" %>
 			</div>
 		</div>
 
@@ -43,15 +43,15 @@
 				<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 					<%= f.error_notification %>
 					<div class="form-inputs">
-						<%= f.input :email, required: true, autofocus: true %>
-						<%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-						<%= f.input :password_confirmation, required: true %>
+						<%= f.input :email, label: "邮箱", required: true, autofocus: true %>
+						<%= f.input :password, label: "密码", required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+						<%= f.input :password_confirmation, label: "确认密码", required: true %>
 					</div>
 					<div class="form-actions">
-						<%= f.button :submit, "Sign up" %>
+						<%= f.button :submit, "点击注册" %>
 					</div>
 				<% end %>
-				<%= render "devise/shared/links" %>
+				<%#= render "devise/shared/links" %>
 			</div>
 		</div>
 
