@@ -61,6 +61,7 @@ class User::ResumesController < ApplicationController
     @resume_html = resume_html_for_resume(@resume)
     @resume_html.content = params[:content]
     @resume_html.save
+    # flash[:notice] = 'saved'
   end
 
 

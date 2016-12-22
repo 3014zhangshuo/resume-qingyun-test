@@ -1,4 +1,5 @@
 <input type="hidden" id="refresh" value="no">
+<div id="notice"></div>
 
 <%= render "common/progress_bar" %>
 
@@ -51,6 +52,7 @@
       	success: function(result){
       		$('#cv').html(result);
       		// 加入提示的特效
+      		// $("#notice").html("<%= flash[:notice] %>");
       	}
       });
       return false;
