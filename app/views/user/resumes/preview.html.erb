@@ -1,39 +1,63 @@
+<input type="hidden" id="refresh" value="no">
+<div id="notice"></div>
+
 <%= render "common/progress_bar" %>
 
 <div class="container" style="text-align:center;">
-	<i style="font-size:25px">在下载之前，可以点击页面任何地方进行最终格式调整</i>
+	<i style="font-size:25px">在下载之前，可以点击页面任何地方进行最终格式调整</i><br><br>
+	<%= link_to "保存", "#", class: "btn btn-primary", id: "save" %>
 </div>
+	
+	<% if @resume.resume_html.present? && @resume.resume_html.content.present? %>
+		<div id="froala-editor">
+			<div id="cv" class="instaFade">
+				<%= @resume.resume_html.content.html_safe %>
+			</div>
+		</div>
+	<% else %>
 		<%= render partial: "resume_content", locals: { resume: @resume } %>
+	<% end %>
 	<a href="#" class="col-md-4 col-md-offset-4 btn btn-primary" id="print">生成并下载PDF格式简历</a>
-<%#= link_to "查看pdf", user_resume_preview_path(@resume, format: :pdf), class: "btn btn-primary" %>
+	
 
 
 <br><br><br><br><br><br>
 
 
 <script type="text/javascript">
+
+	$(document).ready(function(e) {
+		var $input = $('#refresh');
+		$input.val() == 'yes' ? location.reload(true) : $input.val('yes');
+	});
+
+
+
 	$('#print').click(function(event) {
-      // window.print();
-      // return false;
-
-      // PrintElem("content");
-      // alert($('#content').html());
-
       event.preventDefault();
-
-      // $.ajax('preview.pdf', {
-      	// data: {content: $('#cv').html()},
-
-      // });
-
       $.ajax({
       	url: '<%= user_resume_relay_path(@resume) %>',
       	type: 'post',
       	data: { content: $('#cv').html() }
-
       });
       return false;
-  });
+  	});
+
+  	$('#save').click(function(event) {
+      event.preventDefault();
+      $.ajax({
+      	url: '<%= user_resume_save_html_path(@resume) %>',
+      	type: 'get',
+      	data: { content: $('#cv').html() },
+      	success: function(result){
+      		$('#cv').html(result);
+      		// 加入提示的特效
+      		// $("#notice").html("<%= flash[:notice] %>");
+      	}
+      });
+      return false;
+  	});
+
 
 	$(function() {
 		$('div#froala-editor').froalaEditor({
@@ -44,26 +68,5 @@
 
 		})
 	});
-
-	// function PrintElem(elem) {
-	// 	var mywindow = window.open('', 'PRINT', 'height=400,width=600');
-
-	// 	mywindow.document.write('<html><head><title>' + document.title  + '</title>');
-	// 	mywindow.document.write('<link rel="stylesheet" href="application.css" type="text/css" />');
-	// 	mywindow.document.write('</head><body >');
-	// 	mywindow.document.write('<h1>' + document.title  + '</h1>');
-	// 	mywindow.document.write(document.getElementById(elem).innerHTML);
-	// 	mywindow.document.write('</body></html>');
-
- //        // mywindow.document.close(); // necessary for IE >= 10
- //        mywindow.focus(); // necessary for IE >= 10*/
-
- //        mywindow.print();
- //        // mywindow.close();
-
- //        return true;
- //    }
-
-
 
 </script>

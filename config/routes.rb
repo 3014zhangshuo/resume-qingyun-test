@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     resources :resumes do
     	get :preview
       post :relay
+      get :save_html
       # 分页
       collection do
         get :page1
