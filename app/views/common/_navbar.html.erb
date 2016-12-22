@@ -5,7 +5,7 @@
               <button data-toggle="collapse" class="navbar-toggle collapsed" type="button"> <span id="open-nav" class="open-nav"><i class="fa fa-bars"></i> Menu</span><span id="close-nav" class="hidden-xs"><i class="fa fa-times"></i> Close</span></button>
             <a href="/" class="navbar-brand"><img src="https://ooo.0o0.ooo/2016/12/08/584900550f9c8.png
 " width="150"  alt="LiveCareer" title="LiveCareer"></a>
- 
+
 
             <div class="navbar-collapse collapse pull-right">
               <div class="row">
@@ -23,12 +23,9 @@
                     </a>
                     <ul class="dropdown-menu">
                        <li><%= link_to "我的简历", user_resumes_path %></li>
-<<<<<<< HEAD
-=======
-											 <% if current_user.admin? %>
+             					 <% if current_user.admin? %>
                       	<li><%= link_to("Admin 选单", admin_users_path ) %></li>
                        <% end %>
->>>>>>> f29594ce53bfd89231a55f4f47a68d4e711b3912
                        <li class="divider"> </li>
                        <li> <%= link_to(content_tag(:i, '登出', class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %> </li>
                     </ul>

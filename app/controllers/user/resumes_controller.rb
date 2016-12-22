@@ -82,16 +82,14 @@ class User::ResumesController < ApplicationController
   # 拆分页面
   def page1
     @resume = Resume.new
+
   end
 
   def page1_commit
     @resume = Resume.new(resume_params)
-<<<<<<< HEAD
-    @resume.save
-=======
     @resume.user = current_user
 		@resume.save!
->>>>>>> f29594ce53bfd89231a55f4f47a68d4e711b3912
+
     # 重定向到下一页
     redirect_to page2_user_resume_path(@resume)
   end
@@ -102,13 +100,8 @@ class User::ResumesController < ApplicationController
 
   def page2_commit
     @resume = Resume.find(params[:id])
-<<<<<<< HEAD
-    Resume.update(resume_params)
-    redirect_to page3_user_resume_path(@resume.id)
-=======
     @resume.update(resume_params)
     redirect_to page3_user_resume_path(@resume)
->>>>>>> f29594ce53bfd89231a55f4f47a68d4e711b3912
   end
 
   def page3
@@ -117,7 +110,7 @@ class User::ResumesController < ApplicationController
 
   def page3_commit
     @resume = Resume.find(params[:id])
-    Resume.update(resume_params)
+    @resume.update(resume_params)
     redirect_to page4_user_resume_path(@resume)
   end
 
@@ -127,7 +120,7 @@ class User::ResumesController < ApplicationController
 
   def page4_commit
     @resume = Resume.find(params[:id])
-    Resume.update(resume_params)
+    @resume.update(resume_params)
     redirect_to page5_user_resume_path(@resume)
   end
 
@@ -157,7 +150,7 @@ class User::ResumesController < ApplicationController
 
   def page7_commit
     @resume = Resume.find(params[:id])
-    Resume.update(resume_params)
+    @resume.update(resume_params)
     redirect_to user_resume_preview_path(@resume)
   end
 
@@ -174,9 +167,6 @@ class User::ResumesController < ApplicationController
 		:why_employee3,:past_project_title1,:past_project_title2,:past_project_title3,
 		:past_project_description1,:past_project_description2,:past_project_description3,
 		:past_project_image1,:past_project_image2,:past_project_image3,:contact_details1,
-<<<<<<< HEAD
-		:contact_details2,:contact_details3,:contact_details4)
-=======
 		:contact_details2,:contact_details3,:contact_details4,:resume_name, :user_id)
   end
 
@@ -186,7 +176,7 @@ class User::ResumesController < ApplicationController
     else
       resume.resume_html
     end
->>>>>>> f29594ce53bfd89231a55f4f47a68d4e711b3912
+
   end
 
 end

@@ -22,8 +22,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-<<<<<<< HEAD
-=======
+
 	has_many :resumes
 
 	def admin?
@@ -40,5 +39,5 @@ class User < ApplicationRecord
 	  self.save
 	end
 
->>>>>>> f29594ce53bfd89231a55f4f47a68d4e711b3912
+
 end

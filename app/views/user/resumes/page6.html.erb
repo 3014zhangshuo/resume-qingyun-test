@@ -15,23 +15,9 @@
     <p>
       <%= r.input :past_project_description1, label: '项目描述1',placeholder: '该产品解决了什么问题？多少人多久完成？你的角色是什么？你在过程中学到了什么？',input_html: { class: "form-control"} %>
     </p>
-    <div>
-      <% if @resume.past_project_image1.present? %>
-<<<<<<< HEAD
-        <%= image_tag(@resume.past_project_image1.url, :id => "img-1") %>
-=======
-        <%= image_tag(@resume.past_project_image1.url, :id => "1") %>
->>>>>>> f29594ce53bfd89231a55f4f47a68d4e711b3912
-      <% else %>
-        图片预览处
-      <% end %>
-   </div>
+
     <p>
-<<<<<<< HEAD
-      <%= r.input :past_project_image1, label: '项目截图1',placeholder: '【改为图片上传】',input_html: { class: "form-control"} %>
-=======
 			<%= r.input :past_project_image1, as: :file , label: '项目截图1'%>
->>>>>>> f29594ce53bfd89231a55f4f47a68d4e711b3912
     </p>
 
 <h4>项目2（选填）</h4>
@@ -41,23 +27,9 @@
     <p>
       <%= r.input :past_project_description2, label: '项目描述2',placeholder: '该产品解决了什么问题？多少人多久完成？你的角色是什么？你在过程中学到了什么？',input_html: { class: "form-control"} %>
     </p>
-    <div>
-      <% if @resume.past_project_image2.present? %>
-<<<<<<< HEAD
-        <%= image_tag(@resume.past_project_image2.url, :id => "img-2") %>
-=======
-        <%= image_tag(@resume.past_project_image2.url, :id => "1") %>
->>>>>>> f29594ce53bfd89231a55f4f47a68d4e711b3912
-      <% else %>
-        图片预览处
-      <% end %>
-   </div>
+
     <p>
-<<<<<<< HEAD
-      <%= r.input :past_project_image2, label: '项目截图2',placeholder: '【改为图片上传】',input_html: { class: "form-control"} %>
-=======
 			<%= r.input :past_project_image2, as: :file , label: '项目截图2'%>
->>>>>>> f29594ce53bfd89231a55f4f47a68d4e711b3912
     </p>
 
 <h4>项目3（选填）</h4>
@@ -67,23 +39,8 @@
     <p>
       <%= r.input :past_project_description3, label: '项目描述3',placeholder: '该产品解决了什么问题？多少人多久完成？你的角色是什么？你在过程中学到了什么？',input_html: { class: "form-control"} %>
     </p>
-    <div>
-      <% if @resume.past_project_image3.present? %>
-<<<<<<< HEAD
-        <%= image_tag(@resume.past_project_image3.url, :id => "img-3") %>
-=======
-        <%= image_tag(@resume.past_project_image3.url, :id => "1") %>
->>>>>>> f29594ce53bfd89231a55f4f47a68d4e711b3912
-      <% else %>
-        图片预览处
-      <% end %>
-   </div>
     <p>
-<<<<<<< HEAD
-      <%= r.input :past_project_image3, label: '项目截图3',placeholder: '【改为图片上传】',input_html: { class: "form-control"} %>
-=======
 			<%= r.input :past_project_image3, as: :file , label: '项目截图3'%>
->>>>>>> f29594ce53bfd89231a55f4f47a68d4e711b3912
     </p>
 
 
