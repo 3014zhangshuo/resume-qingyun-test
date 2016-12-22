@@ -1,19 +1,3 @@
-<head>
-<title>黑客简历</title>
-
-<meta name="viewport" content="width=device-width"/>
-<meta name="description" content="The Curriculum Vitae of Joe Bloggs."/>
-<meta charset="UTF-8">
-
-<!-- <link type="text/css" rel="stylesheet" href="resume_style.css"> -->
-<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700|Lato:400,300' rel='stylesheet' type='text/css'>
-
-<!--[if lt IE 9]>
-<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
-</head>
-<body id="top" style="background-color:#181818;">
-
 <div id="froala-editor">
 <div id="cv" class="instaFade">
 	<div class="mainDetails">
@@ -106,6 +90,7 @@
 				<article>
 					<p><%= resume.past_project_title1 %></p>
 					<p><%= resume.past_project_description1 %></p>
+<<<<<<< HEAD
 					<p><%= resume.past_project_image1 %></p>
 
 					<p><%= resume.past_project_title2 %></p>
@@ -115,6 +100,33 @@
 					<p><%= resume.past_project_title3 %></p>
 					<p><%= resume.past_project_description3 %></p>
 					<p><%= resume.past_project_image3 %></p>
+=======
+					<p>
+						<% if resume.past_project_image1.present? %>
+						<%= image_tag(resume.past_project_image1.thumb.url) %>
+						<% else %>
+						<% end %>
+					</p>
+
+
+					<p><%= resume.past_project_title2 %></p>
+					<p><%= resume.past_project_description2 %></p>
+					<p>
+						<% if resume.past_project_image2.present? %>
+						<%= image_tag(resume.past_project_image2.thumb.url) %>
+						<% else %>
+						<% end %>
+					</p>
+
+					<p><%= resume.past_project_title3 %></p>
+					<p><%= resume.past_project_description3 %></p>
+					<p>
+						<% if resume.past_project_image3.present? %>
+						<%= image_tag(resume.past_project_image3.thumb.url) %>
+						<% else %>
+						<% end %>
+					</p>
+>>>>>>> f29594ce53bfd89231a55f4f47a68d4e711b3912
 				</article>
 			</div>
 			<div class="clear"></div>
@@ -142,26 +154,4 @@
 </div>
 </div>
 
-</body>
-
-<script type="text/javascript">
-  $(function() {
-    $('div#froala-editor').froalaEditor({
-      toolbarInline: true,
-      charCounterCount: false,
-      toolbarButtons: ['bold', 'italic', 'underline', 'strikeThrough', '-', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'indent', 'outdent', '-', 'insertImage', 'insertLink', 'undo', 'redo'],
-      toolbarVisibleWithoutSelection: true
-    })
-  });
-
-	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-
-	var pageTracker = _gat._getTracker("UA-3753241-1");
-	pageTracker._initData();
-	pageTracker._trackPageview();
-
-  
-
-
-</script>
+<!-- </body> -->

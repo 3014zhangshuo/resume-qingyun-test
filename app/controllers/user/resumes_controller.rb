@@ -1,10 +1,8 @@
 class User::ResumesController < ApplicationController
   layout "pdf", only: [:download, :preview_download]
-  # layout "preview_layout", only: [:preview]
-
 
   def index
-    @resumes = Resume.all
+    @resumes = Resume.all.order(created_at: :DESC)
   end
 
 
@@ -22,6 +20,7 @@ class User::ResumesController < ApplicationController
   def download
     @resumes = Resume.all
     html = render_to_string(:action => :show)
+    # binding.pry
     pdf = WickedPdf.new.pdf_from_string(html)
 
     send_data(pdf,
@@ -31,17 +30,40 @@ class User::ResumesController < ApplicationController
 
   def preview_download
     @resume = Resume.find(params[:resume_id])
-    html = render_to_string(:action => :preview)
-    pdf = WickedPdf.new.pdf_from_string(html)
+    # html = render_to_string(params[:content])
+    # pdf = WickedPdf.new.pdf_from_string(html)
+
+    pdf = render_to_string pdf: "some_file_name", template: "user/resumes/show.pdf.erb", encoding: "UTF-8"
 
     send_data(pdf,
       :filename => "preview_resume.pdf",
       :disposition => 'attachment')
   end
 
-  def preview
-    render layout: "preview_layout", locals: { resume: Resume.find(params[:resume_id]) }
+
+  # 接受web发过来的编辑好的html数据，处理（如保存），之后redirect到显示这个html的pdf
+  def relay
     @resume = Resume.find(params[:resume_id])
+    @resume_html = resume_html_for_resume(@resume)
+    @resume_html.content = params[:content]
+    @resume_html.save
+    redirect_to user_resume_preview_path(@resume, format: :pdf)
+  end
+
+
+  def preview
+    # render layout: "preview_layout", locals: { resume: Resume.find(params[:resume_id]) }
+    @resume = Resume.find(params[:resume_id])
+    # binding.pry
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "resume.pdf",
+               template: "user/resumes/preview.pdf.erb",
+               layout: "preview_layout.html.erb"
+      end
+    end
+    # redirect_to user_resume_preview_path(@resume, format: :pdf)
   end
 
 
@@ -64,7 +86,12 @@ class User::ResumesController < ApplicationController
 
   def page1_commit
     @resume = Resume.new(resume_params)
+<<<<<<< HEAD
     @resume.save
+=======
+    @resume.user = current_user
+		@resume.save!
+>>>>>>> f29594ce53bfd89231a55f4f47a68d4e711b3912
     # 重定向到下一页
     redirect_to page2_user_resume_path(@resume)
   end
@@ -75,8 +102,13 @@ class User::ResumesController < ApplicationController
 
   def page2_commit
     @resume = Resume.find(params[:id])
+<<<<<<< HEAD
     Resume.update(resume_params)
     redirect_to page3_user_resume_path(@resume.id)
+=======
+    @resume.update(resume_params)
+    redirect_to page3_user_resume_path(@resume)
+>>>>>>> f29594ce53bfd89231a55f4f47a68d4e711b3912
   end
 
   def page3
@@ -105,7 +137,7 @@ class User::ResumesController < ApplicationController
 
 	def page5_commit
 		@resume = Resume.find(params[:id])
-		Resume.update(resume_params)
+		@resume.update(resume_params)
 		redirect_to page6_user_resume_path(@resume)
 	end
 
@@ -115,7 +147,7 @@ class User::ResumesController < ApplicationController
 
   def page6_commit
     @resume = Resume.find(params[:id])
-    Resume.update(resume_params)
+    @resume.update(resume_params)
     redirect_to page7_user_resume_path(@resume)
   end
 
@@ -142,7 +174,19 @@ class User::ResumesController < ApplicationController
 		:why_employee3,:past_project_title1,:past_project_title2,:past_project_title3,
 		:past_project_description1,:past_project_description2,:past_project_description3,
 		:past_project_image1,:past_project_image2,:past_project_image3,:contact_details1,
+<<<<<<< HEAD
 		:contact_details2,:contact_details3,:contact_details4)
+=======
+		:contact_details2,:contact_details3,:contact_details4,:resume_name, :user_id)
+  end
+
+  def resume_html_for_resume(resume)
+    if resume.resume_html.nil?
+      resume.build_resume_html
+    else
+      resume.resume_html
+    end
+>>>>>>> f29594ce53bfd89231a55f4f47a68d4e711b3912
   end
 
 end

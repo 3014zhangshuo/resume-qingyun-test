@@ -23,6 +23,12 @@
                     </a>
                     <ul class="dropdown-menu">
                        <li><%= link_to "我的简历", user_resumes_path %></li>
+<<<<<<< HEAD
+=======
+											 <% if current_user.admin? %>
+                      	<li><%= link_to("Admin 选单", admin_users_path ) %></li>
+                       <% end %>
+>>>>>>> f29594ce53bfd89231a55f4f47a68d4e711b3912
                        <li class="divider"> </li>
                        <li> <%= link_to(content_tag(:i, '登出', class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %> </li>
                     </ul>

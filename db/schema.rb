@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161221150120) do
+=======
+ActiveRecord::Schema.define(version: 20161222045536) do
+
+  create_table "resume_htmls", force: :cascade do |t|
+    t.integer  "resume_id"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+>>>>>>> f29594ce53bfd89231a55f4f47a68d4e711b3912
 
   create_table "resumes", force: :cascade do |t|
     t.datetime "created_at",                null: false
@@ -75,6 +86,10 @@ ActiveRecord::Schema.define(version: 20161221150120) do
     t.string   "answer57"
     t.string   "answer58"
     t.string   "answer59"
+<<<<<<< HEAD
+=======
+    t.integer  "user_id"
+>>>>>>> f29594ce53bfd89231a55f4f47a68d4e711b3912
   end
 
   create_table "users", force: :cascade do |t|
