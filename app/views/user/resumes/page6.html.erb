@@ -6,7 +6,7 @@
 
   <%= simple_form_for  [:user, @resume],url: page6_commit_user_resume_path(@resume),method: :post do |r| %>
 
-<!-- 项目1 -->
+<h4>项目1</h4>
     <p>
       <%= r.input :past_project_title1, label: '项目名称1',placeholder: '格式应为：项目名称 - 十字以内描述 如：“DesignDeck - 设计委托接案快3倍”',input_html: { class: "form-control"} %>
     </p>
@@ -21,11 +21,10 @@
       <% end %>
    </div>
     <p>
-      <%#= r.input :past_project_image1, label: '项目截图1',placeholder: '【改为图片上传】',input_html: { class: "form-control"} %>
-      <%= r.input :past_project_image1, as: :file , label: '项目截图1'%>
+      <%= r.input :past_project_image1, label: '项目截图1',placeholder: '【改为图片上传】',input_html: { class: "form-control"} %>
     </p>
 
-<!-- 项目2 -->
+<h4>项目2（选填）</h4>
     <p>
       <%= r.input :past_project_title2, label: '项目名称2',placeholder: '格式应为：项目名称 - 十字以内描述 如：“DesignDeck - 设计委托接案快3倍”',input_html: { class: "form-control"} %>
     </p>
@@ -40,11 +39,10 @@
       <% end %>
    </div>
     <p>
-      <%#= r.input :past_project_image2, label: '项目截图2',placeholder: '【改为图片上传】',input_html: { class: "form-control"} %>
-      <%= r.input :past_project_image2, as: :file , label: '项目截图2'%>
+      <%= r.input :past_project_image2, label: '项目截图2',placeholder: '【改为图片上传】',input_html: { class: "form-control"} %>
     </p>
 
-<!-- 项目3 -->
+<h4>项目3（选填）</h4>
     <p>
       <%= r.input :past_project_title3, label: '项目名称3',placeholder: '格式应为：项目名称 - 十字以内描述 如：“DesignDeck - 设计委托接案快3倍”',input_html: { class: "form-control"} %>
     </p>
@@ -59,7 +57,7 @@
       <% end %>
    </div>
     <p>
-      <%= r.input :past_project_image3, as: :file, label: '项目截图3'%>
+      <%= r.input :past_project_image3, label: '项目截图3',placeholder: '【改为图片上传】',input_html: { class: "form-control"} %>
     </p>
 
 

@@ -29,10 +29,6 @@ gem 'font-awesome-rails'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem "wysiwyg-rails"
-gem "pry"
-
-gem "carrierwave"
-gem "mini_magick"
 
 
 # Use Redis adapter to run Action Cable in production
