@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :welcomes do
+  namespace :welcome do
+		get :entry
   end
 
   get 'user/resumes/pdf' => 'user/resumes#download'

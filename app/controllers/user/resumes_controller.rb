@@ -2,7 +2,7 @@ class User::ResumesController < ApplicationController
   layout "pdf", only: [:download, :preview_download]
 
   def index
-    @resumes = Resume.all.order(created_at: :DESC)
+    @resumes = current_user.resumes.order(created_at: :DESC)
   end
 
 
