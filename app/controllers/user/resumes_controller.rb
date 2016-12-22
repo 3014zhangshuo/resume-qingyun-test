@@ -2,7 +2,7 @@ class User::ResumesController < ApplicationController
   layout "pdf", only: [:download, :preview_download]
 
   def index
-    @resumes = Resume.all.order(created_at: :DESC)
+    @resumes = current_user.resumes.all.order(created_at: :DESC)
   end
 
 
@@ -82,14 +82,15 @@ class User::ResumesController < ApplicationController
   # 拆分页面
   def page1
     @resume = Resume.new
-
+    @resume.user = current_user
+      #binding.pry
+    @resume.save!
   end
 
   def page1_commit
-    @resume = Resume.new(resume_params)
-    @resume.user = current_user
-		@resume.save!
-
+    @resume = Resume.find(params[:id])
+    @resume.update(resume_params)
+    @resume.save!
     # 重定向到下一页
     redirect_to page2_user_resume_path(@resume)
   end
@@ -157,6 +158,8 @@ class User::ResumesController < ApplicationController
   def finish
     @resume = Resume.find(params[:id])
   end
+
+
 
 
   private

@@ -25,9 +25,9 @@ Rails.application.routes.draw do
       # 分页
       collection do
         get :page1
-        post :page1_commit
       end
       member do
+        post :page1_commit
         get :page2
         post :page2_commit
         get :page3

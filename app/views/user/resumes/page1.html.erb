@@ -21,7 +21,7 @@
 		<h2>一句话形容自己“可以带来”“给对方公司的价值”</h2>
 
 
-  <%= simple_form_for  [:user, @resume], url: page1_commit_user_resumes_path do |r| %>
+  <%= simple_form_for  [:user, @resume], url: page1_commit_user_resume_path(@resume), controller:'user/resumes', action:'page1_commit', method: 'post' do |r| %>
 		<p><%= r.input :resume_name, label: '简历名称',placeholder: '请给这份简历命名，如“新生大学毕业简历”',input_html: { class: "form-control"} %></p>
 		<p><%= r.input :name_resume, label: '你的全名',placeholder: '如果有英文名，可以加在中文名的后面',input_html: { class: "form-control"} %></p>
 		<p><%= r.input :one_line_description, label: '用一句话形容自己',placeholder: '你能够给对方公司带来什么样的价值？',input_html: { class: "form-control"} %></p>
@@ -29,7 +29,7 @@
 
 		<p>(例如：我是一个擅长解决问题、乐于助人的快速学习者)</p>
 
-	  <%= r.submit "保存并进入下一步", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
+	  <%= r.submit "保存并进入下一步", class:"btn btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
 	  <% end %>
 
 

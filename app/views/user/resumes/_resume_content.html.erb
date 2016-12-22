@@ -90,17 +90,6 @@
 				<article>
 					<p><%= resume.past_project_title1 %></p>
 					<p><%= resume.past_project_description1 %></p>
-<<<<<<< HEAD
-					<p><%= resume.past_project_image1 %></p>
-
-					<p><%= resume.past_project_title2 %></p>
-					<p><%= resume.past_project_description2 %></p>
-					<p><%= resume.past_project_image2 %></p>
-
-					<p><%= resume.past_project_title3 %></p>
-					<p><%= resume.past_project_description3 %></p>
-					<p><%= resume.past_project_image3 %></p>
-=======
 					<p>
 						<% if resume.past_project_image1.present? %>
 						<%= image_tag(resume.past_project_image1.thumb.url) %>
@@ -126,7 +115,7 @@
 						<% else %>
 						<% end %>
 					</p>
->>>>>>> f29594ce53bfd89231a55f4f47a68d4e711b3912
+
 				</article>
 			</div>
 			<div class="clear"></div>
