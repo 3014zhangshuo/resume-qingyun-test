@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 20161221150120) do
     t.string   "answer57"
     t.string   "answer58"
     t.string   "answer59"
+    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|
