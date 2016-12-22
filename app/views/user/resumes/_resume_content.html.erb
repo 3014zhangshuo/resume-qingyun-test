@@ -90,15 +90,31 @@
 				<article>
 					<p><%= resume.past_project_title1 %></p>
 					<p><%= resume.past_project_description1 %></p>
-					<p><%= resume.past_project_image1 %></p>
+					<p>
+						<% if resume.past_project_image1.present? %>
+						<%= image_tag(resume.past_project_image1.thumb.url) %>
+						<% else %>
+						<% end %>
+					</p>
+
 
 					<p><%= resume.past_project_title2 %></p>
 					<p><%= resume.past_project_description2 %></p>
-					<p><%= resume.past_project_image2 %></p>
+					<p>
+						<% if resume.past_project_image2.present? %>
+						<%= image_tag(resume.past_project_image2.thumb.url) %>
+						<% else %>
+						<% end %>
+					</p>
 
 					<p><%= resume.past_project_title3 %></p>
 					<p><%= resume.past_project_description3 %></p>
-					<p><%= resume.past_project_image3 %></p>
+					<p>
+						<% if resume.past_project_image3.present? %>
+						<%= image_tag(resume.past_project_image3.thumb.url) %>
+						<% else %>
+						<% end %>
+					</p>
 				</article>
 			</div>
 			<div class="clear"></div>
