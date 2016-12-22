@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  namespace :welcomes do
+  namespace :welcome do
 		get :entry
   end
 
