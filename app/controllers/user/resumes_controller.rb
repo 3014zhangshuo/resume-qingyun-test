@@ -66,7 +66,7 @@ class User::ResumesController < ApplicationController
 
 
   def preview
-    
+
     @resume = Resume.find(params[:resume_id])
     respond_to do |format|
       format.html
@@ -101,8 +101,13 @@ class User::ResumesController < ApplicationController
     @resume = Resume.new(resume_params)
     @resume.user = current_user
 		@resume.save!
-    # 重定向到下一页
-    redirect_to page2_user_resume_path(@resume)
+
+    if params[:commit] == "保存并进入下一步"
+      # 重定向到下一页
+      redirect_to page2_user_resume_path(@resume)
+    else
+      render :back
+    end
   end
 
   def page2
