@@ -1,20 +1,29 @@
 Rails.application.routes.draw do
   devise_for :users
 
-
-
-  resources :welcomes do
+  namespace :welcome do
+		get :entry
   end
 
   get 'user/resumes/pdf' => 'user/resumes#download'
-  get 'user/resumes/:resume_id/preview_pdf' => 'user/resumes#preview_download', as: :preview_download
+  # get 'user/resumes/:resume_id/preview_pdf' => 'user/resumes#preview_download', as: :preview_download
   root 'welcome#index'
 
+	namespace :admin do
+		resources :users do
+			member do
+				post :admin_state
+				post :user_state
+			end
+		end
+	end
 
   # 用户下简历路由
   namespace :user do
     resources :resumes do
     	get :preview
+      post :relay
+      get :save_html
       # 分页
       collection do
         get :page1
@@ -29,6 +38,10 @@ Rails.application.routes.draw do
         post :page4_commit
         get :page5
         post :page5_commit
+				get :page6
+				post :page6_commit
+				get :page7
+				post :page7_commit
         get :finish
       end
 

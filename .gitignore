@@ -19,3 +19,9 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore local files
+public/uploads
+workingPad.rtf
+UserStory_1.0.rtf
+原型图v1.0.jpeg

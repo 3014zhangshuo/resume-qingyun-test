@@ -1,33 +1,31 @@
-<div class="col-md-12 auto-min-height">
+<%= render "common/progress_bar" %>
+<div class="container">
+	<div class="col-md-12 auto-min-height">
 
-  <h1>第五步</h1>
+  <h1>第五步：自己对该岗位的竞争优势</h1>
+	<h2>相对于其他竞争者，你有什么特殊的优点或突出的经历？</h2>
 
   <%= simple_form_for  [:user, @resume],url: page5_commit_user_resume_path(@resume),method: :post do |r| %>
-
-
     <p>
-
-      <%= r.input :answer55, label: '姓名',placeholder: '全名',input_html: { class: "form-control"} %>
+      <%= r.input :why_employee1, label: '选择你的原因 1',placeholder: '你的核心竞争优势，贯穿之前一句话介绍和个人经历部分的，属于你的个人主题',input_html: { class: "form-control"} %>
+    </p>
+    <p>
+      <%= r.input :why_employee2, label: '选择你的原因 2',placeholder: '与经历密切相关的优势，跟其他申请同样工作的人会有哪些不同？',input_html: { class: "form-control"} %>
+    </p>
+    <p>
+      <%= r.input :why_employee3, label: '选择你的原因 3',placeholder: '性格方面的优势，你比其他人在哪些方面更为突出？',input_html: { class: "form-control"} %>
     </p>
 
-    <p>
-      <%= r.input :answer56, label: '手机号码',placeholder: '能随时打通的手机号码',input_html: { class: "form-control"} %>
-    </p>
+		<p>注意事项：</p>
 
-    <p>
-      <%= r.input :answer57, label: '邮箱',placeholder: '会每天查看的邮箱',input_html: { class: "form-control"} %>
-    </p>
+		<ul>
+			<li>年纪：年轻的申请者=“年轻有体力”；年纪偏大的申请者=“个性成熟稳重”</li>
+			<li>性格：喜欢学习，不断接触新的知识；性格独立，能够独挡一面；性格随和，能够和不同背景的人团队作战</li>
+			<li>经历：曾经从事过相关行业；不同行业培养出的新视角；某个高强度、高压力工作带来的抗压能力和高效率工作习惯</li>
+		</ul>
 
-    <p>
-      <%= r.input :answer58, label: 'GitHub URL',placeholder: '拥有2个Git以上，如果没有可以先不填',input_html: { class: "form-control"} %>
- 
-    </p>
-
-    <p>
-      <%= r.input :answer59, label: '博客URL',placeholder: '拥有2个Git以上，如果没有可以先不填',input_html: { class: "form-control"} %>
-    </p>
-
-  <%= r.submit "下一步", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
+  <%= r.submit "保存并进入下一步", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
   <% end %>
 
+	</div>
 </div>

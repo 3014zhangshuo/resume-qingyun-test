@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="col-md-10 col-md-offset-1">
+        <table class="table table-boldered">
+            <thead>
+                <tr>
+                    <td>Email</td>
+                    <td>权限变更</td>
+                    <td>用户信息</td>
+                </tr>
+            </thead>
+            <tbody>
+                <% @users.each do |user| %>
+                <tr>
+                    <td><%= user.email %></td>
+                    <td>
+                      <% if user.admin? %>
+                        <%= link_to("User", user_state_admin_user_path(user), method: :post, :data => { :confirm => "确定要取消此账号admin权限？？" }) %>
+                      <% else %>
+                        <%= link_to("Admin", admin_state_admin_user_path(user), method: :post, :data => { :confirm => "确定将此账号提升为admin？？" }) %>
+                      <% end %>
+                    </td>
+                            <%# binding.pry %>
+                            <td><% if user.resumes.present? %>
+                                <%= user.resumes.last.name_resume %>
+                                <% else %>
+                                无
+                                <% end %></td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
