@@ -79,31 +79,24 @@ class User::ResumesController < ApplicationController
     # redirect_to user_resume_preview_path(@resume, format: :pdf)
   end
 
-
+# 点击new生成简历跳转page1
   def new
     @resume = Resume.new
+    @resume.user = current_user
+    @resume.save!
+    redirect_to page1_user_resume_path(@resume)
   end
-
-  def create
-    @resume = Resume.new(resume_params)
-    @resume.save
-    redirect_to user_resumes_path
-  end
-
-
 
   # 拆分页面
   def page1
-    @resume = Resume.new
+    @resume = Resume.find(params[:id])
     @resume.user = current_user
-      #binding.pry
     @resume.save!
   end
 
   def page1_commit
     @resume = Resume.find(params[:id])
     @resume.update(resume_params)
-    @resume.save!
     # 重定向到下一页
     redirect_to page2_user_resume_path(@resume)
   end

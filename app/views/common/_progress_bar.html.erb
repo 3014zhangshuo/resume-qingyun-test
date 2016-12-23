@@ -2,10 +2,15 @@
 <div class="container">
 <div class="form-bootstrapWizard">
 	 <ul class="bootstrapWizard form-wizard">
-		 <% if current_page?(page1_user_resumes_path(@resumes)) %><li class="active"><% else %><li><% end %>
-				 <a href=" " data-toggle=" " class=" "> <span class="step">1</span> <span class="title">一句话</span> </a>
+
+		 <% if current_page?(page1_user_resume_path(@resume)) %><li class="active"><% else %><li><% end %>
+			 <% if !@resume.nil? %>
+			 <%= link_to page1_user_resume_path(@resume) do  %>
+			 <%= content_tag :span, "1", :class => "step" %><%= content_tag :span, "一句话", :class => "title" %>
+			<% end %>
+			<% end %>
 		 </li>
-		 
+
 			 <% if current_page?(page2_user_resume_path(@resume)) %><li class="active"><% else %><li><% end %>
          <% if !@resume.nil? %>
          <%= link_to page2_user_resume_path(@resume) do  %>

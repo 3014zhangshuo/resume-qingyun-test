@@ -26,10 +26,11 @@ Rails.application.routes.draw do
       get :save_html
       # 分页
       collection do
-        get :page1
+
       end
       member do
-        post :page1_commit
+        get :page1
+        patch :page1_commit
         get :page2
         post :page2_commit
         get :page3
