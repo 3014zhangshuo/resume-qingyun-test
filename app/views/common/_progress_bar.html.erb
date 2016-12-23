@@ -1,33 +1,63 @@
 <div class="container">
 <div class="form-bootstrapWizard">
 	 <ul class="bootstrapWizard form-wizard">
-			 <% if current_page?(page1_user_resumes_path(@resumes)) %><li class="active"><% else %><li><% end %>
-					 <a href=" " data-toggle=" " class=" "> <span class="step">1</span> <span class="title">一句话</span> </a>
+		 <% if current_page?(page1_user_resume_path(@resume)) %><li class="active"><% else %><li><% end %>
+			 <% if !@resume.nil? %>
+			 <%= link_to page1_user_resume_path(@resume) do  %>
+			 <%= content_tag :span, "1", :class => "step" %><%= content_tag :span, "一句话", :class => "title" %>
+			<% end %>
+			<% end %>
+		 </li>
+			 <% if current_page?(page2_user_resume_path(@resume)) %><li class="active"><% else %><li><% end %>
+         <% if !@resume.nil? %>
+         <%= link_to page2_user_resume_path(@resume) do  %>
+         <%= content_tag :span, "2", :class => "step" %><%= content_tag :span, "个人简介", :class => "title" %>
+        <% end %>
+        <% end %>
 			 </li>
 
-			 <% if current_page?(page2_user_resume_path(@resume)) %><li class="active"><% else %><li><% end %>
-					 <a href=" " data-toggle=" " class=" "> <span class="step">2</span> <span class="title">个人简介</span> </a>
-			 </li>
 
 			 <% if current_page?(page3_user_resume_path(@resume)) %><li class="active"><% else %><li><% end %>
-					 <a href=" " data-toggle=" " class="active"> <span class="step">3</span> <span class="title">过往经历</span> </a>
+          <% if !@resume.nil? %>
+         <%= link_to page3_user_resume_path(@resume) do  %>
+         <%= content_tag :span, "3", :class => "step" %><%= content_tag :span, "过往经历", :class => "title" %>
+        <% end %>
+        <% end %>
 			 </li>
 
 			 <% if current_page?(page4_user_resume_path(@resume)) %><li class="active"><% else %><li><% end %>
-					 <a href=" " data-toggle=" "> <span class="step">4</span> <span class="title">为何应聘</span> </a>
+         <% if !@resume.nil? %>
+         <%= link_to page4_user_resume_path(@resume) do  %>
+         <%= content_tag :span, "4", :class => "step" %><%= content_tag :span, "为何应聘", :class => "title" %>
+        <% end %>
+        <% end %>
 			 </li>
 
 			 <% if current_page?(page5_user_resume_path(@resume)) %><li class="active"><% else %><li><% end %>
-					 <a href=" " data-toggle=" "> <span class="step">5</span> <span class="title">为何选你</span> </a>
+        <% if !@resume.nil? %>
+         <%= link_to page5_user_resume_path(@resume) do  %>
+         <%= content_tag :span, "5", :class => "step" %><%= content_tag :span, "为何选你", :class => "title" %>
+        <% end %>
+        <% end %>
 			 </li>
 			 <% if current_page?(page6_user_resume_path(@resume)) %><li class="active"><% else %><li><% end %>
-					 <a href=" " data-toggle=" "> <span class="step">6</span> <span class="title">项目展示</span> </a>
+        <% if !@resume.nil? %>
+         <%= link_to page6_user_resume_path(@resume) do  %>
+         <%= content_tag :span, "6", :class => "step" %><%= content_tag :span, "项目展示", :class => "title" %>
+        <% end %>
+        <% end %>
 			 </li>
 			 <% if current_page?(page7_user_resume_path(@resume)) %><li class="active"><% else %><li><% end %>
-					 <a href=" " data-toggle=" "> <span class="step">7</span> <span class="title">联系资讯</span> </a>
+        <% if !@resume.nil? %>
+         <%= link_to page7_user_resume_path(@resume) do  %>
+         <%= content_tag :span, "7", :class => "step" %><%= content_tag :span, "联系资讯", :class => "title" %>
+        <% end %>
+        <% end %>
 			 </li>
 			 <% if current_page?(user_resume_preview_path(@resume)) %><li class="active"><% else %><li><% end %>
-					 <a href=" " data-toggle=" "> <span class="step">8</span> <span class="title">生成简历</span> </a>
+         <%= link_to user_resume_preview_path(@resume) do  %>
+         <%= content_tag :span, "8", :class => "step" %><%= content_tag :span, "生成简历", :class => "title" %>
+        <% end %>
 			 </li>
 	 </ul>
 	 <div class="clearfix"></div><br><br>

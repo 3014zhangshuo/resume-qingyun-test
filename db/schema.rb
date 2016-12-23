@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20161222045536) do
-
 
   create_table "resume_htmls", force: :cascade do |t|
     t.integer  "resume_id"
@@ -85,14 +83,6 @@ ActiveRecord::Schema.define(version: 20161222045536) do
     t.string   "answer58"
     t.string   "answer59"
     t.integer  "user_id"
-  end
-
-  create_table "testers", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "occupation"
   end
 
   create_table "users", force: :cascade do |t|
