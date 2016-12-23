@@ -102,12 +102,9 @@ class User::ResumesController < ApplicationController
     @resume.user = current_user
 		@resume.save!
 
-    if params[:commit] == "保存并进入下一步"
-      # 重定向到下一页
-      redirect_to page2_user_resume_path(@resume)
-    else
-      render :back
-    end
+    # 重定向到下一页
+    redirect_to page2_user_resume_path(@resume)
+
   end
 
   def page2
@@ -117,7 +114,12 @@ class User::ResumesController < ApplicationController
   def page2_commit
     @resume = Resume.find(params[:id])
     @resume.update(resume_params)
-    redirect_to page3_user_resume_path(@resume)
+
+    if params[:commit] == "保存并进入下一步"
+      redirect_to page3_user_resume_path(@resume)
+    else
+      redirect_to page2_user_resume_path(@resume)
+    end
   end
 
   def page3
@@ -127,7 +129,12 @@ class User::ResumesController < ApplicationController
   def page3_commit
     @resume = Resume.find(params[:id])
     @resume.update(resume_params)
-    redirect_to page4_user_resume_path(@resume)
+
+    if params[:commit] == "保存并进入下一步"
+      redirect_to page4_user_resume_path(@resume)
+    else
+      redirect_to page3_user_resume_path(@resume)
+    end
   end
 
   def page4
@@ -137,7 +144,12 @@ class User::ResumesController < ApplicationController
   def page4_commit
     @resume = Resume.find(params[:id])
     @resume.update(resume_params)
-    redirect_to page5_user_resume_path(@resume)
+
+    if params[:commit] == "保存并进入下一步"
+      redirect_to page5_user_resume_path(@resume)
+    else
+      redirect_to page4_user_resume_path(@resume)
+    end
   end
 
 	def page5
@@ -147,7 +159,12 @@ class User::ResumesController < ApplicationController
 	def page5_commit
 		@resume = Resume.find(params[:id])
 		@resume.update(resume_params)
-		redirect_to page6_user_resume_path(@resume)
+
+    if params[:commit] == "保存并进入下一步"
+      redirect_to page6_user_resume_path(@resume)
+    else
+      redirect_to page5_user_resume_path(@resume)
+    end
 	end
 
 	def page6
@@ -157,7 +174,12 @@ class User::ResumesController < ApplicationController
   def page6_commit
     @resume = Resume.find(params[:id])
     @resume.update(resume_params)
-    redirect_to page7_user_resume_path(@resume)
+
+    if params[:commit] == "保存并进入下一步"
+      redirect_to page7_user_resume_path(@resume)
+    else
+      redirect_to page6_user_resume_path(@resume)
+    end
   end
 
   def page7
@@ -167,7 +189,13 @@ class User::ResumesController < ApplicationController
   def page7_commit
     @resume = Resume.find(params[:id])
     @resume.update(resume_params)
-    redirect_to user_resume_preview_path(@resume)
+
+    if params[:commit] == "保存并进入下一步"
+      redirect_to user_resume_preview_path(@resume)
+    else
+      redirect_to page7_user_resume_path(@resume)
+    end
+
   end
 
   def finish
