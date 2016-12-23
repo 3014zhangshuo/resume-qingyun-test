@@ -68,9 +68,11 @@
 #
 
 class Resume < ApplicationRecord
+
 	has_one :resume_html
 	belongs_to :user
 	mount_uploader :past_project_image1, ImageUploader
  	mount_uploader :past_project_image2, ImageUploader
  	mount_uploader :past_project_image3, ImageUploader
+
 end

@@ -66,7 +66,7 @@ class User::ResumesController < ApplicationController
 
 
   def preview
-    
+
     @resume = Resume.find(params[:resume_id])
     respond_to do |format|
       format.html
@@ -95,12 +95,15 @@ class User::ResumesController < ApplicationController
   # 拆分页面
   def page1
     @resume = Resume.new
+    @resume.user = current_user
+      #binding.pry
+    @resume.save!
   end
 
   def page1_commit
-    @resume = Resume.new(resume_params)
-    @resume.user = current_user
-		@resume.save!
+    @resume = Resume.find(params[:id])
+    @resume.update(resume_params)
+    @resume.save!
     # 重定向到下一页
     redirect_to page2_user_resume_path(@resume)
   end
@@ -170,6 +173,8 @@ class User::ResumesController < ApplicationController
   end
 
 
+
+
   private
   # 50列参数
   def resume_params
@@ -187,6 +192,7 @@ class User::ResumesController < ApplicationController
     else
       resume.resume_html
     end
+
   end
 
 end
