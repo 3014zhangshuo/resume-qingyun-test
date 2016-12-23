@@ -165,6 +165,10 @@ class User::ResumesController < ApplicationController
     @resume = Resume.find(params[:id])
   end
 
+  def standard_resume
+  end
+  
+
 
 
 
