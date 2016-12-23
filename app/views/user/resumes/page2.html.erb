@@ -5,23 +5,28 @@
   <h1>第二步：一段200-300字的自我介绍</h1>
 	<h2>用200-300字，描述过去的经历（需要与开发有关）</h2>
 
-  <%= simple_form_for  [:user, @resume],url: page2_commit_user_resume_path(@resume),method: :post do |r| %>
-  <p>
-    <%= r.input :self_description, label: '自我介绍',placeholder: '如何用200-300字让HR或者面试官迅速了解你？',input_html: { class: "form-control"} %>
-  </p>
+	<br>
+	<p>填写要点——不要写什么：<br>
+		“我什么都不会，但我愿意学习”<br>
+		“我家里有四个人，分别是...”<br>
+		“我有（此处省略1000字...），就是没有开发经验也没有作品...”<br>
+		这种语言出现会被第一时间扔进垃圾箱</p>
 
-	<p>实例：我曾是一名产品经理,毕业于四川大学。在过去的两年里,我从零开始主导上线了www.example.com,
+		<p>实例：我曾是一名产品经理,毕业于四川大学。在过去的两年里,我从零开始主导上线了www.example.com,
 		一个跨境电子商务平台，并参与了世界工厂网的迭代工作,这份工作经历让我具备良好的逻辑思维能力,
 		锻炼了我的团队协作能力,培养了我在高强度工作环境下的“作战”能 力。在团队研发项⺫的过程中，
 		我逐渐对开发产生了浓厚的兴趣，希望自己通过写code实现心中的功能，于是开始学习程序的基础知识，
 		自己写一些简单的html。后来报名XXX课程并经过了3个月的高强度训练，快速学习到了编程的高阶技能。
 		<p>
 
-	<p>不要写什么：<br>
-		“我什么都不会，但我愿意学习”<br>
-		“我家里有四个人，分别是...”<br>
-		“我有（此处省略1000字...），就是没有开发经验也没有作品...”<br>
-		这种语言出现会被第一时间扔进垃圾箱</p>
+  <%= simple_form_for  [:user, @resume],url: page2_commit_user_resume_path(@resume),method: :post do |r| %>
+  <p>
+    <%= r.input :self_description, as: :text, label: '自我介绍',placeholder: '如何用200-300字让HR或者面试官迅速了解你？',input_html: { class: "form-control"} %>
+  </p>
+
+
+
+
 
   <%= r.submit "保存并进入下一步", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
   <% end %>
