@@ -30,7 +30,7 @@ Rails.application.routes.draw do
       end
       member do
         get :page1
-        patch :page1_commit
+        post :page1_commit
         get :page2
         post :page2_commit
         get :page3
