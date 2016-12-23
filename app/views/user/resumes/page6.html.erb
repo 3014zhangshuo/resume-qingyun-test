@@ -4,7 +4,9 @@
 
   <h1>第六步：过去项目展示</h1>
 	<h2>一张图，胜过千言万语</h2>
-	<h3>（最厉害项目放前面，不足3个项目可以选填）</h3>
+	<h3>（最厉害项目放前面，不足3个项目可以选填。在生成建立后可以任意添加图片。）</h3>
+
+	<br>
 
   <%= simple_form_for  [:user, @resume],url: page6_commit_user_resume_path(@resume),method: :post do |r| %>
 
@@ -13,55 +15,39 @@
       <%= r.input :past_project_title1, label: '项目名称1',placeholder: '格式应为：项目名称 - 十字以内描述 如：“DesignDeck - 设计委托接案快3倍”',input_html: { class: "form-control"} %>
     </p>
     <p>
-      <%= r.input :past_project_description1, label: '项目描述1',placeholder: '该产品解决了什么问题？多少人多久完成？你的角色是什么？你在过程中学到了什么？',input_html: { class: "form-control"} %>
-    </p>
-    <div>
-      <% if @resume.past_project_image1.present? %>
-        <%= image_tag(@resume.past_project_image1.url, :id => "1") %>
-      <% else %>
-        图片预览处
-      <% end %>
-   </div>
-    <p>
-			<%= r.input :past_project_image1, as: :file , label: '项目截图1'%>
+      <%= r.input :past_project_description1, as: :text, label: '项目描述1',placeholder: '该产品解决了什么问题？多少人多久完成？你的角色是什么？你在过程中学到了什么？',input_html: { class: "form-control"} %>
     </p>
 
+    <!-- <p>
+			<%#= r.input :past_project_image1, as: :file , label: '项目截图1'%>
+    </p> -->
+
+<br>
 <h4>项目2（选填）</h4>
     <p>
       <%= r.input :past_project_title2, label: '项目名称2',placeholder: '格式应为：项目名称 - 十字以内描述 如：“DesignDeck - 设计委托接案快3倍”',input_html: { class: "form-control"} %>
     </p>
     <p>
-      <%= r.input :past_project_description2, label: '项目描述2',placeholder: '该产品解决了什么问题？多少人多久完成？你的角色是什么？你在过程中学到了什么？',input_html: { class: "form-control"} %>
-    </p>
-    <div>
-      <% if @resume.past_project_image2.present? %>
-        <%= image_tag(@resume.past_project_image2.url, :id => "1") %>
-      <% else %>
-        图片预览处
-      <% end %>
-   </div>
-    <p>
-			<%= r.input :past_project_image2, as: :file , label: '项目截图2'%>
+      <%= r.input :past_project_description2, as: :text, label: '项目描述2',placeholder: '该产品解决了什么问题？多少人多久完成？你的角色是什么？你在过程中学到了什么？',input_html: { class: "form-control"} %>
     </p>
 
+    <!-- <p>
+			<%#= r.input :past_project_image2, as: :file , label: '项目截图2'%>
+    </p> -->
+
+<br>
 <h4>项目3（选填）</h4>
     <p>
       <%= r.input :past_project_title3, label: '项目名称3',placeholder: '格式应为：项目名称 - 十字以内描述 如：“DesignDeck - 设计委托接案快3倍”',input_html: { class: "form-control"} %>
     </p>
     <p>
-      <%= r.input :past_project_description3, label: '项目描述3',placeholder: '该产品解决了什么问题？多少人多久完成？你的角色是什么？你在过程中学到了什么？',input_html: { class: "form-control"} %>
+      <%= r.input :past_project_description3, as: :text, label: '项目描述3',placeholder: '该产品解决了什么问题？多少人多久完成？你的角色是什么？你在过程中学到了什么？',input_html: { class: "form-control"} %>
     </p>
-    <div>
-      <% if @resume.past_project_image3.present? %>
-        <%= image_tag(@resume.past_project_image3.url, :id => "1") %>
-      <% else %>
-        图片预览处
-      <% end %>
-   </div>
-    <p>
-			<%= r.input :past_project_image3, as: :file , label: '项目截图3'%>
-    </p>
+    <!-- <p>
+			<%#= r.input :past_project_image3, as: :file , label: '项目截图3'%>
+    </p> -->
 
+<br>
 
   <%= r.submit "保存并进入下一步", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
 	<%= r.submit "仅保存", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "保存中..."} %>
@@ -84,6 +70,7 @@
  $("#resume_past_project_image1").change(function(){
      readURL(this);
  });
+
  //图片2
  function readURL(input) {
      if (input.files && input.files[0]) {
@@ -97,17 +84,30 @@
  $("#resume_past_project_image2").change(function(){
      readURL(this);
  });
+
  //图片3
  function readURL(input) {
-     if (input.files && input.files[0]) {
-         var reader = new FileReader();
-         reader.onload = function (e) {
-             $('#img-3').attr('src', e.target.result);
-         }
-         reader.readAsDataURL(input.files[0]);
-     }
- }
- $("#resume_past_project_image3").change(function(){
-     readURL(this);
- });
+ var uploadImage = $('#resume_past_project_image3');
+uploadImage.replaceWith(uploadImage = uploadImage.clone(true));
+ $("#resume_past_project_image3").on("change", function(){
+// Get a reference to the fileList
+var files = !!this.files ? this.files : [];
+
+// If no files were selected, or no FileReader support, return
+if (!files.length || !window.FileReader) return;
+
+// Only proceed if the selected file is an image
+if (/^image/.test( files[0].type)){
+
+    // Create a new instance of the FileReader
+    var reader = new FileReader();
+
+    // Read the local file as a DataURL
+    reader.readAsDataURL(files[0]);
+
+    // When loaded, set image data as background of div
+    reader.onloadend = function(){
+   $("#img-3").css("background-image","url("+this.result+")");
+    }
+}}});
  </script>

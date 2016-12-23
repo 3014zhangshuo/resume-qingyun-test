@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
   layout "pdf", only: [:show, :download]
   def index
-
+  
   end
 
   def show

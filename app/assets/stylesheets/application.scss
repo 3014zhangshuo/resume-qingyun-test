@@ -40,8 +40,11 @@
 	margin-top: 5%;
 }
 
-
-
+.sf-btn-hint {
+	font-style: italic;
+	font-size: 13px;
+	margin-top: 1%;
+}
 .auto-min-height{
   margin-bottom: 50px;
   min-height: 800px;
@@ -166,10 +169,10 @@
 
 /****************** begginning panel ********************/
 .panel {
-	border-color: #e35c1d;
+	border-color: #ea733b;
 	.panel-heading{
-		background-color: #e35c1d;
-		border-color: #e35c1d;
+		background-color: #ea733b;
+		border-color: #ea733b;
 	}
 }
 /****************** end panel ********************/
@@ -464,6 +467,7 @@
     background: #fff;
     margin-top: 20px;
     position: relative;
+		min-height: 326px;
 }
 .product-item:hover {
     box-shadow: 5px 5px rgba(234, 234, 234, 0.9);
@@ -524,7 +528,7 @@
 
 .product-item h3 {
     font-size: 14px;
-    font-weight: 300;
+    font-weight: 900;
     padding-bottom: 4px;
     text-transform: uppercase;
 }
