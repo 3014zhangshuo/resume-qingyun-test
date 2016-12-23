@@ -21,12 +21,15 @@
 <% unless current_page?('/') %>
     <div class="container-fluid" style="min-height:900px;">
         <%= render "common/navbar" %>
+				<div class="container">
         <%= render "common/flashes" %>
+				</div>
         <%= yield %>
     </div>
 
     <%= render "common/footer" %>
 <% else %>
+	<%= render "common/flashes" %>
 	<%= yield %>
 <% end %>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js"></script>
