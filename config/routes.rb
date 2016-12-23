@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 		get :entry
   end
 
+  get 'user/standard_resume' => 'user/resumes#standard_resume' ##简历标注模板页
+
   get 'user/resumes/pdf' => 'user/resumes#download'
   # get 'user/resumes/:resume_id/preview_pdf' => 'user/resumes#preview_download', as: :preview_download
   root 'welcome#index'

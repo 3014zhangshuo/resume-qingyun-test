@@ -15,7 +15,20 @@
 						</div>
 					</div>
 				</div>
-
+     <!-- 标准简历模板 -->
+				<div class="col-md-3 col-sm-6 col-xs-12">
+					 <div class="product-item">
+						 <div class="pi-img-wrapper">
+							 <%= image_tag "sampleresume.jpg", class: "img-responsive" %>
+							 <div>
+								 <%= link_to "进入",user_standard_resume_path, class:"btn" %>
+							 </div>
+						 </div>
+						 <h3 style="text-align: center;">新生大学全栈营</h3>
+						 <div class="pi-price">标注简历模板</div>
+					 </div>
+				 </div>
+     <!-- 标准简历模板结束 -->
 	      <% current_user.resumes.each do |resume| %>
 					<% if resume.resume_html.present? %>
 				    <div class="col-md-3 col-sm-6 col-xs-12">
