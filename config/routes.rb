@@ -26,6 +26,7 @@ Rails.application.routes.draw do
       get :save_html
       # 分页
       collection do
+
       end
       member do
         get :page1

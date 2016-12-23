@@ -90,6 +90,8 @@ class User::ResumesController < ApplicationController
   # 拆分页面
   def page1
     @resume = Resume.find(params[:id])
+    @resume.user = current_user
+    @resume.save!
   end
 
   def page1_commit
@@ -164,6 +166,8 @@ class User::ResumesController < ApplicationController
   end
 
 
+
+
   private
   # 50列参数
   def resume_params
@@ -181,6 +185,7 @@ class User::ResumesController < ApplicationController
     else
       resume.resume_html
     end
+
   end
 
 end

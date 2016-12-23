@@ -23,7 +23,7 @@
                     </a>
                     <ul class="dropdown-menu">
                        <li><%= link_to "我的简历", user_resumes_path %></li>
-											 <% if current_user.admin? %>
+             					 <% if current_user.admin? %>
                       	<li><%= link_to("Admin 选单", admin_users_path ) %></li>
                        <% end %>
                        <li class="divider"> </li>
