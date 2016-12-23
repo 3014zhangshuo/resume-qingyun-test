@@ -19,18 +19,20 @@
 		自己写一些简单的html。后来报名XXX课程并经过了3个月的高强度训练，快速学习到了编程的高阶技能。
 		<p>
 
-  <%= simple_form_for  [:user, @resume],url: page2_commit_user_resume_path(@resume),method: :post do |r| %>
-  <p>
-    <%= r.input :self_description, as: :text, label: '自我介绍',placeholder: '如何用200-300字让HR或者面试官迅速了解你？',input_html: { class: "form-control"} %>
-  </p>
+		<div class="panel panel-primary">
+			<div class="panel-heading">仔细阅读上方文字后，开始填写</div>
+				<div class="panel-body">
 
+			  <%= simple_form_for  [:user, @resume],url: page2_commit_user_resume_path(@resume),method: :post do |r| %>
+			  <p>
+			    <%= r.input :self_description, as: :text, label: '自我介绍',placeholder: '如何用200-300字让HR或者面试官迅速了解你？',input_html: { class: "form-control"} %>
+			  </p>
 
+				<%= r.submit "保存", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "保存中..."} %>
+				<%= r.submit "保存并进入下一步", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
 
-
-
-  <%= r.submit "保存并进入下一步", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
-	<%= r.submit "仅保存", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "保存中..."} %>
-	<% end %>
-
+				<% end %>
+			</div>
+		</div>
 	</div>
 </div>

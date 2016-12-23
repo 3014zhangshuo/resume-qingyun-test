@@ -2,22 +2,38 @@
 <div class="container">
 	<div class="col-md-12 auto-min-height">
 
-	  <h1>第一步：用一句话形容自己</h1>
-		<h2>一句话形容自己“可以带来”“给对方公司的价值”</h2>
 
 
   <%= simple_form_for  [:user, @resume], url: page1_commit_user_resume_path(@resume), controller:'user/resumes', action:'page1_commit', method: 'post' do |r| %>
 		<p><%= r.input :resume_name, required: true, label: '简历名称',placeholder: '请给这份简历命名，如“新生大学毕业简历”',input_html: { class: "form-control"} %></p>
 		<p><%= r.input :name_resume, required: true, label: '你的全名',placeholder: '如果有英文名，可以加在中文名的后面',input_html: { class: "form-control"} %></p>
+
+<br><br>
+			  <h1>第一步：用一句话形容自己</h1>
+				<h2>一句话形容自己“可以带来”“给对方公司的价值”</h2>
+
+				<p>填写要点：</p>
+
+				<ul>
+					<li>将自己放在面试官的角度来思考。</li>
+					<li>如果对方和你素未谋面，从简历上第一眼看到关于你的亮点应该是什么？</li>
+				</ul>
+
+				<p>实例：<br><br>我是一个擅长解决问题、乐于助人的快速学习者
+				</p>
+				<br><br>
+				<div class="panel panel-primary">
+					<div class="panel-heading">仔细阅读上方文字后，开始填写</div>
+						<div class="panel-body">
+
 		<p><%= r.input :one_line_description, label: '用一句话形容自己',placeholder: '你能够给对方公司带来什么样的价值？',input_html: { class: "form-control"} %></p>
-
-
-		<p>(例如：我是一个擅长解决问题、乐于助人的快速学习者)</p>
 
 
 	  <%= r.submit "保存并进入下一步", class:"btn btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
 	  <% end %>
 
+			</div>
+		</div>
 
 	</div>
 </div>

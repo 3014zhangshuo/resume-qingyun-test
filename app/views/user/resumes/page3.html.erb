@@ -27,6 +27,10 @@
 			除了使用Ruby on Rails快速开发之外，还有关于项目敏捷管理、User Story、Growth Hacking、
 			团队协作、Onboarding、代码及网站性能优化和SEO等等技术之外的高级技能。</p>
 
+<br>
+<div class="panel panel-primary">
+	<div class="panel-heading">仔细阅读上方文字后，开始填写</div>
+		<div class="panel-body">
 
   <%= simple_form_for  [:user, @resume],url: page3_commit_user_resume_path(@resume),method: :post do |r| %>
 
@@ -40,9 +44,12 @@
 
 
 
-  <%= r.submit "保存并进入下一步", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
-	<%= r.submit "仅保存", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "保存中..."} %>
+  <%= r.submit "保存", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "保存中..."} %>
+	<%= r.submit "保存并进入下一步", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
+
 	<% end %>
 
+</div>
+</div>
 	</div>
 </div>

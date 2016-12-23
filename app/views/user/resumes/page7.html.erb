@@ -5,6 +5,11 @@
   <h1>第七步：列上自己的其他资讯</h1>
 	<h2>联系方式、Github、其他作品、社交网络个人页等</h2>
 
+	<br>
+	<div class="panel panel-primary">
+		<div class="panel-heading">尽可能全部写上，GitHub与技术博客尤其重要</div>
+			<div class="panel-body">
+
   <%= simple_form_for  [:user, @resume],url: page7_commit_user_resume_path(@resume),method: :post do |r| %>
 
 
@@ -25,11 +30,13 @@
     </p>
 
 
-  <%= r.submit "生成简历", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
-	<%= r.submit "仅保存", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "保存中..."} %>
+  <%= r.submit "生成简历*", class:"btn  btn-primary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
+	<%#= r.submit "仅保存", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "保存中..."} %>
 		<p class="sf-btn-hint">*：一旦生成，将无法返回表单，但可以在下一步编辑器直接修改</p>
   <% end %>
 
+</div>
+</div>
 
 	</div>
 </div>

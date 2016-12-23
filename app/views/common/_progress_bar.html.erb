@@ -58,9 +58,9 @@
         <% end %>
 			 </li>
 			 <% if current_page?(user_resume_preview_path(@resume)) %><li class="active"><% else %><li><% end %>
-         <%= link_to user_resume_preview_path(@resume) do  %>
+         <%#= link_to user_resume_preview_path(@resume) do  %>
          <%= content_tag :span, "8", :class => "step" %><%= content_tag :span, "生成简历", :class => "title" %>
-        <% end %>
+        <%# end %>
 			 </li>
 	 </ul>
 	 <div class="clearfix"></div><br><br>

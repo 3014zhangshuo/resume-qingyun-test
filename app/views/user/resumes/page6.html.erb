@@ -7,7 +7,10 @@
 	<h3>（最厉害项目放前面，不足3个项目可以选填。在生成建立后可以任意添加图片。）</h3>
 
 	<br>
-
+	<br>
+	<div class="panel panel-primary">
+		<div class="panel-heading">将自己做过长得最好看的项目截图展现出来</div>
+			<div class="panel-body">
   <%= simple_form_for  [:user, @resume],url: page6_commit_user_resume_path(@resume),method: :post do |r| %>
 
 <h4>项目1</h4>
@@ -52,7 +55,8 @@
   <%= r.submit "保存并进入下一步", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
 	<%= r.submit "仅保存", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "保存中..."} %>
 	<% end %>
-
+</div>
+</div>
 	</div>
 </div>
 

@@ -24,11 +24,15 @@
 		Growth Hack 等技术为公司贡献自己的力量，推进区块链的发展。
 	</p>
 
+	<div class="panel panel-primary">
+		<div class="panel-heading">仔细阅读上方文字后，开始填写</div>
+			<div class="panel-body">
+
   <%= simple_form_for  [:user, @resume],url: page4_commit_user_resume_path(@resume),method: :post do |r| %>
 
 
   <p>
-    <%= r.input :why_employer, as: :text, label: '为什么选择公司？',placeholder: '显示出你对公司有一定了解，会能够从众多简历中脱引而出',input_html: { class: "form-control"} %>
+    <%= r.input :why_employer, as: :text, label: '为什么选择应聘这家公司？',placeholder: '显示出你对公司有一定了解，会能够从众多简历中脱引而出',input_html: { class: "form-control"} %>
   </p>
 
 
@@ -37,5 +41,7 @@
 	<%= r.submit "仅保存", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "保存中..."} %>
 	<% end %>
 
+</div>
+</div>
 	</div>
 </div>
