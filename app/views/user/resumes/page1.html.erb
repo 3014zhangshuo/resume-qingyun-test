@@ -22,8 +22,8 @@
 
 
   <%= simple_form_for  [:user, @resume], url: page1_commit_user_resume_path(@resume), controller:'user/resumes', action:'page1_commit', method: 'post' do |r| %>
-		<p><%= r.input :resume_name, label: '简历名称',placeholder: '请给这份简历命名，如“新生大学毕业简历”',input_html: { class: "form-control"} %></p>
-		<p><%= r.input :name_resume, label: '你的全名',placeholder: '如果有英文名，可以加在中文名的后面',input_html: { class: "form-control"} %></p>
+		<p><%= r.input :resume_name, required: true, label: '简历名称',placeholder: '请给这份简历命名，如“新生大学毕业简历”',input_html: { class: "form-control"} %></p>
+		<p><%= r.input :name_resume, required: true, label: '你的全名',placeholder: '如果有英文名，可以加在中文名的后面',input_html: { class: "form-control"} %></p>
 		<p><%= r.input :one_line_description, label: '用一句话形容自己',placeholder: '你能够给对方公司带来什么样的价值？',input_html: { class: "form-control"} %></p>
 
 

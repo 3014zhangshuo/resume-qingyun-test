@@ -91,12 +91,11 @@
 					<p><%= resume.past_project_title1 %></p>
 					<p><%= resume.past_project_description1 %></p>
 					<p>
-						<%# binding.pry %>
-
-						<% if resume.past_project_image1.present? %>
-						<%= wicked_pdf_image_tag(resume.past_project_image1.thumb.url) %>
-						<% else %>
-						<% end %>
+						<%# if resume.past_project_image1.present? %>
+						<%#= wicked_pdf_image_tag(resume.past_project_image1.thumb.url) %>
+						<%# else %>
+						【请双击任意空白处添加图片】
+						<%# end %>
 					</p>
 
 
