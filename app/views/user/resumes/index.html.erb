@@ -38,8 +38,6 @@
 									 <%= image_tag "sampleresume.jpg", class: "img-responsive" %>
 									 <div>
 										 <%= link_to "编辑", user_resume_preview_path(resume), class:"btn" %>
-										 <!-- <a href="#" class="btn">编辑</a> -->
-										 <!-- <a href="#" class="btn">View</a> -->
 									 </div>
 								 </div>
 								 <h3>
@@ -52,8 +50,23 @@
 								 <div class="pi-price">更新于：<%= resume.created_at.strftime("%m/%e, %l:%M %p") %></div>
 								 <!-- <a href="javascript:;" class="btn add2cart">Add to cart</a> -->
 							 </div>
-							 <% end %>
 						</div>
+						<% else %>
+						<div class="col-md-3 col-sm-6 col-xs-12">
+								<div class="product-item">
+									<div class="pi-img-wrapper">
+										<!-- <img src="" class="img-responsive" alt="ResumeHere"> -->
+										<%= image_tag "sampleresume.jpg", class: "img-responsive" %>
+										<div>
+											<%= link_to "继续完成", page1_user_resume_path(resume), class:"btn" %>
+										</div>
+									</div>
+									<h3><%= resume.resume_name %></h3>
+									<div class="pi-price">更新于：<%= resume.created_at.strftime("%m/%e, %l:%M %p") %></div>
+									<!-- <a href="javascript:;" class="btn add2cart">Add to cart</a> -->
+								</div>
+						 </div>
+						<% end %>
 					 <% end %>
 				 </div>
 
