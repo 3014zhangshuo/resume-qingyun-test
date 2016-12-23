@@ -15,20 +15,7 @@
 						</div>
 					</div>
 				</div>
-     <!-- 标准简历模板 -->
-				<div class="col-md-3 col-sm-6 col-xs-12">
-					 <div class="product-item">
-						 <div class="pi-img-wrapper">
-							 <%= image_tag "sampleresume.jpg", class: "img-responsive" %>
-							 <div>
-								 <%= link_to "围观",user_standard_resume_path, class:"btn" %>
-							 </div>
-						 </div>
-						 <h3>[全栈营简历大赛冠军简历]</h3>
-						 <div class="pi-price">一份获得了90%面试概率的简历</div>
-					 </div>
-				 </div>
-     <!-- 标准简历模板结束 -->
+
 	      <% current_user.resumes.each do |resume| %>
 					<% if resume.resume_html.present? %>
            <div class="col-md-3 col-sm-6 col-xs-12">
@@ -37,7 +24,7 @@
 									 <!-- <img src="" class="img-responsive" alt="ResumeHere"> -->
 									 <%= image_tag "sampleresume.jpg", class: "img-responsive" %>
 									 <div>
-										 <%= link_to "编辑", user_resume_preview_path(resume), class:"btn" %>
+										 <%= link_to "编辑器修改", user_resume_preview_path(resume), class:"btn" %>
 									 </div>
 								 </div>
 								 <h3>
@@ -46,8 +33,9 @@
 									 <% else %>
 									  [未命名简历]
 									 <% end %>
+									 <i class="fa fa-check-circle-o pull-right">&nbsp;已生成</i>
 								 </h3>
-								 <div class="pi-price">更新于：<%= resume.created_at.strftime("%m/%e, %l:%M %p") %></div>
+								 <div class="pi-price">更新于：<%= resume.resume_html.updated_at.strftime("%m/%e, %l:%M %p") %></div>
 								 <!-- <a href="javascript:;" class="btn add2cart">Add to cart</a> -->
 							 </div>
 						</div>
@@ -61,13 +49,36 @@
 											<%= link_to "继续完成", page1_user_resume_path(resume), class:"btn" %>
 										</div>
 									</div>
-									<h3><%= resume.resume_name %></h3>
-									<div class="pi-price">更新于：<%= resume.created_at.strftime("%m/%e, %l:%M %p") %></div>
+									<h3>
+										<% if resume.resume_name.present? %>
+										 <%= resume.resume_name %>
+										<% else %>
+										 [未命名简历]
+										<% end %>
+										<i class="fa fa-pencil-square-o pull-right">&nbsp;未生成</i>
+									</h3>
+									<div class="pi-price">更新于：<%= resume.updated_at.strftime("%m/%e, %l:%M %p") %></div>
 									<!-- <a href="javascript:;" class="btn add2cart">Add to cart</a> -->
 								</div>
 						 </div>
 						<% end %>
 					 <% end %>
+
+ <!-- 标准简历模板 -->
+	 <div class="col-md-3 col-sm-6 col-xs-12">
+			<div class="product-item">
+				<div class="pi-img-wrapper">
+					<%= image_tag "sampleresume.jpg", class: "img-responsive" %>
+					<div>
+						<%= link_to "围观案例",user_standard_resume_path, class:"btn" %>
+					</div>
+				</div>
+				<h3>[全栈营简历大赛冠军简历]</h3>
+				<div class="pi-price">一份获得了90%面试概率的简历</div>
+			</div>
+		</div>
+ <!-- 标准简历模板结束 -->
+
 				 </div>
 
 	    </div>
