@@ -31,7 +31,7 @@
      <!-- 标准简历模板结束 -->
 	      <% current_user.resumes.each do |resume| %>
 					<% if resume.resume_html.present? %>
-				    <div class="col-md-3 col-sm-6 col-xs-12">
+           <div class="col-md-3 col-sm-6 col-xs-12">
 							 <div class="product-item">
 								 <div class="pi-img-wrapper">
 									 <!-- <img src="" class="img-responsive" alt="ResumeHere"> -->
@@ -46,10 +46,11 @@
 								 <div class="pi-price">更新于：<%= resume.created_at.strftime("%m/%e, %l:%M %p") %></div>
 								 <!-- <a href="javascript:;" class="btn add2cart">Add to cart</a> -->
 							 </div>
+							 <% end %>
 						</div>
 					 <% end %>
 				 </div>
-	      <% end %>
+
 	    </div>
 	  <!-- template_v1 -->
 	</div>
