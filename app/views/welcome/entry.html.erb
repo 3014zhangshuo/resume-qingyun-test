@@ -1,0 +1,66 @@
+<div class="container">
+	<!-- 功能解释图案 -->
+	<div class="row-wrp brdr-cont col-md-6 col-xs-12">
+	    <div class="how-it-work-wrp">
+	        <h2 style="font-size:30px;">开始填写简历</h2>
+	        <div id="letterSubTitle" class="sub-title italic">使用业内最强的“高频小套路”</div>
+	        <!--end sub-title-->
+	        <div class="step-wrap-cln">
+						<%= image_tag "entrypage.jpg", style: "width:100%" %>
+	        </div>
+
+	    </div>
+	    <!--end how-it-work-wrp-->
+	</div>
+	<!--功能解释图案结束 -->
+		<!-- 登陆或注册的nav-tab -->
+	<div class="col-md-6 col-xs-12" style="margin-top:5%; padding-bottom:5%;">
+		<div class="panel panel-primary">
+			<div class="panel-heading">登陆已有账户，或立刻注册成为简历达人</div>
+			<div class="panel-body">
+	  <ul class="nav nav-tabs">
+	    <li class="active"><a href="#home" data-toggle="tab">登陆</a></li>
+	    <li><a href="#profile" data-toggle="tab">注册</a></li>
+	  </ul>
+	  <div id="myTabContent" class="tab-content">
+
+	    <div class="tab-pane active in" id="home">
+	      <div id="tab">
+					<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+					  <div class="form-inputs">
+					    <%= f.input :email, label: "邮箱", required: false, autofocus: true %>
+					    <%= f.input :password, label: "密码", required: false %>
+					    <%= f.input :remember_me, label: "记住我", as: :boolean if devise_mapping.rememberable? %>
+					  </div>
+
+					  <div class="form-actions">
+					    <%= f.button :submit, "点击登陆" %>
+					  </div>
+					<% end %>
+					<%#= render "devise/shared/links" %>
+				</div>
+			</div>
+
+			<div class="tab-pane fade" id="profile">
+				<div id="tab2">
+					<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+						<%= f.error_notification %>
+						<div class="form-inputs">
+							<%= f.input :email, label: "邮箱", required: true, autofocus: true %>
+							<%= f.input :password, label: "密码", required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+							<%= f.input :password_confirmation, label: "确认密码", required: true %>
+						</div>
+						<div class="form-actions">
+							<%= f.button :submit, "点击注册" %>
+						</div>
+					<% end %>
+					<%#= render "devise/shared/links" %>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</div>
+<!-- 登陆或注册的nav-tab结束 -->
+
+</div>

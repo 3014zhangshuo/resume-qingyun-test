@@ -1,25 +1,41 @@
+<body class="resumeindexbg">
+	<div class="container">
+	<div class="col-md-12">
+	  <!-- 一个resume模型 -->
+	    <div class="row">
+	      <div class="col-md-3 col-sm-6 col-xs-12">
+					<div class="product-item">
+						<div class="pi-img-wrapper">
+							<%= link_to image_tag("https://www.materialui.co/materialIcons/content/add_circle_outline_grey_192x192.png", class:"img-responsive", width: "235px", height: "235px"),page1_user_resumes_path %>
+	        		<div>
+								<%= link_to '新建简历',page1_user_resumes_path ,:class => 'btn' %>
+							</div>
+						</div>
+					</div>
+				</div>
 
-<div class="col-md-12">
-  <!-- 一个resume模型 -->
-    <div class="row">
-      <div class="col-xs-6 col-lg-3" style="height: 450px">
-        <%= link_to image_tag("https://www.materialui.co/materialIcons/content/add_circle_outline_grey_192x192.png",width: "235px", height: "235px"),page1_user_resumes_path %>
-        <%= link_to '新建简历',page1_user_resumes_path ,:class => 'btn btn-primary' %>
-
-      </div>
-      <% current_user.resumes.each do |resume| %>
-        <div class="col-xs-3 col-lg-3" style="height: 450px">
-          <% if resume.present? %>
-            <%= link_to image_tag("http://ww2.sinaimg.cn/large/006tNc79gw1fayh3rn700j30dw0dwmyp.jpg",width: "235px", height: "235px"), user_resume_preview_path(resume) %>
-            <%= link_to "预览并编辑", user_resume_preview_path(resume), class: "btn btn-primary" %>
-
-            <%= link_to "下载简历", user_resumes_pdf_path , class: "btn btn-primary"%>
-            <% end %>
-
-        <h3> <br > <%= resume.created_at.strftime("%F %H:%M") %> </h3>
-        </div>
-      <% end %>
-
-    </div>
-  <!-- template_v1 -->
+	      <% current_user.resumes.each do |resume| %>
+				<div class="col-md-3 col-sm-6 col-xs-12">
+					<% if resume.present? %>
+							 <div class="product-item">
+								 <div class="pi-img-wrapper">
+									 <!-- <img src="" class="img-responsive" alt="ResumeHere"> -->
+									 <%= image_tag "sampleresume.jpg", class: "img-responsive" %>
+									 <div>
+										 <%= link_to "编辑", user_resume_preview_path(resume), class:"btn" %>
+										 <!-- <a href="#" class="btn">编辑</a> -->
+										 <!-- <a href="#" class="btn">View</a> -->
+									 </div>
+								 </div>
+								 <h3><%= resume.resume_name %></h3>
+								 <div class="pi-price">更新于：<%= resume.created_at.strftime("%m/%e, %l:%M %p") %></div>
+								 <!-- <a href="javascript:;" class="btn add2cart">Add to cart</a> -->
+							 </div>
+					 <% end %>
+				 </div>
+	      <% end %>
+	    </div>
+	  <!-- template_v1 -->
+	</div>
 </div>
+</body>

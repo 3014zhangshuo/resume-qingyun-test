@@ -53,7 +53,7 @@
 
 		<section>
 			<div class="sectionTitle">
-				<h1>为什么应征这份工作</h1>
+				<h1>为何应聘</h1>
 			</div>
 
 			<div class="sectionContent">
@@ -66,7 +66,7 @@
 
 		<section>
 			<div class="sectionTitle">
-				<h1>为什么你要选择我</h1>
+				<h1>为何选我</h1>
 			</div>
 
 			<div class="sectionContent">
@@ -83,7 +83,7 @@
 
 		<section>
 			<div class="sectionTitle">
-				<h1>完成项目展示</h1>
+				<h1>项目展示</h1>
 			</div>
 
 			<div class="sectionContent">
@@ -91,8 +91,10 @@
 					<p><%= resume.past_project_title1 %></p>
 					<p><%= resume.past_project_description1 %></p>
 					<p>
+						<%# binding.pry %>
+
 						<% if resume.past_project_image1.present? %>
-						<%= image_tag(resume.past_project_image1.thumb.url) %>
+						<%= wicked_pdf_image_tag(resume.past_project_image1.thumb.url) %>
 						<% else %>
 						<% end %>
 					</p>
@@ -123,7 +125,7 @@
 
 		<section>
 			<div class="sectionTitle">
-				<h1>立刻与我联系</h1>
+				<h1>联系方式</h1>
 			</div>
 
 			<div class="sectionContent">

@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :welcomes do
+  namespace :welcome do
+		get :entry
   end
 
   get 'user/resumes/pdf' => 'user/resumes#download'
@@ -22,6 +23,7 @@ Rails.application.routes.draw do
     resources :resumes do
     	get :preview
       post :relay
+      get :save_html
       # 分页
       collection do
         get :page1

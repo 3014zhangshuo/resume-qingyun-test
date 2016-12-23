@@ -7,4 +7,34 @@ class ApplicationController < ActionController::Base
 		end
 	end
 
+	def after_sign_up_path_for
+		user_resumes_path
+	end
+
+	def after_sign_in_path_for(resource)
+		user_resumes_path
+	end
+
+	private
+
+	def resource_name
+		:user
+	end
+	helper_method :resource_name
+
+	def resource
+		@resource ||= User.new
+	end
+	helper_method :resource
+
+	def devise_mapping
+		@devise_mapping ||= Devise.mappings[:user]
+	end
+	helper_method :devise_mapping
+
+	def resource_class
+		User
+	end
+	helper_method :resource_class
+
 end

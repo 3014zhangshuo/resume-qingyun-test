@@ -1,8 +1,13 @@
 class User::ResumesController < ApplicationController
   layout "pdf", only: [:download, :preview_download]
+  layout "preview_layout", only: :preview
+  layout false, only: :save_html
+  # layout 'preview_layout', only: :save_html
+
+
 
   def index
-    @resumes = current_user.resumes.all.order(created_at: :DESC)
+    @resumes = current_user.resumes.order(created_at: :DESC)
   end
 
 
@@ -43,6 +48,7 @@ class User::ResumesController < ApplicationController
 
   # 接受web发过来的编辑好的html数据，处理（如保存），之后redirect到显示这个html的pdf
   def relay
+
     @resume = Resume.find(params[:resume_id])
     @resume_html = resume_html_for_resume(@resume)
     @resume_html.content = params[:content]
@@ -50,11 +56,18 @@ class User::ResumesController < ApplicationController
     redirect_to user_resume_preview_path(@resume, format: :pdf)
   end
 
+  def save_html
+    @resume = Resume.find(params[:resume_id])
+    @resume_html = resume_html_for_resume(@resume)
+    @resume_html.content = params[:content]
+    @resume_html.save
+    # flash[:notice] = 'saved'
+  end
+
 
   def preview
-    # render layout: "preview_layout", locals: { resume: Resume.find(params[:resume_id]) }
+
     @resume = Resume.find(params[:resume_id])
-    # binding.pry
     respond_to do |format|
       format.html
       format.pdf do

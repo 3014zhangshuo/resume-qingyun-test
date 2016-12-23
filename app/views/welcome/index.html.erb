@@ -1,3 +1,6 @@
+<head>
+	<title>ResumeHack - Home Page</title>
+</head>
 
 <header class="page-header navbar navbar-default">
   <div class="container">
@@ -11,8 +14,8 @@
 
       <ul class="nav navbar-nav navbar-right nav-pills">
         <% if !current_user %>
-          <li><%= link_to(content_tag(:i, "注册", class: "fa fa-user"), new_user_registration_path) %> </li>
-          <li><%= link_to(content_tag(:i, '登入', class: 'fa fa-sign-in'), new_user_session_path) %></li>
+          <li><%#= link_to(content_tag(:i, "注册", class: "fa fa-user"), new_user_registration_path) %> </li>
+          <li><%#= link_to(content_tag(:i, '登入', class: 'fa fa-sign-in'), new_user_session_path) %></li>
         <% else %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -40,10 +43,13 @@
     <div class="container">
 
 			<br>
-      <h1 class="h1">再也不让自己辛苦撰写的简历石沉大海</h1>
-      <p class="p-lg hidden-xs">通过专业的详细指引升级简历，迅速成为HR眼中闪亮的自己</p>
-        <%= link_to '注册提升简历',new_user_resume_path,class: "btn btn-primary btn-lg" %>
-
+      <h1 class="h1">史上第一个为程序员量身定做的简历生成器</h1>
+      <p class="p-lg hidden-xs">基于Ruby界大神Xdite的终极简历“高频小套路”</p>
+			<% if current_user.blank? %>
+        <%= link_to '注册提升简历',welcome_entry_path,class: "btn btn-primary btn-lg" %>
+			<% else %>
+				<%= link_to '开始提升简历',user_resumes_path,class: "btn btn-primary btn-lg" %>
+			<% end %>
     </div>
   </div>
 
@@ -66,8 +72,8 @@
         <div class="col-md-4 col-sm-4">
           <div class="thumbnail"><span class="thumb-img"><img width="215" height="155" alt="clb icon" src="https://cdn-us-ec.yottaa.net/52e2a59b63e31e54d4003d89/www.livecareer.com/v~13.3e6/images/uploaded/lca/clb-icon-b.png?yocs=p_&amp;yoloc=us"/></span>
             <div class="caption">
-              <h3 class="h4">用成功的墨迹，粉刷你的每一段人生</h3>
-              <p>通过100份成功被BAT、500强录取的成功简历解析出的描述框架，搭建属于自己的故事。</p>
+              <h3 class="h4">珍惜生命，远离Word微软</h3>
+              <p>在精美的HTML页面直接编辑简历，所见即所得</p>
             </div>
           </div>
         </div>
@@ -130,40 +136,11 @@
     <div class="container">
 			<h1 class="h1">你，可以与众不同</h1>
 			<p class="p-lg hidden-xs">注册简历黑客，立刻从海量简历中脱引而出</p>
-      <a href="/membership/RegisterGuestUser.aspx?doctypecode=LETR" class="btn btn-primary btn-lg text-uppercase">这就开始，改变人生</a>
+			<%= link_to '这就开始，改变人生',welcome_entry_path,class: "btn btn-primary btn-lg" %>
     </div>
   </div>
 
 </div>
 	<!-- Insert default "BodyContentSub" markup here --><!-- Insert default "BodyContent" markup here -->
 
-<footer class="page-footer">
-  <div class="container">
-   <div class="row page-footer-top">
-     <div class="row page-footer-bottom">
-  		<aside class="col-xs-3">
-  			<a href="/" >
-  				<img class="logo" src="assets/RHLogo_v1.png" width="118" alt="LiveCareer" title="LiveCareer"/>
-  			</a>
-  		</aside>
-  		<aside class="col-lg-3 col-md-4 col-xs-5">
-          	<h5 class="title">客户服务</h5>
-          		<address>
-  					<a href="mailto:customerservice@resumehack.com">customerservice@resumehack.com
-  					</a><br/>
-          			800-65828830
-          		</address>
-        	</aside>
-        	<aside class="col-lg-3 col-xs-4">
-          	<h5 class="title">与我们保持联系</h5>
-          		<ul class="social-links">
-            			<li> <a target="_blank" href="//www.facebook.com/LiveCareer"> <i class="fa fa-facebook"></i></a> </li>
-            			<li> <a target="_blank" href="//twitter.com/intent/follow?source=followbutton&amp;variant=1.0&amp;screen_name=livecareer"> <i class="fa fa-twitter"></i></a> </li>
-            			<li> <a target="_blank" href="//plus.google.com/u/0/b/114659926374501281756/114659926374501281756/posts"> <i class="fa fa-google-plus"></i></a> </li>
-            			<li> <a target="_blank" href="//www.pinterest.com/livecareer"> <i class="fa fa-pinterest"></i></a> </li>
-          		</ul>
-        	</aside>
-      </div>
-    </div>
-  </div>
-</footer>
+<%= render "common/footer" %>
