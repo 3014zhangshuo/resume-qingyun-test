@@ -1,4 +1,8 @@
 class User::ResumesController < ApplicationController
+  # protect_from_forgery with: :null_session
+
+  # skip_before_action :verify_authenticity_token  #open when skip csrf token verify
+
   layout "pdf", only: [:download, :preview_download]
   layout "preview_layout", only: :preview
   layout false, only: :save_html
@@ -79,6 +83,22 @@ class User::ResumesController < ApplicationController
     # redirect_to user_resume_preview_path(@resume, format: :pdf)
   end
 
+  # froala的upload image实现
+  def upload_image
+
+    @resume = Resume.find(params[:resume_id])
+    @resume_image = @resume.resume_images.create
+    @resume_image.content = params[:image_content]
+    @resume_image.save
+
+    # binding.pry
+    
+    respond_to do |format|
+        format.json { render :json => { status: 'OK', link: @resume_image.content.url}}
+    end
+  end
+
+
 # 点击new生成简历跳转page1
   def new
     @resume = Resume.new
@@ -112,6 +132,8 @@ class User::ResumesController < ApplicationController
 
     if params[:commit] == "保存并进入下一步"
       redirect_to page3_user_resume_path(@resume)
+    elsif params[:commit] == "保存并修改上一步"
+      redirect_to page1_user_resume_path(@resume)
     else
       redirect_to page2_user_resume_path(@resume)
     end
@@ -127,6 +149,8 @@ class User::ResumesController < ApplicationController
 
     if params[:commit] == "保存并进入下一步"
       redirect_to page4_user_resume_path(@resume)
+    elsif params[:commit] == "保存并修改上一步"
+      redirect_to page2_user_resume_path(@resume)
     else
       redirect_to page3_user_resume_path(@resume)
     end
@@ -142,6 +166,8 @@ class User::ResumesController < ApplicationController
 
     if params[:commit] == "保存并进入下一步"
       redirect_to page5_user_resume_path(@resume)
+    elsif params[:commit] == "保存并修改上一步"
+      redirect_to page3_user_resume_path(@resume)
     else
       redirect_to page4_user_resume_path(@resume)
     end
@@ -157,6 +183,8 @@ class User::ResumesController < ApplicationController
 
     if params[:commit] == "保存并进入下一步"
       redirect_to page6_user_resume_path(@resume)
+    elsif params[:commit] == "保存并修改上一步"
+      redirect_to page4_user_resume_path(@resume)
     else
       redirect_to page5_user_resume_path(@resume)
     end
@@ -172,6 +200,8 @@ class User::ResumesController < ApplicationController
 
     if params[:commit] == "保存并进入下一步"
       redirect_to page7_user_resume_path(@resume)
+    elsif params[:commit] == "保存并修改上一步"
+      redirect_to page5_user_resume_path(@resume)
     else
       redirect_to page6_user_resume_path(@resume)
     end
@@ -185,12 +215,11 @@ class User::ResumesController < ApplicationController
     @resume = Resume.find(params[:id])
     @resume.update(resume_params)
 
-    if params[:commit] == "保存并进入下一步"
+    if params[:commit] == "生成简历"
       redirect_to user_resume_preview_path(@resume)
     else
       redirect_to page7_user_resume_path(@resume)
     end
-
   end
 
   def finish
@@ -199,7 +228,7 @@ class User::ResumesController < ApplicationController
 
   def standard_resume
   end
-  
+
 
 
 

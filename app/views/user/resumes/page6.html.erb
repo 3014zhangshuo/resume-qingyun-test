@@ -15,10 +15,10 @@
 
 <h4>项目1</h4>
     <p>
-      <%= r.input :past_project_title1, label: '项目名称1',placeholder: '格式应为：项目名称 - 十字以内描述 如：“DesignDeck - 设计委托接案快3倍”',input_html: { class: "form-control"} %>
+      <%= r.input :past_project_title1,required: true, label: '项目名称1',placeholder: '格式应为：项目名称 - 十字以内描述 如：“DesignDeck - 设计委托接案快3倍”',input_html: { class: "form-control"} %>
     </p>
     <p>
-      <%= r.input :past_project_description1, as: :text, label: '项目描述1',placeholder: '该产品解决了什么问题？多少人多久完成？你的角色是什么？你在过程中学到了什么？',input_html: { class: "form-control"} %>
+      <%= r.input :past_project_description1, as: :text,required: true, label: '项目描述1',placeholder: '该产品解决了什么问题？多少人多久完成？你的角色是什么？你在过程中学到了什么？',input_html: { class: "form-control"} %>
     </p>
 
     <!-- <p>
@@ -51,7 +51,7 @@
     </p> -->
 
 <br>
-
+  <%= r.submit "保存并修改上一步", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
   <%= r.submit "保存", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "保存中..."} %>
 	<%= r.submit "保存并进入下一步", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
 

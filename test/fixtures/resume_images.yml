@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: resume_images
+#
+#  id         :integer          not null, primary key
+#  resume_id  :integer
+#  content    :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  resume_id: 1
+  content: MyString
+
+two:
+  resume_id: 1
+  content: MyString
