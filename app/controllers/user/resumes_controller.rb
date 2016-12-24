@@ -112,6 +112,8 @@ class User::ResumesController < ApplicationController
 
     if params[:commit] == "保存并进入下一步"
       redirect_to page3_user_resume_path(@resume)
+    elsif params[:commit] == "保存并修改上一步"
+      redirect_to page1_user_resume_path(@resume)
     else
       redirect_to page2_user_resume_path(@resume)
     end
@@ -127,6 +129,8 @@ class User::ResumesController < ApplicationController
 
     if params[:commit] == "保存并进入下一步"
       redirect_to page4_user_resume_path(@resume)
+    elsif params[:commit] == "保存并修改上一步"
+      redirect_to page2_user_resume_path(@resume)
     else
       redirect_to page3_user_resume_path(@resume)
     end
@@ -142,6 +146,8 @@ class User::ResumesController < ApplicationController
 
     if params[:commit] == "保存并进入下一步"
       redirect_to page5_user_resume_path(@resume)
+    elsif params[:commit] == "保存并修改上一步"
+      redirect_to page3_user_resume_path(@resume)
     else
       redirect_to page4_user_resume_path(@resume)
     end
@@ -157,6 +163,8 @@ class User::ResumesController < ApplicationController
 
     if params[:commit] == "保存并进入下一步"
       redirect_to page6_user_resume_path(@resume)
+    elsif params[:commit] == "保存并修改上一步"
+      redirect_to page4_user_resume_path(@resume)
     else
       redirect_to page5_user_resume_path(@resume)
     end
@@ -172,6 +180,8 @@ class User::ResumesController < ApplicationController
 
     if params[:commit] == "保存并进入下一步"
       redirect_to page7_user_resume_path(@resume)
+    elsif params[:commit] == "保存并修改上一步"
+      redirect_to page5_user_resume_path(@resume)
     else
       redirect_to page6_user_resume_path(@resume)
     end
