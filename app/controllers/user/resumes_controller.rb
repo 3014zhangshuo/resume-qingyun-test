@@ -90,6 +90,8 @@ class User::ResumesController < ApplicationController
     @resume_image = @resume.resume_images.create
     @resume_image.content = params[:image_content]
     @resume_image.save
+
+    # binding.pry
     
     respond_to do |format|
         format.json { render :json => { status: 'OK', link: @resume_image.content.url}}
