@@ -25,12 +25,11 @@
 
 			  <%= simple_form_for  [:user, @resume],url: page2_commit_user_resume_path(@resume),method: :post do |r| %>
 			  <p>
-			    <%= r.input :self_description, required: true, as: :text, label: '自我介绍',placeholder: '如何用200-300字让HR或者面试官迅速了解你？',input_html: { class: "form-control"} %>
+			    <%= r.input :self_description, as: :text,required: true, label: '自我介绍',placeholder: '如何用200-300字让HR或者面试官迅速了解你？',input_html: { class: "form-control"} %>
 			  </p>
-
+        <%= r.submit "保存并修改上一步", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
 				<%= r.submit "保存", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "保存中..."} %>
 				<%= r.submit "保存并进入下一步", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
-
 				<% end %>
 			</div>
 		</div>
