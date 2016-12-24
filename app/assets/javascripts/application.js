@@ -43,6 +43,16 @@
 //= require plugins/table.min.js
 //= require plugins/url.min.js
 //= require plugins/video.min.js
-
-
 //= require_tree .
+
+
+
+
+
+
+
+    $(function() {
+      $('.alert').delay(500).fadeIn('normal', function() {
+          $(this).delay(1500).fadeOut(2000);
+          });
+      });
