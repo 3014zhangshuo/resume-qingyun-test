@@ -25,10 +25,11 @@ Rails.application.routes.draw do
     resources :resumes do
     	get :preview
       post :relay
-      get :save_html
+      post :save_html
+      
       # 分页
       collection do
-
+        post :upload_image
       end
       member do
         get :page1
