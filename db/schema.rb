@@ -10,11 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161222045536) do
+ActiveRecord::Schema.define(version: 20161224042412) do
 
   create_table "resume_htmls", force: :cascade do |t|
     t.integer  "resume_id"
     t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "resume_images", force: :cascade do |t|
+    t.integer  "resume_id"
+    t.string   "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

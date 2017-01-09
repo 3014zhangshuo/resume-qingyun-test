@@ -1,17 +1,17 @@
 # == Schema Information
 #
-# Table name: resume_htmls
+# Table name: resume_images
 #
 #  id         :integer          not null, primary key
 #  resume_id  :integer
-#  content    :text
+#  content    :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 require 'test_helper'
 
-class ResumeHtmlTest < ActiveSupport::TestCase
+class ResumeImageTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

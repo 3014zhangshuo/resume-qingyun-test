@@ -1,4 +1,8 @@
 class User::ResumesController < ApplicationController
+  # protect_from_forgery with: :null_session
+
+  # skip_before_action :verify_authenticity_token  #open when skip csrf token verify
+
   layout "pdf", only: [:download, :preview_download]
   layout "preview_layout", only: :preview
   layout false, only: :save_html
@@ -78,6 +82,22 @@ class User::ResumesController < ApplicationController
     end
     # redirect_to user_resume_preview_path(@resume, format: :pdf)
   end
+
+  # froala的upload image实现
+  def upload_image
+
+    @resume = Resume.find(params[:resume_id])
+    @resume_image = @resume.resume_images.create
+    @resume_image.content = params[:image_content]
+    @resume_image.save
+
+    # binding.pry
+    
+    respond_to do |format|
+        format.json { render :json => { status: 'OK', link: @resume_image.content.url}}
+    end
+  end
+
 
 # 点击new生成简历跳转page1
   def new
