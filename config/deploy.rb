@@ -5,6 +5,8 @@ lock "3.7.1"
 set :application, "ResumeHack"
 set :repo_url, "git@github.com:ResumeHack/ResumeHack.git"
 set :branch, "qingyun2"
+set :scm, :git
+set :deploy_via, :copy
 
 # Default branch is :master
 
