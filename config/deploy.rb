@@ -2,8 +2,8 @@
 
 lock "3.7.1"
 
-set :application, "blog"
-set :repo_url, "git@github.com:yungyuan/blog.git"
+set :application, "ResumeHack"
+set :repo_url, "https://github.com/ResumeHack/ResumeHack.git"
 
 # Default branch is :master
 
@@ -12,7 +12,7 @@ set :repo_url, "git@github.com:yungyuan/blog.git"
 
 # Default deploy_to directory is /var/www/my_app_name
 
-set :deploy_to, "/home/apps/blog"
+set :deploy_to, "/home/apps/ResumeHack"
 
 # Default value for :format is :airbrussh.
 
