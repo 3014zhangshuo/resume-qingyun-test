@@ -29,3 +29,5 @@ UserStory_1.0.rtf
 
 # Ignore application configuration
 /config/application.yml
+config/database.yml
+config/secrets.yml
