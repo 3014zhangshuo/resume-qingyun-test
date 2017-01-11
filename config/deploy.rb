@@ -4,6 +4,7 @@ lock "3.7.1"
 
 set :application, "ResumeHack"
 set :repo_url, "https://github.com/ResumeHack/ResumeHack.git"
+set :branch, "qingyun2"
 
 # Default branch is :master
 
