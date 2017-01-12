@@ -4,9 +4,9 @@ lock "3.7.1"
 
 set :application, "ResumeHack"
 set :repo_url, "git@github.com:ResumeHack/ResumeHack.git"
-set :branch, "137-heroku"
-# set :deploy_via, :copy
-set :deploy_via, :remote_cache
+set :branch, "qingyun2"
+set :deploy_via, :copy
+# set :deploy_via, :remote_cache
 
 # Default branch is :master
 
