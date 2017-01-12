@@ -19,9 +19,9 @@
 </div>
 
 <div class="container" style="text-align:center;">
-	<i style="font-size:25px">在下载之前，可以双击<bold>页面任何地方</bold>进行最终格式调整</i><br><br>
-	<%= link_to "保存", "#", class: "btn btn-primary", id: "save" %>
-</div>
+	<i style="font-size:25px">恭喜你成功生成简历，可以用下方编辑器任意调整、上传图片</i>
+
+<br><br>
 
 <% if @resume.resume_html.present? && @resume.resume_html.content.present? %>
 <div id="froala-editor">
@@ -32,9 +32,15 @@
 <% else %>
 <%= render partial: "resume_content", locals: { resume: @resume } %>
 <% end %>
-<a href="#" class="col-md-4 col-md-offset-4 btn btn-primary" id="print">生成并下载PDF格式简历</a>
 
+<br><br><br>
 
+<div class="container">
+<%= link_to "保存", "#", class: "btn btn-primary pull-center", id: "save" %>
+<a href="#" class="btn btn-primary pull-center" id="print">下载PDF格式</a>
+</div>
+
+</div>
 
 <br><br><br><br><br><br>
 
@@ -75,38 +81,42 @@
 
 
 	$(function() {
-		$('div#froala-editor').froalaEditor({
-			toolbarInline: true,
-			charCounterCount: false,
-			toolbarButtons: ['bold', 'italic', 'underline', 'strikeThrough', '-', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'indent', 'outdent', '-', 'insertImage', 'insertLink', 'undo', 'redo'],
-			toolbarVisibleWithoutSelection: false,
+		// $('div#froala-editor').froalaEditor({
+		// 	toolbarInline: true,
+		// 	charCounterCount: false,
+		// 	toolbarButtons: ['bold', 'italic', 'underline', 'strikeThrough', '-', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'indent', 'outdent', '-', 'insertImage', 'insertLink', 'undo', 'redo'],
+		// 	toolbarVisibleWithoutSelection: false,
 
-			imageUploadParam: 'image_content',
+	    $('div#froala-editor')
+	      .on('froalaEditor.initialized', function (e, editor) {
+	        editor.events.bindClick($('body'), 'a#get-text', function () {
+	          editor.html.set('');
+	          editor.events.focus();
+	        });
+	      })
+	      .froalaEditor({
 
-	        // Set the image upload URL.
-	        imageUploadURL: '<%= upload_image_user_resumes_path %>.json',
+					// heightMin: 200,
+					// heightMax: 1600,
+					// widthMin: 800,
+					// widthMax: 800,
 
-	        // Additional upload params.
-	        imageUploadParams: {resume_id: '<%= @resume.id %>', 'authenticity_token': $( 'meta[name="csrf-token"]' ).attr( 'content' )},
+					imageUploadParam: 'image_content',
 
-	        // Set request type.
-	        imageUploadMethod: 'POST',
+		        // Set the image upload URL.
+		        imageUploadURL: '<%= upload_image_user_resumes_path %>.json',
 
-	        // Set max image size to 5MB.
-	        imageMaxSize: 5 * 1024 * 1024,
+		        // Additional upload params.
+		        imageUploadParams: {resume_id: '<%= @resume.id %>', 'authenticity_token': $( 'meta[name="csrf-token"]' ).attr( 'content' )},
 
-	        // Allow to upload PNG and JPG.
-	        imageAllowedTypes: ['jpeg', 'jpg', 'png']
+		        // Set request type.
+		        imageUploadMethod: 'POST',
 
-		})
-	});
+		        // Set max image size to 5MB.
+		        imageMaxSize: 5 * 1024 * 1024,
 
-
-
-
-
-
-
-
+		        // Allow to upload PNG and JPG.
+		        imageAllowedTypes: ['jpeg', 'jpg', 'png']})
+	  });
 
 </script>
