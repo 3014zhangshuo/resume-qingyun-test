@@ -17,6 +17,8 @@ set :deploy_via, :copy
 
 set :deploy_to, "/home/apps/ResumeHack"
 
+set :passenger_restart_with_touch, true
+
 # Default value for :format is :airbrussh.
 
 # set :format, :airbrussh
