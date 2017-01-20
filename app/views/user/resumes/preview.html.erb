@@ -25,7 +25,7 @@
 
 <% if @resume.resume_html.present? && @resume.resume_html.content.present? %>
 <div id="froala-editor">
-	<div id="cv" class="instaFade">
+	<div id="cv"><!-- for visual effect add class "instaFade" -->
 		<%= @resume.resume_html.content.html_safe %>
 	</div>
 </div>
