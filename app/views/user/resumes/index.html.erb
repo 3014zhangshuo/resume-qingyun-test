@@ -10,7 +10,9 @@
 							<%= link_to image_tag("plussign_grey.jpg", class:"img-responsive", width: "235px", height: "235px"),new_user_resume_path%>
 
 	        		<div>
-								<%= link_to('新建简历',new_user_resume_path ,:class => 'btn') %>
+								<%= link_to new_user_resume_path ,:class => 'btn' do %>
+									<i class="fa fa-play-circle-o"></i>&nbsp;新建简历
+								<% end %>
 							</div>
 						</div>
 					</div>
@@ -24,7 +26,9 @@
 									 <!-- <img src="" class="img-responsive" alt="ResumeHere"> -->
 									 <%= image_tag "sampleresume.jpg", class: "img-responsive" %>
 									 <div>
-										 <%= link_to "编辑器修改", user_resume_preview_path(resume), class:"btn" %>
+										 <%= link_to user_resume_preview_path(resume), class:"btn" do %>
+										 	<i class="fa fa-pencil-square-o"></i>&nbsp;编辑器修改
+										 <% end %>
 									 </div>
 								 </div>
 								 <h3>
@@ -33,7 +37,7 @@
 									 <% else %>
 									  [未命名简历]
 									 <% end %>
-									 <i class="fa fa-check-circle-o pull-right">&nbsp;已生成</i>
+									 <span class="pull-right">&nbsp;已生成</span><i class="fa fa-check-circle-o pull-right status-g"></i>
 								 </h3>
 								 <div class="pi-price">更新于：<%= resume.resume_html.updated_at.strftime("%m/%e, %l:%M %p") %></div>
 								 <!-- <a href="javascript:;" class="btn add2cart">Add to cart</a> -->
@@ -46,7 +50,9 @@
 										<!-- <img src="" class="img-responsive" alt="ResumeHere"> -->
 										<%= image_tag "sampleresume.jpg", class: "img-responsive" %>
 										<div>
-											<%= link_to "继续完成", page1_user_resume_path(resume), class:"btn" %>
+											<%= link_to page1_user_resume_path(resume), class:"btn" do %>
+												<i class="fa fa-folder-open-o"></i>&nbsp;继续完成
+											<% end %>
 										</div>
 									</div>
 									<h3>
@@ -55,7 +61,7 @@
 										<% else %>
 										 [未命名简历]
 										<% end %>
-										<i class="fa fa-pencil-square-o pull-right">&nbsp;未生成</i>
+										<span class="pull-right">&nbsp;未生成</span><i class="fa fa-file-text-o pull-right status-r"></i>
 									</h3>
 									<div class="pi-price">更新于：<%= resume.updated_at.strftime("%m/%e, %l:%M %p") %></div>
 									<!-- <a href="javascript:;" class="btn add2cart">Add to cart</a> -->
@@ -70,7 +76,9 @@
 				<div class="pi-img-wrapper">
 					<%= image_tag "sampleresume.jpg", class: "img-responsive" %>
 					<div>
-						<%= link_to "围观案例",user_standard_resume_path, class:"btn" %>
+						<%= link_to user_standard_resume_path, class:"btn" do %>
+							<i class="fa fa-eye"></i>&nbsp;围观案例
+						<% end %>
 					</div>
 				</div>
 				<h3>Sample：全栈营大赛冠军简历</h3>

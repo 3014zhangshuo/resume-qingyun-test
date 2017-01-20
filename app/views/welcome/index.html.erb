@@ -6,7 +6,7 @@
   <div class="container">
     <div class="navbar-header">
       <button data-toggle="collapse" class="navbar-toggle collapsed" type="button"> <span id="open-nav" class="open-nav"><i class="fa fa-bars"></i> Menu</span><span id="close-nav" class="hidden-xs"><i class="fa fa-times"></i> Close</span></button>
-		<a href="/" class="navbar-brand"><img src="assets/RHLogo_v1.png" width="150"  alt="LiveCareer" title="LiveCareer"></a> </div>
+		<a href="/" class="navbar-brand"><img src="assets/RHLogo_v1.png" width="150"  alt="ResumeHack" title="ResumeHack"></a> </div>
     <div class="navbar-collapse collapse pull-right">
       <div class="row">
       <br>
@@ -17,20 +17,20 @@
           <li><%#= link_to(content_tag(:i, "注册", class: "fa fa-user"), new_user_registration_path) %> </li>
           <li><%#= link_to(content_tag(:i, '登入', class: 'fa fa-sign-in'), new_user_session_path) %></li>
         <% else %>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Hi!, <%= current_user.email %>
-                <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-               <li><%= link_to "我的简历", user_resumes_path %></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								<i class="fa fa-user-circle-o"></i>&nbsp;<%= current_user.resumes.first.name_resume %>
+								<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu">
+							 <li><%= link_to(content_tag(:i, "&nbsp;&nbsp;我的简历".html_safe, class: "fa fa-file-text-o"), user_resumes_path) %></li>
 							 <% if current_user.admin? %>
 								<li><%= link_to("Admin 选单", admin_users_path ) %></li>
 							 <% end %>
-               <li class="divider"> </li>
-               <li> <%= link_to(content_tag(:i, '登出', class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %> </li>
-            </ul>
-          </li>
+							 <li class="divider"> </li>
+							 <li> <%= link_to(content_tag(:i, '&nbsp;&nbsp;登出'.html_safe, class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %> </li>
+						</ul>
+					</li>
         <% end %>
       </ul>
     </div>
@@ -136,7 +136,12 @@
     <div class="container">
 			<h1 class="h1">你，其实与众不同</h1>
 			<p class="p-lg hidden-xs">点击注册，立刻从海量简历中脱引而出</p>
-			<%= link_to '这就开始，改变人生',welcome_entry_path,class: "btn btn-primary btn-lg" %>
+			<% if current_user.blank? %>
+				<%= link_to '这就开始，改变人生',welcome_entry_path,class: "btn btn-primary btn-lg" %>
+			<% else %>
+				<%= link_to '开始提升简历',user_resumes_path,class: "btn btn-primary btn-lg" %>
+			<% end %>
+
     </div>
   </div>
 
