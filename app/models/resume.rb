@@ -80,7 +80,7 @@ class Resume < ApplicationRecord
 
 include AASM
  aasm do
-	 state :not_start, initial: true
+	 state :drafting, initial: true
 	 state :submit_one
 	 state :edit_one
 	 state :submit_two
@@ -88,7 +88,7 @@ include AASM
 	 state :complete
 
 	 event :user_start do
-		 transitions from: :not_start, to: :submit_one
+		 transitions from: :drafting, to: :submit_one
 	 end
 
 	 event :expert_first_start do

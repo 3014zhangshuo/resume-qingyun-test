@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       resources :resumes do
         member do
          get :preview
+         post :save_html
         end
       end
 			member do

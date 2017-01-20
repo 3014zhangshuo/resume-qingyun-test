@@ -1,25 +1,8 @@
 <input type="hidden" id="refresh" value="no">
 <div id="notice"></div>
 
-<div class="container">
-	<div class="form-bootstrapWizard">
-		<ul class="bootstrapWizard form-wizard">
-			<li><span class="step not-allowed">1</span> <span class="title not-allowed">一句话</span></li>
-			<li> <span class="step not-allowed">2</span> <span class="title not-allowed">个人简介</span></li>
-			<li> <span class="step not-allowed">3</span> <span class="title not-allowed">过往经历</span></li>
-			<li> <span class="step not-allowed">4</span> <span class="title not-allowed">为何应聘</span></li>
-			<li> <span class="step not-allowed">5</span> <span class="title not-allowed">为何选你</span></li>
-			<li> <span class="step not-allowed">6</span> <span class="title not-allowed">项目展示</span></li>
-			<li> <span class="step not-allowed">7</span> <span class="title not-allowed">联系资讯</span></li>
-			<!-- <li> <span class="step">8</span> <span class="title">生成简历</span></li> -->
-			<li class="active"> <span class="step">8</span> <span class="title">生成简历</span></li>
-		</ul>
-		<div class="clearfix"></div><br><br>
-	</div>
-</div>
-
 <div class="container" style="text-align:center;">
-	<i style="font-size:25px">恭喜你成功生成简历，可以用下方编辑器任意调整、上传图片</i>
+	<i style="font-size:25px">后台改写简历</i>
 
 <br><br>
 
@@ -36,13 +19,16 @@
 <br><br><br>
 
 <div class="container">
-
+  <% if @resume.aasm_state = "submit_one" %>
 	<%= link_to "#", class: "btn btn-primary pull-center", id: "save" do %>
-		<i class="fa fa-save"></i>&nbsp;保存
+		<i class="fa fa-save"></i>&nbsp;保存专家修改一
 	<% end %>
-	<%= link_to "#", class: "btn btn-primary pull-center", id: "print" do %>
-		<i class="fa fa-cloud-download"></i>&nbsp;下载PDF格式
-	<% end %>
+  <% elsif @resume.aasm_state = "edit_one" %>
+  <%= link_to "#", class: "btn btn-primary pull-center", id: "save" do %>
+    <i class="fa fa-save"></i>&nbsp;保存专家修改二
+  <% end %>
+  <% end %>
+
 
 </div>
 
