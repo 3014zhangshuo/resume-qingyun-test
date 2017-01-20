@@ -220,6 +220,7 @@ class User::ResumesController < ApplicationController
     else
       redirect_to page7_user_resume_path(@resume)
     end
+
   end
 
   def finish
