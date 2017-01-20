@@ -136,7 +136,12 @@
     <div class="container">
 			<h1 class="h1">你，其实与众不同</h1>
 			<p class="p-lg hidden-xs">点击注册，立刻从海量简历中脱引而出</p>
-			<%= link_to '这就开始，改变人生',welcome_entry_path,class: "btn btn-primary btn-lg" %>
+			<% if current_user.blank? %>
+				<%= link_to '这就开始，改变人生',welcome_entry_path,class: "btn btn-primary btn-lg" %>
+			<% else %>
+				<%= link_to '开始提升简历',user_resumes_path,class: "btn btn-primary btn-lg" %>
+			<% end %>
+
     </div>
   </div>
 
