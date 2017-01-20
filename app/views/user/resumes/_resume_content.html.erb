@@ -1,5 +1,5 @@
 <div id="froala-editor">
-<div id="cv" class="instaFade">
+<div id="cv"> <!-- for visual effect add class "instaFade" -->
 	<div class="mainDetails">
 		<!-- <div id="headshot" class="quickFade">
 			<img src="headshot.jpg" alt="Alan Smith" />
@@ -7,8 +7,8 @@
 
 		<div id="name">
 			<% resume ||= Resume.find(params[:resume_id]) %>
-			<h1 class="quickFade delayTwo">你好，我是<%= resume.name_resume %></h1>
-			<h3 class="quickFade delayThree">  <%= resume.one_line_description %></h3>
+			<h1>你好，我是<%= resume.name_resume %></h1><!-- for visual effect add class "quickFade delayTwo" -->
+			<h3>  <%= resume.one_line_description %></h3><!-- for visual effect add class "quickFade delayThree" -->
 		</div>
 
 		<!-- <div id="contactDetails" class="quickFade delayFour">
@@ -21,7 +21,7 @@
 		<div class="clear"></div>
 	</div>
 
-	<div id="mainArea" class="quickFade delayFive">
+	<div id="mainArea"><!-- for visual effect add class "quickFade delayFive" -->
 		<section>
 			<article>
 				<div class="sectionTitle">
