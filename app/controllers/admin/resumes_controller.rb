@@ -3,7 +3,7 @@ class Admin::ResumesController < ApplicationController
   before_action :admin_required
 
   def index
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
     @resumes = @user.resumes
   end
 
