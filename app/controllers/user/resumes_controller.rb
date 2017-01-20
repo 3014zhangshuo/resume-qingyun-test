@@ -64,6 +64,15 @@ class User::ResumesController < ApplicationController
     @resume = Resume.find(params[:resume_id])
     @resume_html = resume_html_for_resume(@resume)
     @resume_html.content = params[:content]
+    # if @resume.aasm_state == "submit_one"
+    #   @resume.expert_first_start!
+    # elsif @resume.aasm_state == "edit_one"
+    #   @resume.expert_first_done!
+    # elsif @resume.aasm_state == "submit_two"
+    #   @resume.expert_second_start!
+    # elsif @resume.aasm_state == "edit_two"
+    #   @resuem.expert_second_done!
+    # end
     @resume_html.save
     # flash[:notice] = 'saved'
   end
