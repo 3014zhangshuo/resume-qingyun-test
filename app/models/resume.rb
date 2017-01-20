@@ -80,11 +80,16 @@ class Resume < ApplicationRecord
 
 include AASM
  aasm do
-	 state :submit_one, initial: true
+	 state :not_start, initial: true
+	 state :submit_one
 	 state :edit_one
 	 state :submit_two
 	 state :edit_two
 	 state :complete
+
+	 event :user_start do
+		 transitions from: :not_start, to: :submit_one
+	 end
 
 	 event :expert_first_start do
 		 transitions from: :submit_one, to: :edit_one
