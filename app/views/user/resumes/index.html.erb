@@ -33,7 +33,7 @@
 									 <% else %>
 									  [未命名简历]
 									 <% end %>
-									 <i class="fa fa-check-circle-o pull-right">&nbsp;已生成</i>
+									 <span class="pull-right">&nbsp;已生成</span><i class="fa fa-check-circle-o pull-right status-g"></i>
 								 </h3>
 								 <div class="pi-price">更新于：<%= resume.resume_html.updated_at.strftime("%m/%e, %l:%M %p") %></div>
 								 <!-- <a href="javascript:;" class="btn add2cart">Add to cart</a> -->
@@ -55,7 +55,7 @@
 										<% else %>
 										 [未命名简历]
 										<% end %>
-										<i class="fa fa-pencil-square-o pull-right">&nbsp;未生成</i>
+										<span class="pull-right">&nbsp;未生成</span><i class="fa fa-pencil-square-o pull-right status-r"></i>
 									</h3>
 									<div class="pi-price">更新于：<%= resume.updated_at.strftime("%m/%e, %l:%M %p") %></div>
 									<!-- <a href="javascript:;" class="btn add2cart">Add to cart</a> -->
