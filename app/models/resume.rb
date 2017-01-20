@@ -77,4 +77,30 @@ class Resume < ApplicationRecord
  	mount_uploader :past_project_image2, ImageUploader
  	mount_uploader :past_project_image3, ImageUploader
 
+
+include AASM
+ aasm do
+	 state :submit_one, initial: true
+	 state :edit_one
+	 state :submit_two
+	 state :edit_two
+	 state :complete
+
+	 event :expert_first_start do
+		 transitions from: :submit_one, to: :edit_one
+	 end
+
+	 event :expert_first_done do
+		 transitions from: :edit_one, to: :submit_two
+	 end
+
+	 event :expert_second_start do
+		 transitions from: :submit_two, to: :edit_two
+	 end
+
+	 event :expert_second_done do
+		 transitions from: :edit_two, to: :complete
+	 end
+ end
+
 end
