@@ -1,0 +1,128 @@
+<input type="hidden" id="refresh" value="no">
+<div id="notice"></div>
+
+<div class="container">
+	<div class="form-bootstrapWizard">
+		<ul class="bootstrapWizard form-wizard">
+			<li><span class="step not-allowed">1</span> <span class="title not-allowed">一句话</span></li>
+			<li> <span class="step not-allowed">2</span> <span class="title not-allowed">个人简介</span></li>
+			<li> <span class="step not-allowed">3</span> <span class="title not-allowed">过往经历</span></li>
+			<li> <span class="step not-allowed">4</span> <span class="title not-allowed">为何应聘</span></li>
+			<li> <span class="step not-allowed">5</span> <span class="title not-allowed">为何选你</span></li>
+			<li> <span class="step not-allowed">6</span> <span class="title not-allowed">项目展示</span></li>
+			<li> <span class="step not-allowed">7</span> <span class="title not-allowed">联系资讯</span></li>
+			<!-- <li> <span class="step">8</span> <span class="title">生成简历</span></li> -->
+			<li class="active"> <span class="step">8</span> <span class="title">生成简历</span></li>
+		</ul>
+		<div class="clearfix"></div><br><br>
+	</div>
+</div>
+
+<div class="container" style="text-align:center;">
+	<i style="font-size:25px">恭喜你成功生成简历，可以用下方编辑器任意调整、上传图片</i>
+
+<br><br>
+
+<% if @resume.resume_html.present? && @resume.resume_html.content.present? %>
+<div id="froala-editor">
+	<div id="cv"><!-- for visual effect add class "instaFade" -->
+		<%= @resume.resume_html.content.html_safe %>
+	</div>
+</div>
+<% else %>
+<%= render partial: "resume_content", locals: { resume: @resume } %>
+<% end %>
+
+<br><br><br>
+
+<div class="container">
+
+	<%= link_to "#", class: "btn btn-primary pull-center", id: "save" do %>
+		<i class="fa fa-save"></i>&nbsp;保存
+	<% end %>
+	<%= link_to "#", class: "btn btn-primary pull-center", id: "print" do %>
+		<i class="fa fa-cloud-download"></i>&nbsp;下载PDF格式
+	<% end %>
+
+</div>
+
+</div>
+
+<br><br><br><br><br><br>
+
+
+<script type="text/javascript">
+
+	$(document).ready(function(e) {
+		var $input = $('#refresh');
+		$input.val() == 'yes' ? location.reload(true) : $input.val('yes');
+	});
+
+
+
+	$('#print').click(function(event) {
+		event.preventDefault();
+		$.ajax({
+			url: '<%= user_resume_relay_path(@resume) %>',
+			type: 'post',
+			data: { content: $('#cv').html() }
+		});
+		return false;
+	});
+
+	$('#save').click(function(event) {
+		event.preventDefault();
+		$.ajax({
+			url: '<%= user_resume_save_html_path(@resume) %>',
+			type: 'post',
+			data: { content: $('#cv').html() },
+			success: function(result){
+				$('#cv').html(result);
+      		// 加入提示的特效
+      		// $("#notice").html("<%= flash[:notice] %>");
+      	}
+      });
+		return false;
+	});
+
+
+	$(function() {
+		// $('div#froala-editor').froalaEditor({
+		// 	toolbarInline: true,
+		// 	charCounterCount: false,
+		// 	toolbarButtons: ['bold', 'italic', 'underline', 'strikeThrough', '-', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'indent', 'outdent', '-', 'insertImage', 'insertLink', 'undo', 'redo'],
+		// 	toolbarVisibleWithoutSelection: false,
+
+	    $('div#froala-editor')
+	      .on('froalaEditor.initialized', function (e, editor) {
+	        editor.events.bindClick($('body'), 'a#get-text', function () {
+	          editor.html.set('');
+	          editor.events.focus();
+	        });
+	      })
+	      .froalaEditor({
+
+					// heightMin: 200,
+					// heightMax: 1600,
+					// widthMin: 800,
+					// widthMax: 800,
+
+					imageUploadParam: 'image_content',
+
+		        // Set the image upload URL.
+		        imageUploadURL: '<%= upload_image_user_resumes_path %>.json',
+
+		        // Additional upload params.
+		        imageUploadParams: {resume_id: '<%= @resume.id %>', 'authenticity_token': $( 'meta[name="csrf-token"]' ).attr( 'content' )},
+
+		        // Set request type.
+		        imageUploadMethod: 'POST',
+
+		        // Set max image size to 5MB.
+		        imageMaxSize: 5 * 1024 * 1024,
+
+		        // Allow to upload PNG and JPG.
+		        imageAllowedTypes: ['jpeg', 'jpg', 'png']})
+	  });
+
+</script>

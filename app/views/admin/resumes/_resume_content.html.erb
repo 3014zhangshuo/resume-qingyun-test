@@ -1,0 +1,147 @@
+<div id="froala-editor">
+<div id="cv"> <!-- for visual effect add class "instaFade" -->
+	<div class="mainDetails">
+		<!-- <div id="headshot" class="quickFade">
+			<img src="headshot.jpg" alt="Alan Smith" />
+		</div> -->
+
+		<div id="name">
+			<% resume ||= Resume.find(params[:resume_id]) %>
+			<h1>你好，我是<%= resume.name_resume %></h1><!-- for visual effect add class "quickFade delayTwo" -->
+			<h3>  <%= resume.one_line_description %></h3><!-- for visual effect add class "quickFade delayThree" -->
+		</div>
+
+		<!-- <div id="contactDetails" class="quickFade delayFour">
+			<ul>
+				<li>e: <a href="mailto:joe@bloggs.com" target="_blank">joe@bloggs.com</a></li>
+				<li>w: <a href="http://www.bloggs.com">www.bloggs.com</a></li>
+				<li>m: 01234567890</li>
+			</ul>
+		</div> -->
+		<div class="clear"></div>
+	</div>
+
+	<div id="mainArea"><!-- for visual effect add class "quickFade delayFive" -->
+		<section>
+			<article>
+				<div class="sectionTitle">
+					<h1>关于我</h1>
+				</div>
+
+				<div class="sectionContent">
+					<p><%= resume.self_description %></p>
+				</div>
+			</article>
+			<div class="clear"></div>
+		</section>
+
+		<section>
+			<div class="sectionTitle">
+				<h1>我做过什么</h1>
+			</div>
+
+			<div class="sectionContent">
+				<article>
+					<!-- <h2><%#= resume. %></h2> -->
+					<!-- <p class="subDetails"><%#= resume. %></p> -->
+					<p><%= resume.past_description1 %></p>
+					<p><%= resume.past_description2 %></p>
+				</article>
+			</div>
+			<div class="clear"></div>
+		</section>
+
+		<section>
+			<div class="sectionTitle">
+				<h1>为何应聘</h1>
+			</div>
+
+			<div class="sectionContent">
+				<article>
+					<p><%= resume.why_employer %></p>
+				</article>
+			</div>
+			<div class="clear"></div>
+		</section>
+
+		<section>
+			<div class="sectionTitle">
+				<h1>为何选我</h1>
+			</div>
+
+			<div class="sectionContent">
+				<article>
+					<ul>
+						<li><%= resume.why_employee1 %></li>
+						<li><%= resume.why_employee2 %></li>
+						<li><%= resume.why_employee3 %></li>
+					</ul>
+				</article>
+			</div>
+			<div class="clear"></div>
+		</section>
+
+		<section>
+			<div class="sectionTitle">
+				<h1>项目展示</h1>
+			</div>
+
+			<div class="sectionContent">
+				<article>
+					<p><%= resume.past_project_title1 %></p>
+					<p><%= resume.past_project_description1 %></p>
+					<p>
+						<%# if resume.past_project_image1.present? %>
+						<%#= wicked_pdf_image_tag(resume.past_project_image1.thumb.url) %>
+						<%# else %>
+						【请双击任意空白处添加图片】
+						<%# end %>
+					</p>
+
+
+					<p><%= resume.past_project_title2 %></p>
+					<p><%= resume.past_project_description2 %></p>
+					<p>
+						<% if resume.past_project_image2.present? %>
+						<%= image_tag(resume.past_project_image2.thumb.url) %>
+						<% else %>
+						<% end %>
+					</p>
+
+					<p><%= resume.past_project_title3 %></p>
+					<p><%= resume.past_project_description3 %></p>
+					<p>
+						<% if resume.past_project_image3.present? %>
+						<%= image_tag(resume.past_project_image3.thumb.url) %>
+						<% else %>
+						<% end %>
+					</p>
+
+				</article>
+			</div>
+			<div class="clear"></div>
+		</section>
+
+		<section>
+			<div class="sectionTitle">
+				<h1>联系方式</h1>
+			</div>
+
+			<div class="sectionContent">
+				<article>
+					<ul>
+						<li>手机：<%= resume.contact_details1 %></li>
+						<li>邮箱：<%= resume.contact_details2 %></li>
+						<li>GitHub：<%= resume.contact_details3 %></li>
+						<li>技术博客：<%= resume.contact_details4 %></li>
+					</ul>
+				</article>
+			</div>
+			<div class="clear"></div>
+		</section>
+
+	</div>
+</div>
+</div>
+
+<!-- </body> -->

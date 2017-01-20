@@ -13,7 +13,11 @@ Rails.application.routes.draw do
 
 	namespace :admin do
 		resources :users do
-      resources :resumes
+      resources :resumes do
+        member do
+         get :preview
+        end
+      end
 			member do
 				post :admin_state
 				post :user_state
