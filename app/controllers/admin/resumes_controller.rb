@@ -1,7 +1,7 @@
 class Admin::ResumesController < ApplicationController
   before_action :authenticate_user!
   before_action :admin_required
-
+  layout "admin"
   def index
     @user = User.find(params[:user_id])
     @resumes = @user.resumes

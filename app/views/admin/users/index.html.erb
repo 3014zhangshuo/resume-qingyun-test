@@ -13,7 +13,7 @@
                 <% @users.each do |user| %>
                 <tr>
                     <td><%= user.email %></td>
-                    <td><%= link_to(user.resumes.count, admin_user_resumes_path(user)) %></td>
+                    <td><%= link_to(user.resumes.joins(:resume_html).count, admin_user_resumes_path(user)) %></td>
                     <td>
                       <% if user.admin? %>
                         <%= link_to("User", user_state_admin_user_path(user), method: :post, :data => { :confirm => "确定要取消此账号admin权限？？" }) %>

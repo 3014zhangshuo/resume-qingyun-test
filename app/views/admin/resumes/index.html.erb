@@ -8,7 +8,7 @@
              <!-- <img src="" class="img-responsive" alt="ResumeHere"> -->
              <%= image_tag "sampleresume.jpg", class: "img-responsive" %>
              <div>
-               <%= link_to  admin_user_resume_preview_path(:resume_id => resume.id), class:"btn" do %>
+               <%= link_to admin_user_resume_preview_path(:resume_id => resume.id), class:"btn" do %>
                 <i class="fa fa-pencil-square-o"></i>&nbsp;编辑器修改
                <% end %>
              </div>
