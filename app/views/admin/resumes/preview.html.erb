@@ -1,5 +1,5 @@
-<input type="hidden" id="refresh" value="no">
-<div id="notice"></div>
+<input type="hidden" class="refresh" value="no">
+<!-- <div id="notice"></div> -->
 
 <div class="container" style="text-align:center;">
 	<i style="font-size:25px">后台改写简历</i>
@@ -7,8 +7,8 @@
 <br><br>
 
 <% if @resume.resume_html.present? && @resume.resume_html.content.present? %>
-<div id="froala-editor">
-	<div id="cv"><!-- for visual effect add class "instaFade" -->
+<div class="froala-editor">
+	<div class="cv"><!-- for visual effect add class "instaFade" -->
 		<%= @resume.resume_html.content.html_safe %>
 	</div>
 </div>
@@ -19,12 +19,12 @@
 <br><br><br>
 
 <div class="container">
-  <% if @resume.aasm_state = "submit_one" %>
-	<%= link_to "#", class: "btn btn-primary pull-center", id: "save" do %>
+  <% if @resume.aasm_state == "submit_one" %>
+	<%= link_to "#", class: "btn btn-primary pull-center", class: "save" do %>
 		<i class="fa fa-save"></i>&nbsp;保存专家修改一
 	<% end %>
-  <% elsif @resume.aasm_state = "edit_one" %>
-  <%= link_to "#", class: "btn btn-primary pull-center", id: "save" do %>
+  <% elsif @resume.aasm_state == "submit_two" %>
+  <%= link_to "#", class: "btn btn-primary pull-center", class: "save" do %>
     <i class="fa fa-save"></i>&nbsp;保存专家修改二
   <% end %>
   <% end %>
@@ -40,7 +40,7 @@
 <script type="text/javascript">
 
 	$(document).ready(function(e) {
-		var $input = $('#refresh');
+		var $input = $('.refresh');
 		$input.val() == 'yes' ? location.reload(true) : $input.val('yes');
 	});
 
@@ -51,19 +51,19 @@
 		$.ajax({
 			url: '<%= user_resume_relay_path(@resume) %>',
 			type: 'post',
-			data: { content: $('#cv').html() }
+			data: { content: $('.cv').html() }
 		});
 		return false;
 	});
 
-	$('#save').click(function(event) {
+	$('.save').click(function(event) {
 		event.preventDefault();
 		$.ajax({
-			url: '<%= user_resume_save_html_path(@resume) %>',
+			url: '<%= admin_user_resume_save_html_path(@user,@resume) %>',
 			type: 'post',
-			data: { content: $('#cv').html() },
+			data: { content: $('.cv').html() },
 			success: function(result){
-				$('#cv').html(result);
+				$('.cv').html(result);
       		// 加入提示的特效
       		// $("#notice").html("<%= flash[:notice] %>");
       	}
@@ -79,7 +79,7 @@
 		// 	toolbarButtons: ['bold', 'italic', 'underline', 'strikeThrough', '-', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'indent', 'outdent', '-', 'insertImage', 'insertLink', 'undo', 'redo'],
 		// 	toolbarVisibleWithoutSelection: false,
 
-	    $('div#froala-editor')
+	    $('div.froala-editor')
 	      .on('froalaEditor.initialized', function (e, editor) {
 	        editor.events.bindClick($('body'), 'a#get-text', function () {
 	          editor.html.set('');
