@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
  before_action :admin_required
  layout "admin"
  def index
-   @users = User.where.not(id: current_user.id)
+   @users = User.all
  end
 
  def admin_state

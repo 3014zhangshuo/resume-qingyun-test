@@ -12,3 +12,158 @@
     box-shadow: 3px 3px 0px transparent;
     transition: 0.5s;
     }
+
+
+    #cv1 {
+    	width: 90%;
+    	max-width: 800px;
+    	background: #f3f3f3;
+    	margin: 30px auto;
+    }
+
+    .mainDetails {
+    	padding: 25px 35px;
+    	border-bottom: 2px solid #cf8a05;
+    	background: #ededed;
+    }
+
+    #name1 h1 {
+    	font-size: 2.5em;
+    	font-weight: 700;
+    	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
+    	margin-bottom: -6px;
+    }
+
+    #name1 h2 {
+    	font-size: 2em;
+    	margin-left: 2px;
+    	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
+    }
+
+    #mainArea1 {
+    	padding: 0 40px;
+    }
+
+    #headshot1 {
+    	width: 12.5%;
+    	float: left;
+    	margin-right: 30px;
+    }
+
+    #headshot1 img {
+    	width: 100%;
+    	height: auto;
+    	-webkit-border-radius: 50px;
+    	border-radius: 50px;
+    }
+
+    #name1 {
+    	float: left;
+    }
+
+    #contactDetails1 {
+    	float: right;
+    }
+
+    #contactDetails1 ul {
+    	list-style-type: none;
+    	font-size: 0.9em;
+    	margin-top: 2px;
+    }
+
+    #contactDetails1 ul li {
+    	margin-bottom: 3px;
+    	color: #444;
+    }
+
+    #contactDetails1 ul li a, a[href^=tel] {
+    	color: #444;
+    	text-decoration: none;
+    	-webkit-transition: all .3s ease-in;
+    	-moz-transition: all .3s ease-in;
+    	-o-transition: all .3s ease-in;
+    	-ms-transition: all .3s ease-in;
+    	transition: all .3s ease-in;
+    }
+
+    #contactDetails1 ul li a:hover {
+    	color: #cf8a05;
+    }
+
+
+    section {
+    	border-top: 1px solid #dedede;
+    	padding: 20px 0 0;
+    }
+
+    section:first-child {
+    	border-top: 0;
+    }
+
+    section:last-child {
+    	padding: 20px 0 10px;
+    }
+
+
+
+    .sectionTitle h1 {
+    	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
+    	font-style: italic;
+    	font-size: 1.5em;
+    	color: #cf8a05;
+    }
+
+    .sectionContent h2 {
+    	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
+    	font-size: 1.5em;
+    	margin-bottom: -2px;
+    }
+
+
+
+    .keySkills ul li {
+    	margin-bottom: 3px;
+    }
+
+    @media all and (min-width: 602px) and (max-width: 800px) {
+    	#headshot1 {
+    		display: none;
+    	}
+
+
+    }
+
+    @media all and (max-width: 601px) {
+    	#cv1 {
+    		width: 95%;
+    		margin: 10px auto;
+    		min-width: 280px;
+    	}
+
+    	#headshot1 {
+    		display: none;
+    	}
+
+    	#name1, #contactDetails1 {
+    		float: none;
+    		width: 100%;
+    		text-align: center;
+    	}
+    }
+
+    @media all and (max-width: 480px) {
+
+    	section {
+    		padding: 15px 0 0;
+    	}
+
+    	#mainArea1 {
+    		padding: 0 25px;
+    	}
+
+
+    	#name1 h1 {
+    		line-height: .8em;
+    		margin-bottom: 4px;
+    	}
+    }
