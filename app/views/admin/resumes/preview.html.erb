@@ -1,4 +1,4 @@
-<input type="hidden" class="refresh" value="no">
+<input type="hidden" id="refresh1" value="no">
 <!-- <div id="notice"></div> -->
 
 <div class="container" style="text-align:center;">
@@ -38,7 +38,7 @@
 <script type="text/javascript">
 
 	$(document).ready(function(e) {
-		var $input = $('.refresh');
+		var $input = $('#refresh1');
 		$input.val() == 'yes' ? location.reload(true) : $input.val('yes');
 	});
 
@@ -70,7 +70,7 @@
 	});
 
 
-	$(function() {
+	$(document).ready(function() {
 		// $('div#froala-editor').froalaEditor({
 		// 	toolbarInline: true,
 		// 	charCounterCount: false,
