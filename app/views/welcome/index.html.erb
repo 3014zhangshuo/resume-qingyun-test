@@ -20,16 +20,16 @@
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							<% if current_user.resumes.present? %>
-							<i class="fa fa-user-circle-o"></i>&nbsp;<%= current_user.resumes.first.name_resume %>
-							<% else %>
-							<i class="fa fa-user-circle-o"></i>&nbsp;<%= current_user.email %>
-							<% end %>
+	            <i class="fa fa-user-circle-o"></i>&nbsp;<%= current_user.resumes.first.name_resume %>
+	            <% else %>
+	            <i class="fa fa-user-circle-o"></i>&nbsp;<%= current_user.email %>
+	            <% end %>
 								<b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu">
 							 <li><%= link_to(content_tag(:i, "&nbsp;&nbsp;我的简历".html_safe, class: "fa fa-file-text-o"), user_resumes_path) %></li>
 							 <% if current_user.admin? %>
-								<li><%= link_to("Admin 选单", admin_users_path ) %></li>
+								<li><%= link_to(content_tag(:i, "&nbsp;&nbsp;Admin选单".html_safe, class: "fa fa-users"), admin_users_path ) %></li>
 							 <% end %>
 							 <li class="divider"> </li>
 							 <li> <%= link_to(content_tag(:i, '&nbsp;&nbsp;登出'.html_safe, class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %> </li>

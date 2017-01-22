@@ -64,6 +64,11 @@ class User::ResumesController < ApplicationController
     @resume = Resume.find(params[:resume_id])
     @resume_html = resume_html_for_resume(@resume)
     @resume_html.content = params[:content]
+    if @resume.aasm_state == "edit_one"
+      @resume.expert_first_done!
+    elsif @resume.aasm_state == "edit_two"
+      @resume.expert_second_done!
+    end
     @resume_html.save
     # flash[:notice] = 'saved'
   end
@@ -92,7 +97,7 @@ class User::ResumesController < ApplicationController
     @resume_image.save
 
     # binding.pry
-    
+
     respond_to do |format|
         format.json { render :json => { status: 'OK', link: @resume_image.content.url}}
     end
@@ -216,6 +221,7 @@ class User::ResumesController < ApplicationController
     @resume.update(resume_params)
 
     if params[:commit] == "生成简历"
+      @resume.user_start!
       redirect_to user_resume_preview_path(@resume)
     else
       redirect_to page7_user_resume_path(@resume)

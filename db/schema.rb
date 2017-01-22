@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161224042412) do
+ActiveRecord::Schema.define(version: 20170120165817) do
 
   create_table "resume_htmls", force: :cascade do |t|
     t.integer  "resume_id"
@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 20161224042412) do
   end
 
   create_table "resumes", force: :cascade do |t|
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
     t.string   "one_line_description"
     t.string   "self_description"
     t.string   "past_description1"
@@ -90,6 +90,8 @@ ActiveRecord::Schema.define(version: 20161224042412) do
     t.string   "answer58"
     t.string   "answer59"
     t.integer  "user_id"
+    t.string   "aasm_state",                default: "drafting"
+    t.index ["aasm_state"], name: "index_resumes_on_aasm_state"
   end
 
   create_table "users", force: :cascade do |t|
