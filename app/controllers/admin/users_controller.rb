@@ -2,6 +2,7 @@ class Admin::UsersController < ApplicationController
  before_action :authenticate_user!
  before_action :admin_required
  layout "admin"
+ layout false, only: :save_html
  def index
    @users = User.all
  end
