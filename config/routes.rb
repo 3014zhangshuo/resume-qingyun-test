@@ -13,6 +13,12 @@ Rails.application.routes.draw do
 
 	namespace :admin do
 		resources :users do
+      resources :resumes do
+
+         get :preview
+         post :save_html
+        
+      end
 			member do
 				post :admin_state
 				post :user_state
@@ -26,7 +32,7 @@ Rails.application.routes.draw do
     	get :preview
       post :relay
       post :save_html
-      
+
       # 分页
       collection do
         post :upload_image

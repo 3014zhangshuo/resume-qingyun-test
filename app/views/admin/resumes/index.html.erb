@@ -1,0 +1,30 @@
+
+<div class="container" style="margin-bottom:300px;">
+<div class="row">
+  <% @user.resumes.each do |resume| %>
+    <% if resume.resume_html.present? %>
+     <div class="col-md-3 col-sm-6 col-xs-12">
+         <div class="product-item">
+           <div class="pi-img-wrapper">
+             <!-- <img src="" class="img-responsive" alt="ResumeHere"> -->
+             <%= image_tag "sampleresume.jpg", class: "img-responsive" %>
+             <div>
+               <%= link_to admin_user_resume_preview_path(:resume_id => resume.id), class:"btn" do %>
+                <i class="fa fa-pencil-square-o"></i>&nbsp;编辑器修改
+               <% end %>
+             </div>
+           </div>
+           <h3>
+             <% if resume.resume_name.present? %>
+              <%= resume.resume_name %>
+             <% else %>
+              [未命名简历]
+             <% end %>
+             <span class="pull-right">&nbsp;已生成</span><i class="fa fa-check-circle-o pull-right status-g"></i>
+           </h3>
+           <div class="pi-price">更新于：<%= resume.resume_html.updated_at.strftime("%m/%e, %l:%M %p") %></div>
+         </div>
+      </div>
+     <% end %>
+    <% end %>
+</div>
