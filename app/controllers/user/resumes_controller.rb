@@ -97,9 +97,11 @@ class User::ResumesController < ApplicationController
 
 	def first_submit
 		@resume = Resume.find(params[:resume_id])
-		if @resume.aasm_state = "ordered"
+		if @resume.aasm_state === "ordered"
 			@resume.user_start!
 		end
+		redirect_to user_resume_editor_path(@resume)
+  	flash[:notice] = "提交成功！导师将于24小时以内给予反馈"
 	end
 
 	def second_submit
@@ -107,6 +109,8 @@ class User::ResumesController < ApplicationController
 		if @resume.aasm_state = "edit_one"
 			@resume.user_second_start!
 		end
+		redirect_to user_resume_editor_path(@resume)
+  	flash[:notice] = "提交成功！导师将于24小时以内给予反馈"
 	end
 
 	def complete_resume
@@ -114,8 +118,10 @@ class User::ResumesController < ApplicationController
 		if @resume.aasm_state = "edit_two"
 			@resume.user_mark_complete!
 		end
+		redirect_to user_resumes_path
+  	flash[:notice] = "感谢您使用简历黑客！"
 	end
-	
+
 
   # froala的upload image实现
   def upload_image

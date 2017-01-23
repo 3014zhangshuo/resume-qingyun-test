@@ -27,7 +27,7 @@
 <div class="container">
 
 	<% if @resume.aasm_state == "ordered" %>
-		<%= link_to user_resume_first_submit_path, class: "btn btn-primary pull-center" do %>
+		<%= link_to user_resume_first_submit_path, class: "btn btn-primary pull-center", method: :post do %>
 			<i class="fa fa-save"></i>&nbsp;首次提交导师修改
 		<% end %>
 
@@ -37,7 +37,7 @@
 		<% end %>
 
 	<% elsif @resume.aasm_state == "edit_one" %>
-	  <%= link_to user_resume_second_submit_path, class: "btn btn-primary pull-center" do %>
+	  <%= link_to user_resume_second_submit_path, class: "btn btn-primary pull-center", method: :post do %>
 	    <i class="fa fa-save"></i>&nbsp;二次提交导师修改
 	  <% end %>
 
@@ -47,7 +47,7 @@
 		<% end %>
 
 	<% elsif @resume.aasm_state == "edit_two" %>
-		<%= link_to user_resume_complete_resume_path, class: "btn btn-primary pull-center" do %>
+		<%= link_to user_resume_complete_resume_path, class: "btn btn-primary pull-center", method: :post do %>
 			<i class="fa fa-save"></i>&nbsp;完成简历
 		<% end %>
 
