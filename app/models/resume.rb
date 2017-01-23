@@ -81,14 +81,19 @@ class Resume < ApplicationRecord
 include AASM
  aasm do
 	 state :drafting, initial: true
+	 state :ordered
 	 state :submit_one
 	 state :edit_one
 	 state :submit_two
 	 state :edit_two
 	 state :complete
 
+	 event :user_order do
+		 transitions from: :drafting, to: :ordered
+	 end
+
 	 event :user_start do
-		 transitions from: :drafting, to: :submit_one
+		 transitions from: :ordered, to: :submit_one
 	 end
 
 	 event :expert_first_start do
