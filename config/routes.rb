@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
          get :preview
          post :save_html
-        
+
       end
 			member do
 				post :admin_state
@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   namespace :user do
     resources :resumes do
     	get :preview
+			get :editor
       post :relay
       post :save_html
 
