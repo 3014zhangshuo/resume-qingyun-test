@@ -1,0 +1,29 @@
+
+<div class="container">
+<div class="form-bootstrapWizard">
+	 <ul class="bootstrapWizard-service form-wizard">
+
+		 <% if @resume.aasm_state == "submit_one" %><li class="active"><% else %><li><% end %>
+			 <%= content_tag :span, "1", :class => "step" %><%= content_tag :span, "学员第一稿", :class => "title" %>
+		 </li>
+
+		 <% if @resume.aasm_state == "edit_one" %><li class="active"><% else %><li><% end %>
+			 <%= content_tag :span, "2", :class => "step" %><%= content_tag :span, "导师第一改", :class => "title" %>
+		 </li>
+
+		 <% if @resume.aasm_state == "submit_two" %><li class="active"><% else %><li><% end %>
+			 <%= content_tag :span, "3", :class => "step" %><%= content_tag :span, "学员第二稿", :class => "title" %>
+		 </li>
+
+		 <% if @resume.aasm_state == "edit_two" %><li class="active"><% else %><li><% end %>
+			 <%= content_tag :span, "4", :class => "step" %><%= content_tag :span, "导师第二改", :class => "title" %>
+		 </li>
+
+		 <% if @resume.aasm_state == "complete" %><li class="active"><% else %><li><% end %>
+			 <%= content_tag :span, "5", :class => "step" %><%= content_tag :span, "简历完成", :class => "title" %>
+		 </li>
+
+	 </ul>
+	 <div class="clearfix"></div><br><br>
+</div>
+</div>
