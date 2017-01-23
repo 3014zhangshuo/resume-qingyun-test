@@ -64,11 +64,11 @@ class User::ResumesController < ApplicationController
     @resume = Resume.find(params[:resume_id])
     @resume_html = resume_html_for_resume(@resume)
     @resume_html.content = params[:content]
-    if @resume.aasm_state == "edit_one"
-      @resume.expert_first_done!
-    elsif @resume.aasm_state == "edit_two"
-      @resume.expert_second_done!
-    end
+    # if @resume.aasm_state == "edit_one"
+    #   @resume.expert_first_done!
+    # elsif @resume.aasm_state == "edit_two"
+    #   @resume.expert_second_done!
+    # end
     @resume_html.save
     # flash[:notice] = 'saved'
   end
@@ -90,15 +90,19 @@ class User::ResumesController < ApplicationController
 
 	def editor
 		@resume = Resume.find(params[:resume_id])
-		if @resume.aasm_state = "drafting"
+		if @resume.aasm_state == "drafting"
 			 @resume.user_order!
 		end
 	end
 
 	def first_submit
 		@resume = Resume.find(params[:resume_id])
-		if @resume.aasm_state === "ordered"
+    @resume_html = resume_html_for_resume(@resume)
+    @resume_html.content = params[:content]
+    @resume_html.save
+		if @resume.aasm_state == "ordered"
 			@resume.user_start!
+      #binding.pry
 		end
 		redirect_to user_resume_editor_path(@resume)
   	flash[:notice] = "提交成功！导师将于24小时以内给予反馈"
@@ -106,7 +110,10 @@ class User::ResumesController < ApplicationController
 
 	def second_submit
 		@resume = Resume.find(params[:resume_id])
-		if @resume.aasm_state = "edit_one"
+    @resume_html = resume_html_for_resume(@resume)
+    @resume_html.content = params[:content]
+    @resume_html.save
+		if @resume.aasm_state == "edit_one"
 			@resume.user_second_start!
 		end
 		redirect_to user_resume_editor_path(@resume)
@@ -115,7 +122,10 @@ class User::ResumesController < ApplicationController
 
 	def complete_resume
 		@resume = Resume.find(params[:resume_id])
-		if @resume.aasm_state = "edit_two"
+    @resume_html = resume_html_for_resume(@resume)
+    @resume_html.content = params[:content]
+    @resume_html.save
+		if @resume.aasm_state == "edit_two"
 			@resume.user_mark_complete!
 		end
 		redirect_to user_resumes_path

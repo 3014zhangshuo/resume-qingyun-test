@@ -27,7 +27,7 @@
 <div class="container">
 
 	<% if @resume.aasm_state == "ordered" %>
-		<%= link_to user_resume_first_submit_path, class: "btn btn-primary pull-center", method: :post do %>
+		<%= link_to "#", class: "btn btn-primary pull-center", id: "save_ordered", method: :post do %>
 			<i class="fa fa-save"></i>&nbsp;首次提交导师修改
 		<% end %>
 
@@ -37,7 +37,7 @@
 		<% end %>
 
 	<% elsif @resume.aasm_state == "edit_one" %>
-	  <%= link_to user_resume_second_submit_path, class: "btn btn-primary pull-center", method: :post do %>
+	  <%= link_to "#", class: "btn btn-primary pull-center", id: "save_edit_one",method: :post do %>
 	    <i class="fa fa-save"></i>&nbsp;二次提交导师修改
 	  <% end %>
 
@@ -47,7 +47,7 @@
 		<% end %>
 
 	<% elsif @resume.aasm_state == "edit_two" %>
-		<%= link_to user_resume_complete_resume_path, class: "btn btn-primary pull-center", method: :post do %>
+		<%= link_to "#", class: "btn btn-primary pull-center", id: "save_edit_two", method: :post do %>
 			<i class="fa fa-save"></i>&nbsp;完成简历
 		<% end %>
 
@@ -83,11 +83,11 @@
 		});
 		return false;
 	});
+// 用户三部完成简历的ajax
+	$('#save_ordered').click(function(event) {
 
-	$('#save').click(function(event) {
-		event.preventDefault();
 		$.ajax({
-			url: '<%= user_resume_save_html_path(@resume) %>',
+			url: '<%= user_resume_first_submit_path(@resume) %>',
 			type: 'post',
 			data: { content: $('#cv').html() },
 			success: function(result){
@@ -99,6 +99,37 @@
 		return false;
 	});
 
+
+	$('#save_edit_one').click(function(event) {
+
+		$.ajax({
+			url: '<%= user_resume_second_submit_path(@resume) %>',
+			type: 'post',
+			data: { content: $('#cv').html() },
+			success: function(result){
+				$('#cv').html(result);
+					// 加入提示的特效
+					// $("#notice").html("<%= flash[:notice] %>");
+				}
+			});
+		return false;
+	});
+
+	$('#save_edit_two').click(function(event) {
+
+		$.ajax({
+			url: '<%= user_resume_complete_resume_path(@resume) %>',
+			type: 'post',
+			data: { content: $('#cv').html() },
+			success: function(result){
+				$('#cv').html(result);
+					// 加入提示的特效
+					// $("#notice").html("<%= flash[:notice] %>");
+				}
+			});
+		return false;
+	});
+// 用户三部完成简历的ajax
 
 	$(function() {
 		// $('div#froala-editor').froalaEditor({
