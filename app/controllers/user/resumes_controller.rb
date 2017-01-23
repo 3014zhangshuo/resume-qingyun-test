@@ -88,6 +88,10 @@ class User::ResumesController < ApplicationController
     # redirect_to user_resume_preview_path(@resume, format: :pdf)
   end
 
+	def editor
+		@resume = Resume.find(params[:resume_id])
+	end
+
   # froala的upload image实现
   def upload_image
 
