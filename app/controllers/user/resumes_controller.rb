@@ -90,7 +90,32 @@ class User::ResumesController < ApplicationController
 
 	def editor
 		@resume = Resume.find(params[:resume_id])
+		if @resume.aasm_state = "drafting"
+			 @resume.user_order!
+		end
 	end
+
+	def first_submit
+		@resume = Resume.find(params[:resume_id])
+		if @resume.aasm_state = "ordered"
+			@resume.user_start!
+		end
+	end
+
+	def second_submit
+		@resume = Resume.find(params[:resume_id])
+		if @resume.aasm_state = "edit_one"
+			@resume.user_second_start!
+		end
+	end
+
+	def complete_resume
+		@resume = Resume.find(params[:resume_id])
+		if @resume.aasm_state = "edit_two"
+			@resume.user_mark_complete!
+		end
+	end
+	
 
   # froala的upload image实现
   def upload_image

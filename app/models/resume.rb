@@ -100,7 +100,7 @@ include AASM
 		 transitions from: :submit_one, to: :edit_one
 	 end
 
-	 event :expert_first_done do
+	 event :user_second_start do
 		 transitions from: :edit_one, to: :submit_two
 	 end
 
@@ -108,7 +108,7 @@ include AASM
 		 transitions from: :submit_two, to: :edit_two
 	 end
 
-	 event :expert_second_done do
+	 event :user_mark_complete do
 		 transitions from: :edit_two, to: :complete
 	 end
  end

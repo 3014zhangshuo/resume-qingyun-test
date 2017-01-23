@@ -1,10 +1,14 @@
+<body class="editorbg">
+
 <input type="hidden" id="refresh" value="no">
 <div id="notice"></div>
 
 <%= render "common/service_progress_bar" %>
 
 <div class="container" style="text-align:center;">
-	<i style="font-size:25px">欢迎使用导师简历辅导服务</i>
+	<i style="font-size:25px">欢迎使用导师简历辅导服务<br>
+		请修改好第一版建立后，点击最下方【提交】给导师修改
+	</i>
 
 <br><br>
 
@@ -22,9 +26,33 @@
 
 <div class="container">
 
-	<%= link_to "#", class: "btn btn-primary pull-center", id: "save" do %>
-		<i class="fa fa-save"></i>&nbsp;完成并保存
-	<% end %>
+	<% if @resume.aasm_state == "ordered" %>
+		<%= link_to user_resume_first_submit_path, class: "btn btn-primary pull-center" do %>
+			<i class="fa fa-save"></i>&nbsp;首次提交导师修改
+		<% end %>
+
+	<% elsif @resume.aasm_state == "submit_one" %>
+		<%= link_to "#", class: "btn btn-primary disabled pull-center" do %>
+			<i class="fa fa-save"></i>&nbsp;等待导师首次反馈
+		<% end %>
+
+	<% elsif @resume.aasm_state == "edit_one" %>
+	  <%= link_to user_resume_second_submit_path, class: "btn btn-primary pull-center" do %>
+	    <i class="fa fa-save"></i>&nbsp;二次提交导师修改
+	  <% end %>
+
+	<% elsif @resume.aasm_state == "submit_two" %>
+		<%= link_to "#", class: "btn btn-primary disabled pull-center" do %>
+			<i class="fa fa-save"></i>&nbsp;等待导师二次反馈
+		<% end %>
+
+	<% elsif @resume.aasm_state == "edit_two" %>
+		<%= link_to user_resume_complete_resume_path, class: "btn btn-primary pull-center" do %>
+			<i class="fa fa-save"></i>&nbsp;完成简历
+		<% end %>
+
+  <% end %>
+
 	<%= link_to "#", class: "btn btn-primary pull-center", id: "print" do %>
 		<i class="fa fa-cloud-download"></i>&nbsp;下载PDF格式
 	<% end %>
@@ -35,6 +63,7 @@
 
 <br><br><br><br><br><br>
 
+</body>
 
 <script type="text/javascript">
 

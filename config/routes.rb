@@ -33,6 +33,9 @@ Rails.application.routes.draw do
 			get :editor
       post :relay
       post :save_html
+			post :first_submit
+			post :second_submit
+			post :complete_resume
 
       # 分页
       collection do
