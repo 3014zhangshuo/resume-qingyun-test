@@ -36,10 +36,28 @@
 
 
   <p>
-    <%= r.input :past_description1, as: :text, required: true, label: '第一自然段',placeholder: '过去做的哪些事对你的编程开发技能有所帮助？',input_html: { class: "form-control"} %>
+    <%= r.input :past_description1,
+			as: :text,
+			required: true,
+			label: '第一自然段',
+			hint: "过去做的哪些事对你的编程开发技能有所帮助？（【 】括号是placeholder，填写之后自行删除）",
+			input_html: {
+				rows: 3,
+				value: "在进入编程行业之前，我在【什么行业有多少年经验】，曾【描述在之前一段工作经验做过最厉害的一件事情】。这段经历让我懂得【过去经历所获得的技能】是成为一名优秀工程师的必备素质【或者“做成任何事情的必备素质”】。"
+					}
+		%>
   </p>
   <p>
-    <%= r.input :past_description2, as: :text, required: true, label: '第二自然段',placeholder: '业余时间都学习哪些知识技能，看什么样的书籍，follow什么样的博客？',input_html: { class: "form-control"} %>
+    <%= r.input :past_description2,
+		as: :text,
+		required: true,
+		label: '第二自然段',
+		hint: '业余时间都学习哪些知识技能，看什么样的书籍，follow什么样的博客？（【 】括号是placeholder，填写之后自行删除）',
+		input_html: {
+				rows: 4,
+				value: "由于【自己离开之前行业的原因】，于是决定从事【想要进入的行业】。在【之前做过跟开发最相关的事情，或其他的工作经验】中，经历了【描述在上一段工作中是如何找到想要学习编程的动力的】。后来参加了Ruby on Rails界世界级教练Xdite在北京开设的课程，在短期内学习到了重要的程序员技能。除了使用Ruby on Rails快速开发之外，还有关于项目敏捷管理、User Story、Growth Hacking、团队协作、Onboarding、代码及网站性能优化和SEO等等技术之外的技能。"
+				}
+		%>
   </p>
 
 

@@ -32,7 +32,16 @@
 
 
   <p>
-    <%= r.input :why_employer, as: :text, required: true,label: '为什么选择应聘这家公司？',placeholder: '显示出你对公司有一定了解，会能够从众多简历中脱引而出',input_html: { class: "form-control"} %>
+    <%= r.input :why_employer,
+			as: :text,
+			required: true,
+			label: '为什么选择应聘这家公司？',
+			hint: '显示出你对公司有一定了解，会能够从众多简历中脱引而出（【 】括号是placeholder，填写之后自行删除）。',
+			input_html: {
+				rows: 4,
+				value: "因为【公司最吸引你的原因】相信贵公司是一家优秀的公司。【这个部分比较难有模板，每家公司吸引申请者的地方不太一样，请根据自己实际情况调整。主要原因可能有：公司行业地位很高、业内口碑很好、看重人员培养、在高速增长中或处于高速增长的行业中、创始人/CTO的背景非常具有吸引力等等】。"
+					}
+		%>
   </p>
 
 
