@@ -14,7 +14,7 @@
 
 		<p>实例：我曾是一名产品经理,毕业于四川大学。在过去的两年里,我从零开始主导上线了www.example.com,
 		一个跨境电子商务平台，并参与了世界工厂网的迭代工作,这份工作经历让我具备良好的逻辑思维能力,
-		锻炼了我的团队协作能力,培养了我在高强度工作环境下的“作战”能 力。在团队研发项⺫的过程中，
+		锻炼了我的团队协作能力,培养了我在高强度工作环境下的“作战”能力。在团队研发项目的过程中，
 		我逐渐对开发产生了浓厚的兴趣，希望自己通过写code实现心中的功能，于是开始学习程序的基础知识，
 		自己写一些简单的html。后来报名XXX课程并经过了3个月的高强度训练，快速学习到了编程的高阶技能。
 		<p>
@@ -25,7 +25,15 @@
 
 			  <%= simple_form_for  [:user, @resume],url: page2_commit_user_resume_path(@resume),method: :post do |r| %>
 			  <p>
-			    <%= r.input :self_description, as: :text,required: true, label: '自我介绍',placeholder: '如何用200-300字让HR或者面试官迅速了解你？',input_html: { class: "form-control"} %>
+			    <%= r.input :self_description,
+						as: :text,required: true,
+						label: '自我介绍',
+						hint: "如何用200-300字让HR或者面试官迅速了解你?（【 】括号是placeholder，填写之后自行删除）",
+						input_html: {
+							rows: 5,
+							value: "我曾是一名【工作岗位】，毕业于【最高学历院校】。在过去的两年里,我【描述最近两年主要的工作】，这份工作经历让我【列出在这份工作学到的几样技能，如“展现领导力”、“培养团队协作能力”、“对客户的深度理解”】。在【开发某个项目的】过程中，我逐渐对开发产生了浓厚的兴趣，【描述自己对学习编程做过的尝试】。后来报名经过了【N】个月的高强度训练，快速学习到了编程的高阶技能。"
+							}
+					%>
 			  </p>
         <%= r.submit "保存并修改上一步", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "提交中..." } %>
 				<%= r.submit "保存", class:"btn  btn-secondary text-uppercase flat animation", data: { disable_with: "保存中..."} %>

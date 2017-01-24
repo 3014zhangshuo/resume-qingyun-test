@@ -5,7 +5,13 @@
   <h1>第六步：过去项目展示</h1>
 	<h2>一张图，胜过千言万语</h2>
 	<h3>（最厉害项目放前面，不足3个项目可以选填。在生成建立后可以任意添加图片。）</h3>
-
+	<br>
+		<h4>实例：</h4>
+		<p>项目名称：ResumeHack - 专业人士帮你写出完美的自己<br><br>
+		项目描述：许多人求职的时候才意识到自己的简历并没有非常出色，或者并没有很好地将自己精彩的职业经历包装得很好。
+		为此，我和几个小伙伴用了一晚上8个小时的时间开发了一款简历生成器，我作为后端架构师和迅速搭建和完成了拥有两个角色的简历修改流程，
+		在开发过程中学习和了解了如何高效的方式敏捷开发出MVP产品。
+		<p>
 	<br>
 	<br>
 	<div class="panel panel-primary">
@@ -15,10 +21,10 @@
 
 <h4>项目1</h4>
     <p>
-      <%= r.input :past_project_title1,required: true, label: '项目名称1',placeholder: '格式应为：项目名称 - 十字以内描述 如：“DesignDeck - 设计委托接案快3倍”',input_html: { class: "form-control"} %>
+      <%= r.input :past_project_title1,required: true, label: '项目名称1',hint: '格式应为：项目名称 - 十字以内描述',input_html: { value: "如：“DesignDeck - 设计委托接案快3倍”" } %>
     </p>
     <p>
-      <%= r.input :past_project_description1, as: :text,required: true, label: '项目描述1',placeholder: '该产品解决了什么问题？多少人多久完成？你的角色是什么？你在过程中学到了什么？',input_html: { class: "form-control"} %>
+      <%= r.input :past_project_description1, as: :text,required: true, label: '项目描述1',hint: '该产品解决了什么问题？多少人多久完成？你的角色是什么？你在过程中学到了什么？（【 】括号是placeholder，填写之后自行删除）',input_html: { value: "【问题描述】+【多少人多久时间开发出来】+【你的角色】+【学到了什么】"} %>
     </p>
 
     <!-- <p>
