@@ -1,3 +1,5 @@
+<%= render "common/service_progress_bar" %>
+
 <input type="hidden" id="refresh1" value="no">
 <!-- <div id="notice"></div> -->
 
@@ -20,14 +22,27 @@
 
 <div class="container">
   <% if @resume.aasm_state == "submit_one" %>
-	<%= link_to "#", class: "btn btn-primary pull-center", class: "save" do %>
-		<i class="fa fa-save"></i>&nbsp;保存专家修改一
-	<% end %>
-  <% elsif @resume.aasm_state == "submit_two" %>
-  <%= link_to "#", class: "btn btn-primary pull-center", class: "save" do %>
-    <i class="fa fa-save"></i>&nbsp;保存专家修改二
+		<%= link_to "#", class: "btn btn-primary pull-center", id: "save" do %>
+			<i class="fa fa-save"></i>&nbsp;保存专家修改一
+		<% end %>
+
+	<% elsif @resume.aasm_state == "edit_one" %>
+		<%= link_to "#", class: "btn btn-primary disabled pull-center" do %>
+			<i class="fa fa-save"></i>&nbsp;已完成第一轮反馈
+		<% end %>
+
+	<% elsif @resume.aasm_state == "submit_two" %>
+	  <%= link_to "#", class: "btn btn-primary pull-center", id: "save" do %>
+	    <i class="fa fa-save"></i>&nbsp;保存专家修改二
+	  <% end %>
+
+	<% elsif @resume.aasm_state == "edit_two" %>
+		<%= link_to "#", class: "btn btn-primary disabled pull-center" do %>
+			<i class="fa fa-save"></i>&nbsp;已完成第二轮反馈
+		<% end %>
+
   <% end %>
-  <% end %>
+
 </div>
 
 </div>
@@ -54,7 +69,7 @@
 		return false;
 	});
 
-	$('.save').click(function(event) {
+	$('#save').click(function(event) {
 		event.preventDefault();
 		$.ajax({
 			url: '<%= admin_user_resume_save_html_path(@user,@resume) %>',
@@ -66,6 +81,7 @@
       		// $("#notice").html("<%= flash[:notice] %>");
       	}
       });
+		window.location.reload(); // must refresh page to see status change of button and progress bar
 		return false;
 	});
 

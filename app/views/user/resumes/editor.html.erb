@@ -1,25 +1,14 @@
+<body class="editorbg">
+
 <input type="hidden" id="refresh" value="no">
 <div id="notice"></div>
 
-<div class="container">
-	<div class="form-bootstrapWizard">
-		<ul class="bootstrapWizard form-wizard">
-			<li><span class="step not-allowed">1</span> <span class="title not-allowed">一句话</span></li>
-			<li> <span class="step not-allowed">2</span> <span class="title not-allowed">个人简介</span></li>
-			<li> <span class="step not-allowed">3</span> <span class="title not-allowed">过往经历</span></li>
-			<li> <span class="step not-allowed">4</span> <span class="title not-allowed">为何应聘</span></li>
-			<li> <span class="step not-allowed">5</span> <span class="title not-allowed">为何选你</span></li>
-			<li> <span class="step not-allowed">6</span> <span class="title not-allowed">项目展示</span></li>
-			<li> <span class="step not-allowed">7</span> <span class="title not-allowed">联系资讯</span></li>
-			<!-- <li> <span class="step">8</span> <span class="title">生成简历</span></li> -->
-			<li class="active"> <span class="step">8</span> <span class="title">生成简历</span></li>
-		</ul>
-		<div class="clearfix"></div><br><br>
-	</div>
-</div>
+<%= render "common/service_progress_bar" %>
 
 <div class="container" style="text-align:center;">
-	<i style="font-size:25px">恭喜你成功生成简历，可以用下方编辑器任意调整、上传图片</i>
+	<i style="font-size:25px">欢迎使用导师简历辅导服务<br>
+		请修改好第一版建立后，点击最下方【提交】给导师修改
+	</i>
 
 <br><br>
 
@@ -37,14 +26,35 @@
 
 <div class="container">
 
-	<%= link_to "#", class: "btn btn-primary pull-center", id: "save" do %>
-		<i class="fa fa-save"></i>&nbsp;完成并保存
-	<% end %>
+	<% if @resume.aasm_state == "ordered" %>
+		<%= link_to "#", class: "btn btn-primary pull-center", id: "save_ordered", method: :post do %>
+			<i class="fa fa-save"></i>&nbsp;首次提交导师修改
+		<% end %>
+
+	<% elsif @resume.aasm_state == "submit_one" %>
+		<%= link_to "#", class: "btn btn-primary disabled pull-center" do %>
+			<i class="fa fa-save"></i>&nbsp;等待导师首次反馈
+		<% end %>
+
+	<% elsif @resume.aasm_state == "edit_one" %>
+	  <%= link_to "#", class: "btn btn-primary pull-center", id: "save_edit_one",method: :post do %>
+	    <i class="fa fa-save"></i>&nbsp;二次提交导师修改
+	  <% end %>
+
+	<% elsif @resume.aasm_state == "submit_two" %>
+		<%= link_to "#", class: "btn btn-primary disabled pull-center" do %>
+			<i class="fa fa-save"></i>&nbsp;等待导师二次反馈
+		<% end %>
+
+	<% elsif @resume.aasm_state == "edit_two" %>
+		<%= link_to "#", class: "btn btn-primary pull-center", id: "save_edit_two", method: :post do %>
+			<i class="fa fa-save"></i>&nbsp;完成简历
+		<% end %>
+
+  <% end %>
+
 	<%= link_to "#", class: "btn btn-primary pull-center", id: "print" do %>
 		<i class="fa fa-cloud-download"></i>&nbsp;下载PDF格式
-	<% end %>
-	<%= link_to user_resume_editor_path, class: "btn btn-primary pull-center" do %>
-		<i class="fa fa-user-o"></i>&nbsp;导师修改
 	<% end %>
 
 </div>
@@ -53,6 +63,7 @@
 
 <br><br><br><br><br><br>
 
+</body>
 
 <script type="text/javascript">
 
@@ -72,11 +83,11 @@
 		});
 		return false;
 	});
+// 用户三部完成简历的ajax
+	$('#save_ordered').click(function(event) {
 
-	$('#save').click(function(event) {
-		event.preventDefault();
 		$.ajax({
-			url: '<%= user_resume_save_html_path(@resume) %>',
+			url: '<%= user_resume_first_submit_path(@resume) %>',
 			type: 'post',
 			data: { content: $('#cv').html() },
 			success: function(result){
@@ -88,6 +99,37 @@
 		return false;
 	});
 
+
+	$('#save_edit_one').click(function(event) {
+
+		$.ajax({
+			url: '<%= user_resume_second_submit_path(@resume) %>',
+			type: 'post',
+			data: { content: $('#cv').html() },
+			success: function(result){
+				$('#cv').html(result);
+					// 加入提示的特效
+					// $("#notice").html("<%= flash[:notice] %>");
+				}
+			});
+		return false;
+	});
+
+	$('#save_edit_two').click(function(event) {
+
+		$.ajax({
+			url: '<%= user_resume_complete_resume_path(@resume) %>',
+			type: 'post',
+			data: { content: $('#cv').html() },
+			success: function(result){
+				$('#cv').html(result);
+					// 加入提示的特效
+					// $("#notice").html("<%= flash[:notice] %>");
+				}
+			});
+		return false;
+	});
+// 用户三部完成简历的ajax
 
 	$(function() {
 		// $('div#froala-editor').froalaEditor({

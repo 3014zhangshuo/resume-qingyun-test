@@ -64,11 +64,11 @@ class User::ResumesController < ApplicationController
     @resume = Resume.find(params[:resume_id])
     @resume_html = resume_html_for_resume(@resume)
     @resume_html.content = params[:content]
-    if @resume.aasm_state == "edit_one"
-      @resume.expert_first_done!
-    elsif @resume.aasm_state == "edit_two"
-      @resume.expert_second_done!
-    end
+    # if @resume.aasm_state == "edit_one"
+    #   @resume.expert_first_done!
+    # elsif @resume.aasm_state == "edit_two"
+    #   @resume.expert_second_done!
+    # end
     @resume_html.save
     # flash[:notice] = 'saved'
   end
@@ -87,6 +87,51 @@ class User::ResumesController < ApplicationController
     end
     # redirect_to user_resume_preview_path(@resume, format: :pdf)
   end
+
+	def editor
+		@resume = Resume.find(params[:resume_id])
+		if @resume.aasm_state == "drafting"
+			 @resume.user_order!
+		end
+	end
+
+	def first_submit
+		@resume = Resume.find(params[:resume_id])
+    @resume_html = resume_html_for_resume(@resume)
+    @resume_html.content = params[:content]
+    @resume_html.save
+		if @resume.aasm_state == "ordered"
+			@resume.user_start!
+      #binding.pry
+		end
+		redirect_to user_resume_editor_path(@resume)
+  	flash[:notice] = "提交成功！导师将于24小时以内给予反馈"
+	end
+
+	def second_submit
+		@resume = Resume.find(params[:resume_id])
+    @resume_html = resume_html_for_resume(@resume)
+    @resume_html.content = params[:content]
+    @resume_html.save
+		if @resume.aasm_state == "edit_one"
+			@resume.user_second_start!
+		end
+		redirect_to user_resume_editor_path(@resume)
+  	flash[:notice] = "提交成功！导师将于24小时以内给予反馈"
+	end
+
+	def complete_resume
+		@resume = Resume.find(params[:resume_id])
+    @resume_html = resume_html_for_resume(@resume)
+    @resume_html.content = params[:content]
+    @resume_html.save
+		if @resume.aasm_state == "edit_two"
+			@resume.user_mark_complete!
+		end
+		redirect_to user_resumes_path
+  	flash[:notice] = "感谢您使用简历黑客！"
+	end
+
 
   # froala的upload image实现
   def upload_image
@@ -221,7 +266,7 @@ class User::ResumesController < ApplicationController
     @resume.update(resume_params)
 
     if params[:commit] == "生成简历"
-      @resume.user_start!
+      # @resume.user_start!
       redirect_to user_resume_preview_path(@resume)
     else
       redirect_to page7_user_resume_path(@resume)
