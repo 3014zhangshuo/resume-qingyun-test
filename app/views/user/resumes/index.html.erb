@@ -26,7 +26,7 @@
 									 <!-- <img src="" class="img-responsive" alt="ResumeHere"> -->
 									 <%= image_tag "sampleresume.jpg", class: "img-responsive" %>
 									 <div>
-										 <% if resume.aasm_state == "drafting" %>
+										 <% if resume.aasm_state == "drafting" OR resume.aasm_state == "complete"%>
 										 <%= link_to user_resume_preview_path(resume), class:"btn" do %>
 										 <i class="fa fa-pencil-square-o"></i>&nbsp;编辑器修改
 										<% end %>
