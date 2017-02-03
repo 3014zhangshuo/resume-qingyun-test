@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170203100205) do
+ActiveRecord::Schema.define(version: 20170203111602) do
 
   create_table "resume_htmls", force: :cascade do |t|
     t.integer  "resume_id"
@@ -109,6 +109,8 @@ ActiveRecord::Schema.define(version: 20170203100205) do
     t.datetime "updated_at",                             null: false
     t.boolean  "is_admin",               default: false
     t.string   "user_code"
+    t.boolean  "is_confirmed",           default: false
+    t.string   "confirm_code"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
