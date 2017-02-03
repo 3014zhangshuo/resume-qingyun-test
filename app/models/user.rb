@@ -19,6 +19,7 @@
 #
 
 class User < ApplicationRecord
+  before_create :user_code
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -39,6 +40,14 @@ class User < ApplicationRecord
 	  self.is_admin = false
 	  self.save
 	end
+
+  private
+
+  def user_code
+    if self.user_code.blank?
+       self.user_code = SecureRandom.hex
+    end
+  end
 
 
 end
