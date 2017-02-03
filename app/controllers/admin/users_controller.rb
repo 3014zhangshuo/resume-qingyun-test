@@ -20,4 +20,9 @@ class Admin::UsersController < ApplicationController
    redirect_to :back
  end
 
+ def sent_confirm_email
+   @user = User.find(params[:id])
+   UserMailer.notify_user_confirm(@user).deliver!
+ end
+
 end

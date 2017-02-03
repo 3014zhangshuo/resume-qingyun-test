@@ -13,11 +13,12 @@ Rails.application.routes.draw do
 
 	namespace :admin do
 		resources :users do
+      member do
+        post :sent_confirm_email
+      end
       resources :resumes do
-
          get :preview
          post :save_html
-
       end
 			member do
 				post :admin_state
