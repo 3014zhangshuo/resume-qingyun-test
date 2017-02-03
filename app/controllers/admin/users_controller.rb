@@ -1,7 +1,7 @@
 class Admin::UsersController < ApplicationController
  before_action :authenticate_user!
  before_action :admin_required
-   before_action :inspect_user_is_confrim #验证用户是否通过验证
+ before_action :inspect_user_is_confrim #验证用户是否通过验证
  layout "admin"
 
  def index
