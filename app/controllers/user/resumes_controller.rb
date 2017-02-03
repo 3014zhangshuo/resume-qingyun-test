@@ -2,7 +2,7 @@ class User::ResumesController < ApplicationController
   # protect_from_forgery with: :null_session
 
   # skip_before_action :verify_authenticity_token  #open when skip csrf token verify
-
+  before_action :inspect_user_is_confrim #验证用户是否通过验证
   layout "pdf", only: [:download, :preview_download]
   layout "preview_layout", only: :preview
   layout false, only: :save_html
