@@ -23,6 +23,7 @@ class Admin::UsersController < ApplicationController
  def sent_confirm_email
    @user = User.find(params[:id])
    UserMailer.notify_user_confirm(@user).deliver!
+   redirect_to admin_users_path
  end
 
 end
