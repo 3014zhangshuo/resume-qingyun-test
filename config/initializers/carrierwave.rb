@@ -20,3 +20,8 @@ require 'carrierwave/storage/fog'
 #     config.asset_host = "http://localhost:3000"
 #   end
 # end
+
+CarrierWave.configure do |config|
+  config.storage = :file
+  config.asset_host = ActionController::Base.asset_host
+end
