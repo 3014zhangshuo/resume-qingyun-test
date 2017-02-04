@@ -64,13 +64,7 @@ class User::ResumesController < ApplicationController
     @resume = Resume.find(params[:resume_id])
     @resume_html = resume_html_for_resume(@resume)
     @resume_html.content = params[:content]
-    # if @resume.aasm_state == "edit_one"
-    #   @resume.expert_first_done!
-    # elsif @resume.aasm_state == "edit_two"
-    #   @resume.expert_second_done!
-    # end
     @resume_html.save
-    # flash[:notice] = 'saved'
   end
 
 
@@ -83,6 +77,8 @@ class User::ResumesController < ApplicationController
         render pdf: "resume.pdf",
                template: "user/resumes/preview.pdf.erb",
                layout: "preview_layout.html.erb"
+              #  wkhtmltopdf: 'bin/wkhtmltopdf-amd64'
+               #:show_as_html => 'true'
       end
     end
     # redirect_to user_resume_preview_path(@resume, format: :pdf)
