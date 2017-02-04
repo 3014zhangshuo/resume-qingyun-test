@@ -1,6 +1,7 @@
 class Admin::ResumesController < ApplicationController
   before_action :authenticate_user!
   before_action :admin_required
+  before_action :inspect_user_is_confrim #验证用户是否通过验证
   layout "admin"
   layout false, only: :save_html
   def index

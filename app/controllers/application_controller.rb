@@ -1,6 +1,17 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
+
+  #before_action :inspect_user_is_confrim if current_user.nil? #验证用户是否通过验证
+
+  #验证用户是否通过验证的action
+  def inspect_user_is_confrim
+    if current_user.user_code == current_user.confirm_code
+      current_user.is_confirmed = true
+      current_user.save!
+    end
+  end
+
 	def admin_required
 		if !current_user.admin?
 			redirect_to "/"

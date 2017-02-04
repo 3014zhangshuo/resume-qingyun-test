@@ -26,6 +26,7 @@
                     </a>
                     <ul class="dropdown-menu">
                        <li><%= link_to(content_tag(:i, "&nbsp;&nbsp;我的简历".html_safe, class: "fa fa-file-text-o"), user_resumes_path) %></li>
+                    
              					 <% if current_user.admin? %>
                       	<li><%= link_to(content_tag(:i, "Admin 选单",class: "fa fa-users"), admin_users_path ) %></li>
                        <% end %>

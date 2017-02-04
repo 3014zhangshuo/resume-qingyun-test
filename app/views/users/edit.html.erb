@@ -1,0 +1,12 @@
+
+<div class="row" style="margin-top:200px">
+  <div class="col-md-4 col-md-offset-4">
+
+<h3 style="text-align:center">请输入邮件中的确认码</h3>
+<%= simple_form_for(@user, :url => confirm_user_path(@user,:resume_id=>@resume.id), method: :post) do |f| %>
+<%= f.input :confirm_code, :label => "." %>
+<%= f.submit "Submit" %>
+<% end %>
+</div>
+
+</div>

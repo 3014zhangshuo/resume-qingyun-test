@@ -23,6 +23,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   #
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
+  # def default_url(img, options = {})
+  #     image_tag ["http://", request.host_with_port, img].join(), options
+  #   end
 
   # Process files as they are uploaded:
   # process :scale => [200, 300]
