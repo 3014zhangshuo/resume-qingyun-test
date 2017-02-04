@@ -77,7 +77,7 @@ class User::ResumesController < ApplicationController
         render pdf: "resume.pdf",
                template: "user/resumes/preview.pdf.erb",
                layout: "preview_layout.html.erb"
-              #wkhtmltopdf: 'bin/wkhtmltopdf-amd64'
+               #wkhtmltopdf: 'bin/wkhtmltopdf-amd64'
                #:show_as_html => 'true'
       end
     end

@@ -33,6 +33,10 @@ class User < ApplicationRecord
 	  is_admin
 	end
 
+  def confirm?
+    is_confirmed
+  end
+
 	def admin!
 	  self.is_admin = true
 	  self.save
