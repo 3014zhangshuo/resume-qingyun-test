@@ -26,6 +26,14 @@ class User::ResumesController < ApplicationController
     end
   end
 
+  def destroy
+    @resume = Resume.destroy(params[:id])
+    respond_to do |format|
+       format.html { redirect_to user_resumes_path }
+       format.js
+     end
+  end
+
   def download
     @resumes = Resume.all
     html = render_to_string(:action => :show)
