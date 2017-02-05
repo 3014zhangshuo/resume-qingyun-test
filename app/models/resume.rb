@@ -76,7 +76,7 @@ class Resume < ApplicationRecord
 	mount_uploader :past_project_image1, ImageUploader
  	mount_uploader :past_project_image2, ImageUploader
  	mount_uploader :past_project_image3, ImageUploader
-
+  scope :recent, -> {order("created_at DESC")}
 
 include AASM
  aasm do

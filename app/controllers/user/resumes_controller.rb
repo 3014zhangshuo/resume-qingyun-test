@@ -11,7 +11,7 @@ class User::ResumesController < ApplicationController
 
 
   def index
-    @resumes = current_user.resumes.order(created_at: :DESC)
+    @resumes = current_user.resumes.recent
   end
 
 
