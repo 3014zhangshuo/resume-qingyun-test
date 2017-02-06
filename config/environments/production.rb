@@ -87,7 +87,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { :host => 'sheltered-cove-12064.herokuapp.com'}
 #config.action_mailer.default_url_options = { :host => 'aqueous-savannah-80175.herokuapp.com'}
 config.action_mailer.perform_deliveries = true
-config.action_mailer.raise_delivery_errors = false
+config.action_mailer.raise_delivery_errors = true
 config.action_mailer.delivery_method = :sendcloud
 config.action_mailer.sendcloud_settings = {
         api_user: 'hhzhangshuo_test_gNFo9R',
