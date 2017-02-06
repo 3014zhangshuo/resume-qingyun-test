@@ -94,8 +94,8 @@ ActionMailer::Base.smtp_settings = {
   domain: "heroku.com",
   authentication: "login",
   enable_starttls_auto: true,
-  user_name: ENV["SENDCLOUD_USERNAME"],
-  password: ENV["SENDCLOUD_PASSWORD"]
+  user_name: "SENDCLOUD_USERNAME",
+  password: "AhspTGE0YhiHCk4q"
   }
 
 	config.asset_host = 'http://jianliheike.com'
