@@ -56,9 +56,9 @@ class User < ApplicationRecord
     end
   end
 
-#   protected
-# def confirmation_required?
-#   false
-# end
+  protected
+def confirmation_required?
+  false
+end
 
 end
