@@ -46,7 +46,7 @@ class User::ResumesController < ApplicationController
   end
 
   def preview_download
-    @resume = current_user.resumes.find(params[:resume_id])
+    @resume = @resume = current_user.resumes.find_by_id(params[:resume_id]) or not_found
     # html = render_to_string(params[:content])
     # pdf = WickedPdf.new.pdf_from_string(html)
 
@@ -61,7 +61,7 @@ class User::ResumesController < ApplicationController
   # 接受web发过来的编辑好的html数据，处理（如保存），之后redirect到显示这个html的pdf
   def relay
 
-    @resume = current_user.resumes.find(params[:resume_id])
+    @resume = @resume = current_user.resumes.find_by_id(params[:resume_id]) or not_found
     @resume_html = resume_html_for_resume(@resume)
     @resume_html.content = params[:content]
     @resume_html.save
@@ -69,7 +69,7 @@ class User::ResumesController < ApplicationController
   end
 
   def save_html
-    @resume = current_user.resumes.find(params[:resume_id])
+    @resume = @resume = current_user.resumes.find_by_id(params[:resume_id]) or not_found
     @resume_html = resume_html_for_resume(@resume)
     @resume_html.content = params[:content]
     @resume_html.save
@@ -100,7 +100,7 @@ class User::ResumesController < ApplicationController
 	end
 
 	def first_submit
-		@resume = current_user.resumes.find(params[:resume_id])
+		@resume = @resume = current_user.resumes.find_by_id(params[:resume_id]) or not_found
     @resume_html = resume_html_for_resume(@resume)
     @resume_html.content = params[:content]
     @resume_html.save
@@ -113,7 +113,7 @@ class User::ResumesController < ApplicationController
 	end
 
 	def second_submit
-		@resume = current_user.resumes.find(params[:resume_id])
+		@resume = @resume = current_user.resumes.find_by_id(params[:resume_id]) or not_found
     @resume_html = resume_html_for_resume(@resume)
     @resume_html.content = params[:content]
     @resume_html.save
@@ -125,7 +125,7 @@ class User::ResumesController < ApplicationController
 	end
 
 	def complete_resume
-		@resume = current_user.resumes.find(params[:resume_id])
+		@resume = @resume = current_user.resumes.find_by_id(params[:resume_id]) or not_found
     @resume_html = resume_html_for_resume(@resume)
     @resume_html.content = params[:content]
     @resume_html.save
@@ -140,7 +140,7 @@ class User::ResumesController < ApplicationController
   # froala的upload image实现
   def upload_image
 
-    @resume = current_user.resumes.find(params[:resume_id])
+    @resume = @resume = current_user.resumes.find_by_id(params[:resume_id]) or not_found
     @resume_image = @resume.resume_images.create
     @resume_image.content = params[:image_content]
     @resume_image.save
