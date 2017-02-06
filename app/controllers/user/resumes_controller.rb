@@ -93,7 +93,7 @@ class User::ResumesController < ApplicationController
   end
 
 	def editor
-		@resume = current_user.resumes.find(params[:resume_id])
+		@resume = current_user.resumes.find_by_id(params[:resume_id]) or not_found
 		if @resume.aasm_state == "drafting"
 			 @resume.user_order!
 		end
@@ -163,13 +163,13 @@ class User::ResumesController < ApplicationController
 
   # 拆分页面
   def page1
-    @resume = current_user.resumes.find(params[:id])
+    @resume = current_user.resumes.find_by_id(params[:id]) or not_found
     @resume.user = current_user
     @resume.save!
   end
 
   def page1_commit
-    @resume = current_user.resumes.find(params[:id])
+    @resume = current_user.resumes.find_by_id(params[:id]) or not_found
     @resume.update(resume_params)
     # 重定向到下一页
     redirect_to page2_user_resume_path(@resume)
@@ -177,11 +177,11 @@ class User::ResumesController < ApplicationController
   end
 
   def page2
-    @resume = current_user.resumes.find(params[:id])
+    @resume = current_user.resumes.find_by_id(params[:id]) or not_found
   end
 
   def page2_commit
-    @resume = current_user.resumes.find(params[:id])
+    @resume = current_user.resumes.find_by_id(params[:id]) or not_found
     @resume.update(resume_params)
 
     if params[:commit] == "保存并进入下一步"
@@ -194,11 +194,11 @@ class User::ResumesController < ApplicationController
   end
 
   def page3
-    @resume = current_user.resumes.find(params[:id])
+    @resume = current_user.resumes.find_by_id(params[:id]) or not_found
   end
 
   def page3_commit
-    @resume = current_user.resumes.find(params[:id])
+    @resume = current_user.resumes.find_by_id(params[:id]) or not_found
     @resume.update(resume_params)
 
     if params[:commit] == "保存并进入下一步"
@@ -211,11 +211,11 @@ class User::ResumesController < ApplicationController
   end
 
   def page4
-    @resume = current_user.resumes.find(params[:id])
+    @resume = current_user.resumes.find_by_id(params[:id]) or not_found
   end
 
   def page4_commit
-    @resume = current_user.resumes.find(params[:id])
+    @resume = current_user.resumes.find_by_id(params[:id]) or not_found
     @resume.update(resume_params)
 
     if params[:commit] == "保存并进入下一步"
@@ -228,11 +228,11 @@ class User::ResumesController < ApplicationController
   end
 
 	def page5
-		@resume = current_user.resumes.find(params[:id])
+		@resume = current_user.resumes.find_by_id(params[:id]) or not_found
 	end
 
 	def page5_commit
-		@resume = current_user.resumes.find(params[:id])
+		@resume = current_user.resumes.find_by_id(params[:id]) or not_found
 		@resume.update(resume_params)
 
     if params[:commit] == "保存并进入下一步"
@@ -245,11 +245,11 @@ class User::ResumesController < ApplicationController
 	end
 
 	def page6
-    @resume = current_user.resumes.find(params[:id])
+    @resume = current_user.resumes.find_by_id(params[:id]) or not_found
   end
 
   def page6_commit
-    @resume = current_user.resumes.find(params[:id])
+    @resume = current_user.resumes.find_by_id(params[:id]) or not_found
     @resume.update(resume_params)
 
     if params[:commit] == "保存并进入下一步"
@@ -262,11 +262,11 @@ class User::ResumesController < ApplicationController
   end
 
   def page7
-    @resume = current_user.resumes.find(params[:id])
+    @resume = current_user.resumes.find_by_id(params[:id]) or not_found
   end
 
   def page7_commit
-    @resume = current_user.resumes.find(params[:id])
+    @resume = current_user.resumes.find_by_id(params[:id]) or not_found
     @resume.update(resume_params)
 
     if params[:commit] == "生成简历"
@@ -279,7 +279,7 @@ class User::ResumesController < ApplicationController
   end
 
   def finish
-    @resume = current_user.resumes.find(params[:id])
+    @resume = current_user.resumes.find_by_id(params[:id]) or not_found
   end
 
   def standard_resume
