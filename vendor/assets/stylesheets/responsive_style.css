@@ -11,8 +11,8 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
 display:block;
 }
 
-/*html, body {background: #181818; font-family: 'Lato', helvetica, arial, sans-serif; font-size: 16px; color: #222;}*/
-html, body { font-family: 'Lato', helvetica, arial, sans-serif; font-size: 16px; color: #222;}
+html, body {background: #181818; font-family: 'Lato', helvetica, arial, sans-serif; font-size: 16px; color: #222;}
+
 .clear {clear: both;}
 
 p {
@@ -155,9 +155,7 @@ section:last-child {
 	margin-bottom: 3px;
 }
 
-/*responsive and special effects parts, unnecessary for PDF generation*/
-
-/*@media all and (min-width: 602px) and (max-width: 800px) {
+@media all and (min-width: 602px) and (max-width: 800px) {
 	#headshot {
 		display: none;
 	}
@@ -354,4 +352,4 @@ section:last-child {
 	-webkit-animation-delay: 0, 2.5s;
 	-moz-animation-delay: 0, 2.5s;
 	animation-delay: 0, 2.5s;
-}*/
+}
