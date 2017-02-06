@@ -46,7 +46,7 @@ class User::ResumesController < ApplicationController
   end
 
   def preview_download
-    @resume = Resume.find(params[:resume_id])
+    @resume = @resume = current_user.resumes.find_by_id(params[:resume_id]) or not_found
     # html = render_to_string(params[:content])
     # pdf = WickedPdf.new.pdf_from_string(html)
 
@@ -61,7 +61,7 @@ class User::ResumesController < ApplicationController
   # 接受web发过来的编辑好的html数据，处理（如保存），之后redirect到显示这个html的pdf
   def relay
 
-    @resume = Resume.find(params[:resume_id])
+    @resume = @resume = current_user.resumes.find_by_id(params[:resume_id]) or not_found
     @resume_html = resume_html_for_resume(@resume)
     @resume_html.content = params[:content]
     @resume_html.save
@@ -69,7 +69,7 @@ class User::ResumesController < ApplicationController
   end
 
   def save_html
-    @resume = Resume.find(params[:resume_id])
+    @resume = @resume = current_user.resumes.find_by_id(params[:resume_id]) or not_found
     @resume_html = resume_html_for_resume(@resume)
     @resume_html.content = params[:content]
     @resume_html.save
@@ -78,7 +78,7 @@ class User::ResumesController < ApplicationController
 
   def preview
 
-    @resume = Resume.find(params[:resume_id])
+    @resume = current_user.resumes.find_by_id(params[:resume_id]) or not_found
     respond_to do |format|
       format.html
       format.pdf do
@@ -93,14 +93,14 @@ class User::ResumesController < ApplicationController
   end
 
 	def editor
-		@resume = Resume.find(params[:resume_id])
+		@resume = current_user.resumes.find_by_id(params[:resume_id]) or not_found
 		if @resume.aasm_state == "drafting"
 			 @resume.user_order!
 		end
 	end
 
 	def first_submit
-		@resume = Resume.find(params[:resume_id])
+		@resume = @resume = current_user.resumes.find_by_id(params[:resume_id]) or not_found
     @resume_html = resume_html_for_resume(@resume)
     @resume_html.content = params[:content]
     @resume_html.save
@@ -113,7 +113,7 @@ class User::ResumesController < ApplicationController
 	end
 
 	def second_submit
-		@resume = Resume.find(params[:resume_id])
+		@resume = @resume = current_user.resumes.find_by_id(params[:resume_id]) or not_found
     @resume_html = resume_html_for_resume(@resume)
     @resume_html.content = params[:content]
     @resume_html.save
@@ -125,7 +125,7 @@ class User::ResumesController < ApplicationController
 	end
 
 	def complete_resume
-		@resume = Resume.find(params[:resume_id])
+		@resume = @resume = current_user.resumes.find_by_id(params[:resume_id]) or not_found
     @resume_html = resume_html_for_resume(@resume)
     @resume_html.content = params[:content]
     @resume_html.save
@@ -140,7 +140,7 @@ class User::ResumesController < ApplicationController
   # froala的upload image实现
   def upload_image
 
-    @resume = Resume.find(params[:resume_id])
+    @resume = @resume = current_user.resumes.find_by_id(params[:resume_id]) or not_found
     @resume_image = @resume.resume_images.create
     @resume_image.content = params[:image_content]
     @resume_image.save
@@ -163,13 +163,13 @@ class User::ResumesController < ApplicationController
 
   # 拆分页面
   def page1
-    @resume = Resume.find(params[:id])
+    @resume = current_user.resumes.find_by_id(params[:id]) or not_found
     @resume.user = current_user
     @resume.save!
   end
 
   def page1_commit
-    @resume = Resume.find(params[:id])
+    @resume = current_user.resumes.find_by_id(params[:id]) or not_found
     @resume.update(resume_params)
     # 重定向到下一页
     redirect_to page2_user_resume_path(@resume)
@@ -177,11 +177,11 @@ class User::ResumesController < ApplicationController
   end
 
   def page2
-    @resume = Resume.find(params[:id])
+    @resume = current_user.resumes.find_by_id(params[:id]) or not_found
   end
 
   def page2_commit
-    @resume = Resume.find(params[:id])
+    @resume = current_user.resumes.find_by_id(params[:id]) or not_found
     @resume.update(resume_params)
 
     if params[:commit] == "保存并进入下一步"
@@ -194,11 +194,11 @@ class User::ResumesController < ApplicationController
   end
 
   def page3
-    @resume = Resume.find(params[:id])
+    @resume = current_user.resumes.find_by_id(params[:id]) or not_found
   end
 
   def page3_commit
-    @resume = Resume.find(params[:id])
+    @resume = current_user.resumes.find_by_id(params[:id]) or not_found
     @resume.update(resume_params)
 
     if params[:commit] == "保存并进入下一步"
@@ -211,11 +211,11 @@ class User::ResumesController < ApplicationController
   end
 
   def page4
-    @resume = Resume.find(params[:id])
+    @resume = current_user.resumes.find_by_id(params[:id]) or not_found
   end
 
   def page4_commit
-    @resume = Resume.find(params[:id])
+    @resume = current_user.resumes.find_by_id(params[:id]) or not_found
     @resume.update(resume_params)
 
     if params[:commit] == "保存并进入下一步"
@@ -228,11 +228,11 @@ class User::ResumesController < ApplicationController
   end
 
 	def page5
-		@resume = Resume.find(params[:id])
+		@resume = current_user.resumes.find_by_id(params[:id]) or not_found
 	end
 
 	def page5_commit
-		@resume = Resume.find(params[:id])
+		@resume = current_user.resumes.find_by_id(params[:id]) or not_found
 		@resume.update(resume_params)
 
     if params[:commit] == "保存并进入下一步"
@@ -245,11 +245,11 @@ class User::ResumesController < ApplicationController
 	end
 
 	def page6
-    @resume = Resume.find(params[:id])
+    @resume = current_user.resumes.find_by_id(params[:id]) or not_found
   end
 
   def page6_commit
-    @resume = Resume.find(params[:id])
+    @resume = current_user.resumes.find_by_id(params[:id]) or not_found
     @resume.update(resume_params)
 
     if params[:commit] == "保存并进入下一步"
@@ -262,11 +262,11 @@ class User::ResumesController < ApplicationController
   end
 
   def page7
-    @resume = Resume.find(params[:id])
+    @resume = current_user.resumes.find_by_id(params[:id]) or not_found
   end
 
   def page7_commit
-    @resume = Resume.find(params[:id])
+    @resume = current_user.resumes.find_by_id(params[:id]) or not_found
     @resume.update(resume_params)
 
     if params[:commit] == "生成简历"
@@ -279,7 +279,7 @@ class User::ResumesController < ApplicationController
   end
 
   def finish
-    @resume = Resume.find(params[:id])
+    @resume = current_user.resumes.find_by_id(params[:id]) or not_found
   end
 
   def standard_resume
