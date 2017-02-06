@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   get 'user/standard_resume' => 'user/resumes#standard_resume' ##简历标注模板页
+	get 'user/responsive_template' => 'user/resumes#responsive_template' ##可变化模板
 
   get 'user/resumes/pdf' => 'user/resumes#download'
   # get 'user/resumes/:resume_id/preview_pdf' => 'user/resumes#preview_download', as: :preview_download
