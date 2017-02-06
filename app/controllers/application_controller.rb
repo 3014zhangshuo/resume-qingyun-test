@@ -26,6 +26,10 @@ class ApplicationController < ActionController::Base
 		user_resumes_path
 	end
 
+  def not_found
+    raise ActionController::RoutingError.new('Not Found')
+  end
+
 	private
 
 	def resource_name

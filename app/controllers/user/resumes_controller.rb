@@ -78,7 +78,7 @@ class User::ResumesController < ApplicationController
 
   def preview
 
-    @resume = current_user.resumes.find(params[:resume_id])
+    @resume = current_user.resumes.find_by_id(params[:resume_id]) or not_found
     respond_to do |format|
       format.html
       format.pdf do
