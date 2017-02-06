@@ -41,6 +41,7 @@ gem 'letter_opener', group: :development
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'listen', '~> 3.1.5'
+gem 'sendcloud_rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
