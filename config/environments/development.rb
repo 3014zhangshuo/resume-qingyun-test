@@ -12,19 +12,19 @@ Rails.application.configure do
   # Show full error reports.
   config.consider_all_requests_local = true
   # config.action_mailer.default_url_options = { host: 'localhost:3000' }
-  # config.action_mailer.delivery_method = :letter_opener
-  config.action_mailer.smtp_settings = {
-    address: "smtp.sendgrid.net",
-    port: 25,
-    domain: "resumehack.com",
-    authentication: "plain",
-    enable_starttls_auto: true,
-    user_name: ENV["resumehack-email"],
-    password: ENV["	3uJ0OB0jRm-bonWXAda_0Q"]
-    }
+  config.action_mailer.delivery_method = :letter_opener
+  # config.action_mailer.smtp_settings = {
+  #   address: "smtp.sendgrid.net",
+  #   port: 25,
+  #   domain: "resumehack.com",
+  #   authentication: "plain",
+  #   enable_starttls_auto: true,
+  #   user_name: ENV["resumehack-email"],
+  #   password: ENV["	3uJ0OB0jRm-bonWXAda_0Q"]
+  #   }
 
-
-config.action_mailer.delivery_method = :smtp
+#
+# config.action_mailer.delivery_method = :smtp
 config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   # Enable/disable caching. By default caching is disabled.
   if Rails.root.join('tmp/caching-dev.txt').exist?
