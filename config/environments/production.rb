@@ -95,7 +95,7 @@ ActionMailer::Base.smtp_settings = {
   authentication: "login",
   enable_starttls_auto: true,
   user_name: ENV["SENDCLOUD_USERNAME"],
-  password: ENV["AhspTGE0YhiHCk4q"]
+  password: ENV["SENDCLOUD_PASSWORD"]
   }
 
 	config.asset_host = 'http://jianliheike.com'
