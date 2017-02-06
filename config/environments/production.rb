@@ -88,22 +88,22 @@ Rails.application.configure do
 #config.action_mailer.default_url_options = { :host => 'aqueous-savannah-80175.herokuapp.com'}
 config.action_mailer.perform_deliveries = true
 config.action_mailer.raise_delivery_errors = true
-config.action_mailer.delivery_method = :sendcloud
-config.action_mailer.sendcloud_settings = {
-        api_user: 'hhzhangshuo_test_gNFo9R',
-        api_key: 'AhspTGE0YhiHCk4q',
-        api_url: 'http://api.sendcloud.net/apiv2/mail/send'
-}
-# config.action_mailer.delivery_method = :smtp
-# ActionMailer::Base.smtp_settings = {
-#   address: "smtpcloud.sohu.com",
-#   port: 25,
-#   domain: "heroku.com",
-#   authentication: "plain",
-#   enable_starttls_auto: true,
-#   user_name: ENV["SENDCLOUD_USERNAME"],
-#   password: ENV["SENDCLOUD_PASSWORD"]
-#   }
+# config.action_mailer.delivery_method = :sendcloud
+# config.action_mailer.sendcloud_settings = {
+#         api_user: 'hhzhangshuo_test_gNFo9R',
+#         api_key: 'AhspTGE0YhiHCk4q',
+#         api_url: 'http://api.sendcloud.net/apiv2/mail/send'
+# }
+config.action_mailer.delivery_method = :smtp
+ActionMailer::Base.smtp_settings = {
+  address: "smtpcloud.sohu.com",
+  port: 25,
+  domain: "heroku.com",
+  authentication: "login",
+  enable_starttls_auto: true,
+  user_name: "hhzhangshuo_test_gNFo9R",
+  password: "AhspTGE0YhiHCk4q"
+  }
 
 	config.asset_host = 'http://jianliheike.com'
 end
