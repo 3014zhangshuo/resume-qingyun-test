@@ -90,13 +90,13 @@ config.action_mailer.perform_deliveries = true
 config.action_mailer.raise_delivery_errors = false
 config.action_mailer.delivery_method = :smtp
 ActionMailer::Base.smtp_settings = {
-  address: "smtp.sendgrid.net",
+  address: "smtpcloud.sohu.com",
   port: 25,
   domain: "heroku.com",
   authentication: "plain",
   enable_starttls_auto: true,
-  user_name: "resumehack-email",
-  password: "	3uJ0OB0jRm-bonWXAda_0Q"
+  user_name: "hhzhangshuo_test_gNFo9R",
+  password: "AhspTGE0YhiHCk4q"
   }
 
 	config.asset_host = 'http://jianliheike.com'
