@@ -18,7 +18,7 @@
 					</div>
 				</div>
 
-	      <% current_user.resumes.each do |resume| %>
+	      <% @resumes.each do |resume| %>
 					<% if resume.resume_html.present? %>
            <div class="col-md-3 col-sm-6 col-xs-12">
 							 <div class="product-item">
@@ -62,7 +62,7 @@
 							 </div>
 						</div>
 						<% else %>
-						<div class="col-md-3 col-sm-6 col-xs-12">
+						<div class="col-md-3 col-sm-6 col-xs-12 delete_<%= resume.id %>">
 								<div class="product-item">
 									<div class="pi-img-wrapper">
 										<!-- <img src="" class="img-responsive" alt="ResumeHere"> -->
@@ -81,7 +81,11 @@
 										<% end %>
 										<span class="pull-right">&nbsp;未生成</span><i class="fa fa-file-text-o pull-right status-r"></i>
 									</h3>
+
 									<div class="pi-price">更新于：<%= resume.updated_at.strftime("%m/%e, %l:%M %p") %></div>
+
+									&nbsp;&nbsp;&nbsp; <%= link_to("删除", user_resume_path(resume), method: :delete, class: "btn btn-xs btn-danger" ,
+									data: { confirm: "确定删除这个未完成的简历？" }, remote: true) %>
 									<!-- <a href="javascript:;" class="btn add2cart">Add to cart</a> -->
 								</div>
 						 </div>

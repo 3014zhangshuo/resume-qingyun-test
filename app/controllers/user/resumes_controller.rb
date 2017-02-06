@@ -11,7 +11,7 @@ class User::ResumesController < ApplicationController
 
 
   def index
-    @resumes = current_user.resumes.order(created_at: :DESC)
+    @resumes = current_user.resumes.recent
   end
 
 
@@ -24,6 +24,14 @@ class User::ResumesController < ApplicationController
         template: "user/resumes/show.pdf.erb"
       end
     end
+  end
+
+  def destroy
+    @resume = Resume.destroy(params[:id])
+    respond_to do |format|
+       format.html { redirect_to user_resumes_path }
+       format.js
+     end
   end
 
   def download
