@@ -30,6 +30,12 @@ class RegistrationsController < Devise::RegistrationsController
 
   private
 
+  def update_needs_confirmation?(resource, previous)
+    resource.respond_to?(:pending_reconfirmation?) &&
+      resource.pending_reconfirmation? &&
+      previous != resource.unconfirmed_email
+  end
+
   # set custom flash message for unconfirmed user
 
   def user_flash_msg

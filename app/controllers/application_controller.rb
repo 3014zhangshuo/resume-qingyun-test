@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
 
-  #before_action :inspect_user_is_confrim if current_user.nil? #验证用户是否通过验证
+  #before_action :sent_confirm_email
 
   #验证用户是否通过验证的action
   def inspect_user_is_confrim
@@ -11,6 +11,13 @@ class ApplicationController < ActionController::Base
       current_user.save!
     end
   end
+
+  # def sent_confirm_email
+  #   if current_user.present? && current_user.confirmation_token.nil?
+  #     Devise::Mailer.confirmation_instructions(current_user).deliver
+  #   end
+  # end
+
 
 	def admin_required
 		if !current_user.admin?
