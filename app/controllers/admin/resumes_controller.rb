@@ -43,6 +43,11 @@ class Admin::ResumesController < ApplicationController
   end
 end
 
+ def  notify_user_edit_one_done
+   @user = User.find(params[:user_id])
+   @resume = @user.resumes.find(params[:resume_id])
+   ResumeMailer
+
 private
 
 def resume_html_for_resume(resume)
