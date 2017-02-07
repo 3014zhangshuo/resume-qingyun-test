@@ -24,9 +24,6 @@ Rails.application.routes.draw do
       resources :resumes do
          get :preview
          post :save_html
-
-           post :notify_user_edit_one_done
-        
       end
 			member do
 				post :admin_state

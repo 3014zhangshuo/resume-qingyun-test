@@ -20,9 +20,7 @@
 
 <br><br><br>
 
-<div class="group">
-  <%= link_to("发送第一修改确认信", admin_user_resume_notify_user_edit_one_done_path(@user,resume_id: @resume.id), method: :post, class: "btn btn-primary") %>
-</div>
+
 
 <div class="container">
   <% if @resume.aasm_state == "submit_one" %>
