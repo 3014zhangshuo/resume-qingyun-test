@@ -38,14 +38,14 @@ class Admin::ResumesController < ApplicationController
       ResumeMailer.notify_user_edit_one(@user,@resume).deliver!
     elsif @resume.aasm_state == "submit_two"
       @resume.expert_second_start!
-      ResumeMailer.notify_user_edit_one(@user,@resume).deliver!
+      ResumeMailer.notify_user_edit_two(@user,@resume).deliver!
     end
     @resume_html.save
     # flash[:notice] = 'saved'
   end
 
 
- 
+
 private
 
 def resume_html_for_resume(resume)
