@@ -1,0 +1,2 @@
+class ResumeMailer < ApplicationMailer
+end
