@@ -117,9 +117,11 @@ class User::ResumesController < ApplicationController
     @resume_html = resume_html_for_resume(@resume)
     @resume_html.content = params[:content]
     @resume_html.save
+    @user = current_user
 		if @resume.aasm_state == "edit_one"
 			@resume.user_second_start!
 		end
+    ResumeMailer.notify_master_sumbit_two(@user,@resume).deliver!
 		redirect_to user_resume_editor_path(@resume)
   	flash[:notice] = "提交成功！导师将于24小时以内给予反馈"
 	end

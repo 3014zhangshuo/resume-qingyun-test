@@ -6,4 +6,12 @@ class ResumeMailer < ApplicationMailer
     mail(to: @user.email , subject: "[ResumeHack] 导师第一次修改完成！")
   end
 
+  def notify_master_sumbit_two(user,resume)
+    @resume = resume
+    @user = user
+    @admin = "1@1.com"
+    mail(to: @admin , subject: "[ResumeHack] 用户提交第二次修改！")
+  end
+
+
 end

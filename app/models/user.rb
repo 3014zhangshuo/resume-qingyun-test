@@ -27,8 +27,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
 	has_many :resumes
-  #attr_accessor :user_code
-  #validate :create_user_code, :on => :create
+
+  scope :admin, -> {where(:is_admin => true)}
 	def admin?
 	  is_admin
 	end
