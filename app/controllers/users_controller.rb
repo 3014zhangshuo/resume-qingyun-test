@@ -18,10 +18,11 @@ class UsersController < ApplicationController
     @user.update(user_params)
     @user.save
     if @user.confirm?
-      redirect_to user_resume_editor_path(@resume)
+			flash[:notice] = "验证码确认成功！"
+			redirect_to user_resume_editor_path(@resume)
     else
-      redirect_to edit_user_path(current_user,:resume_id => @resume.id)
       flash[:warning] = "请输入正确的验证码"
+			redirect_to :back
     end
   end
 

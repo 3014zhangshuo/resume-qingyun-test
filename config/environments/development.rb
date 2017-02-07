@@ -11,7 +11,18 @@ Rails.application.configure do
 
   # Show full error reports.
   config.consider_all_requests_local = true
-  config.action_mailer.delivery_method = :letter_opener
+  # config.action_mailer.delivery_method = :letter_opener
+	config.action_mailer.delivery_method = :smtp
+	ActionMailer::Base.smtp_settings = {
+	  address: "smtpcloud.sohu.com",
+	  port: 25,
+	  domain: "jianliheike.com",
+	  authentication: "login",
+	  enable_starttls_auto: true,
+	  user_name: "hhzhangshuo_test_gNFo9R",
+	  password: "AhspTGE0YhiHCk4q"
+	  }
+
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   # Enable/disable caching. By default caching is disabled.
   if Rails.root.join('tmp/caching-dev.txt').exist?
