@@ -41,12 +41,13 @@ class Admin::ResumesController < ApplicationController
     @resume_html.save
     # flash[:notice] = 'saved'
   end
-end
 
- def  notify_user_edit_one_done
+
+ def notify_user_edit_one_done
    @user = User.find(params[:user_id])
    @resume = @user.resumes.find(params[:resume_id])
-   ResumeMailer
+   ResumeMailer.notify_user_edit_one(@user,@resume).deliver!
+ end
 
 private
 
@@ -56,5 +57,6 @@ def resume_html_for_resume(resume)
   else
     resume.resume_html
   end
+end
 
 end
