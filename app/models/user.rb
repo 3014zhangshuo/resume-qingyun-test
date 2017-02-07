@@ -21,14 +21,19 @@
 class User < ApplicationRecord
   #before_create :create_user_code
   before_update :create_user_code
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
 	has_many :resumes
+  #attr_accessor :user_code
+  #validate :create_user_code, :on => :create
 
-  scope :admin, -> {where(:is_admin => true)}
+
+
+
 	def admin?
 	  is_admin
 	end
@@ -55,5 +60,7 @@ class User < ApplicationRecord
        self.save!
     end
   end
+
+
 
 end
