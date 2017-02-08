@@ -38,9 +38,9 @@ class OrdersController < ApplicationController
     @resume = @order.resume
     @order.update(order_params)
     @order.save!
-    #binding.pry
     if @order.pay_code == @order.paid_code
       @order.is_paid = true
+      @resume.is_paid = true
       @order.save!
       flash.keep[:notice] = "验证成功!欢迎使用"
       redirect_to user_resume_editor_path(@resume)
