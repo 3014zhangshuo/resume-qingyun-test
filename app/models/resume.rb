@@ -70,6 +70,7 @@
 
 class Resume < ApplicationRecord
 
+	has_one :order
 	has_one :resume_html
 	has_many :resume_images
 	belongs_to :user
@@ -77,6 +78,10 @@ class Resume < ApplicationRecord
  	mount_uploader :past_project_image2, ImageUploader
  	mount_uploader :past_project_image3, ImageUploader
   scope :recent, -> {order("created_at DESC")}
+
+	def paid?
+		is_paid
+	end
 
 include AASM
  aasm do

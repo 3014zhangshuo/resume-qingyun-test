@@ -32,6 +32,18 @@ Rails.application.routes.draw do
 		end
 	end
 
+  #订单路由
+  resources :orders, only: [:new, :create] do
+    member do
+      get :pay
+      post :pay_submit
+    end
+    collection do
+      post :choice_submit
+    end
+  end
+
+
   # 用户下简历路由
   namespace :user do
     resources :resumes do
