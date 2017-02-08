@@ -70,6 +70,7 @@
 
 class Resume < ApplicationRecord
 
+	has_one :order
 	has_one :resume_html
 	has_many :resume_images
 	belongs_to :user
