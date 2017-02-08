@@ -42,10 +42,12 @@ Rails.application.routes.draw do
 			post :first_submit
 			post :second_submit
 			post :complete_resume
+			get :preview_white_res
 
       # 分页
       collection do
         post :upload_image
+				get :preview_new_white_resume
       end
       member do
         get :page1

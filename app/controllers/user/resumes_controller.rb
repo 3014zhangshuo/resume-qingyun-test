@@ -289,7 +289,24 @@ class User::ResumesController < ApplicationController
   def standard_resume
   end
 
+	def preview_new_white_resume
+		@resume = Resume.new
+    @resume.user = current_user
+    @resume.save!
+		redirect_to user_resume_preview_white_res_path(@resume)
+	end
 
+	def preview_white_res
+		@resume = current_user.resumes.find_by_id(params[:resume_id]) or not_found
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "resume.pdf",
+               template: "user/resumes/preview.pdf.erb",
+               layout: "preview_layout.html.erb"
+      end
+    end
+	end
 
 
 
