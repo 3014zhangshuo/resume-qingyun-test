@@ -44,16 +44,20 @@
 		<i class="fa fa-cloud-download"></i>&nbsp;下载PDF格式
 	<% end %>
 
-	<% if !current_user.confirm? %>
-	  <%= link_to edit_user_path(current_user, :resume_id => @resume.id), class: "btn btn-primary pull-center" do%>
- <%# binding.pry %>
-		  <i class="fa fa-user-o"></i>&nbsp;导师修改(测试功能)
-	  <% end %>
+	<% if @resume.order.present? %>
 
-	<% else %>
-
-	  <%= link_to user_resume_editor_path, class: "btn btn-primary pull-center" do %>
-		  <i class="fa fa-user-o"></i>&nbsp;导师修改(测试功能)
+    <% if @resume.order.aasm_state == "order_placed" %>
+		<%= link_to pay_order_path(id:@resume.order.token), class: "btn btn-primary pull-center" do %>
+		 <i class="fa fa-user-o"></i>&nbsp;导师修改(测试功能)
+		<% end %>
+		<% elsif @resume.order.aasm_state == "paid" %>
+		  <%= link_to user_resume_editor_path, class: "btn btn-primary pull-center" do%>
+			  <i class="fa fa-user-o"></i>&nbsp;导师修改(测试功能)
+		  <% end %>
+    <% end %>
+  <% else %>
+	  <%= link_to new_order_path(id:@resume), class: "btn btn-primary pull-center" do %>
+	   <i class="fa fa-user-o"></i>&nbsp;导师修改(测试功能)
 	  <% end %>
 	<% end %>
 

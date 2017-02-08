@@ -10,18 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170204183735) do
+ActiveRecord::Schema.define(version: 20170208060437) do
 
-  create_table "ckeditor_assets", force: :cascade do |t|
-    t.string   "data_file_name",               null: false
-    t.string   "data_content_type"
-    t.integer  "data_file_size"
-    t.string   "type",              limit: 30
-    t.integer  "width"
-    t.integer  "height"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.index ["type"], name: "index_ckeditor_assets_on_type"
+  create_table "orders", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "resume_id"
+    t.string   "token"
+    t.string   "plan"
+    t.integer  "plan_amount"
+    t.string   "money"
+    t.string   "paymethod"
+    t.boolean  "is_paid",     default: false
+    t.string   "pay_code"
+    t.string   "paid_code"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.string   "aasm_state",  default: "order_placed"
+    t.index ["aasm_state"], name: "index_orders_on_aasm_state"
   end
 
   create_table "resume_htmls", force: :cascade do |t|
@@ -103,6 +108,8 @@ ActiveRecord::Schema.define(version: 20170204183735) do
     t.string   "answer59"
     t.integer  "user_id"
     t.string   "aasm_state",                default: "drafting"
+    t.string   "token"
+    t.boolean  "is_paid",                   default: false
     t.index ["aasm_state"], name: "index_resumes_on_aasm_state"
   end
 

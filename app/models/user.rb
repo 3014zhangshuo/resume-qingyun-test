@@ -31,9 +31,6 @@ class User < ApplicationRecord
   #attr_accessor :user_code
   #validate :create_user_code, :on => :create
 
-
-
-
 	def admin?
 	  is_admin
 	end
@@ -60,7 +57,5 @@ class User < ApplicationRecord
        self.save!
     end
   end
-
-
-
+  
 end
