@@ -45,11 +45,8 @@
 	<% end %>
 
 	<% if @resume.order.present? %>
+
     <% if @resume.order.aasm_state == "order_placed" %>
-		  <%= link_to choice_order_path(id:@resume.order.token), class: "btn btn-primary pull-center" do %>
-		   <i class="fa fa-user-o"></i>&nbsp;导师修改(测试功能)
-		  <% end %>
-    <% elsif @resume.order.aasm_state == "choosed" %>
 		<%= link_to pay_order_path(id:@resume.order.token), class: "btn btn-primary pull-center" do %>
 		 <i class="fa fa-user-o"></i>&nbsp;导师修改(测试功能)
 		<% end %>

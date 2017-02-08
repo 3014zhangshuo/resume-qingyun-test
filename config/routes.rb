@@ -35,8 +35,9 @@ Rails.application.routes.draw do
   resources :orders, only: [:new, :create] do
     member do
       get :pay
-      get :choice
       post :pay_submit
+    end
+    collection do
       post :choice_submit
     end
   end

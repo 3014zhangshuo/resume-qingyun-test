@@ -2,27 +2,16 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    @user = current_user
-    @resume = Resume.find(params[:id])
     @order = Order.new
-    @order.user = @user
-    @order.resume = @resume
-    @order.pay_code = SecureRandom.hex
-    @order.save
-    #binding.pry
-    redirect_to choice_order_path(@order.token)
-  end
-
-  def choice
-    @order = Order.find_by_token(params[:id])
-    #binding.pry
+    @resume = Resume.find(params[:id])
   end
 
   def choice_submit
-    @order = Order.find_by_token(params[:id])
-    @order.update(order_params)
+    @order = Order.new(order_params)
+    @order.user = current_user
+    @order.resume = Resume.find(params[:id])
+    @order.pay_code = SecureRandom.hex
     if @order.save!
-      @order.order_choosed!
       redirect_to pay_order_path(@order.token)
       flash[:notice] = "订单创建成功请支付"
     else
@@ -32,7 +21,6 @@ class OrdersController < ApplicationController
 
   def pay
     @order = Order.find_by_token(params[:id])
-    #@resume = @order.resume
   end
 
   def pay_submit
