@@ -3,16 +3,24 @@ class OrdersController < ApplicationController
 
   def new
     @user = current_user
-    @resume = current_user.resumes.find(:resume_id)
+    @resume = Resume.find(params[:id])
+    @order = Order.new
     @order.user = @user
     @order.resume = @resume
-    @order = Order.new
+    @order.save
+    redirect_to choice_order_path(@order)
   end
 
-  def create
-    @order = Order.new(order_params)
-    if @order.save
-      redirect_to :back
+  def choice
+    @order = Order.find(params[:id])
+  end
+
+  def choice_submit
+    @order = Order.find(params[:id])
+    @order.update(order_params)
+    if @order.save!
+      #binding.pry
+      redirect_to pay_order_path(@order)
       flash[:notice] = "订单创建成功请支付"
     else
       render :new
@@ -20,12 +28,12 @@ class OrdersController < ApplicationController
   end
 
   def pay
-    @order = Order.find_by_token(params[:id])
+    @order = Order.find(params[:id])
     #@resume = @order.resume
   end
 
   def pay_submit
-    @order = Order.find_by_token(params[:id])
+    @order = Order.find(params[:id])
     @resume = @order.resume
     @order.update(order_params)
     @order.save!
@@ -43,7 +51,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).premit(:plan, :plan_amount, :money, :paymethod,:paid_code)
+    params.require(:order).permit(:plan, :plan_amount, :money, :paymethod,:paid_code)
   end
 
 end

@@ -1,0 +1,7 @@
+<h1>选择套餐</h1>
+
+<%= simple_form_for @order, url: choice_submit_order_path(@order), controller: "orders", action: "choice_submit", method: 'post' do |f|  %>
+<%= f.input :paymethod %>
+<%= f.input :money %>
+<%= f.submit "提交", class: "btn btn-default", data: { disable_with: "提交中..." } %>
+<% end %>

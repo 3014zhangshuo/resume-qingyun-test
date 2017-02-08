@@ -18,11 +18,11 @@ ActiveRecord::Schema.define(version: 20170208030107) do
     t.string   "token"
     t.string   "plan"
     t.integer  "plan_amount"
-    t.integer  "money"
+    t.string   "money"
     t.string   "paymethod"
     t.boolean  "is_paid",     default: false
-    t.integer  "pay_code"
-    t.integer  "paid_code"
+    t.string   "pay_code"
+    t.string   "paid_code"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
   end

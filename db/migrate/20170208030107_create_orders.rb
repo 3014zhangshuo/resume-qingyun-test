@@ -6,11 +6,11 @@ class CreateOrders < ActiveRecord::Migration[5.0]
       t.string :token
       t.string :plan
       t.integer :plan_amount
-      t.integer :money
+      t.string :money
       t.string :paymethod
       t.boolean :is_paid, default: false
-      t.integer :pay_code
-      t.integer :paid_code
+      t.string :pay_code
+      t.string :paid_code
       t.timestamps
     end
   end

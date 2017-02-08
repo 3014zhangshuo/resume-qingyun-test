@@ -32,10 +32,12 @@ Rails.application.routes.draw do
 	end
 
   #订单路由
-  resources :order, only: [:new, :create] do
+  resources :orders, only: [:new, :create] do
     member do
       get :pay
+      get :choice
       post :pay_submit
+      post :choice_submit
     end
   end
 
