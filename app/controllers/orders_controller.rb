@@ -7,6 +7,7 @@ class OrdersController < ApplicationController
     @order = Order.new
     @order.user = @user
     @order.resume = @resume
+    @order.pay_code = SecureRandom.hex
     @order.save
     redirect_to choice_order_path(@order)
   end
@@ -37,6 +38,7 @@ class OrdersController < ApplicationController
     @resume = @order.resume
     @order.update(order_params)
     @order.save!
+    #binding.pry
     if @order.pay_code == @order.paid_code
       @order.is_paid = true
       @order.save!
@@ -44,7 +46,7 @@ class OrdersController < ApplicationController
       redirect_to user_resume_editor_path(@resume)
     else
       flash[:warning] = "请输入正确的验证码"
-      redirect_to :back
+      redirect_to pay_order_path(@order)
     end
   end
 

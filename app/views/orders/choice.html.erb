@@ -1,6 +1,43 @@
+<div class="container">
+	<div class="col-md-12">
+		<h2>简历辅导（测试功能）说明</h2>
+
+		<br><br>
+		<p>
+在过去一年中，我们修改过上百份简历，从擅长的金融、投行、PE领域，到完全陌生的房地产、教育、研究生、程序员行业，<br>
+我们发现，绝大多数人都没有花很多功夫去酌字酌句地修改这一篇可能改变自己人生轨迹的文字。<br>
+
+<br>我们看到的简历普遍有几个特点：<br>
+
+<li>用了从学校或者网上随便下载的模板，各种图标和色块满天飞，一眼就能看出来不够专业性，输在起跑线上；
+<li>无论拥有很好的工作实习经历还是缺乏经验，都因为语言天分不足而不知道如何包装自己，把机会让给更会包装自己的人；
+<li>不知道如何处理自身劣势：空档期怎么写、被公司裁员怎么写、因为男朋友分手而高考失利怎么写，最终写出一份处处被拒的简历；
+
+<br><br>
+<span class="emphasis">因此，我们开发了“简历黑客”这款产品。我们希望，每个人都能够凭借自己的本领，描绘出最好的自己。</span><br>
+(关于修改简历的团队背景，可以看一下我的<a href="http://www.zaih.com/mentor/84788395/">“在行”简介</a> 或者<a href="https://cn.linkedin.com/in/davidyzhu/zh-cn">领英主页</a>。)<br><br>
+
+在人人都用美颜相机提升颜值的年代，不要因为简历错失了下一个提薪30%的机会。<br><br>
+
+<h3>简历修改流程</h3>
+<div class="container">
+	<div class="form-bootstrapWizard">
+		 <ul class="bootstrapWizard-service form-wizard">
+			 <li class="active"><%= content_tag :span, "1", :class => "step" %><%= content_tag :span, "学员第一稿", :class => "title" %></li>
+			 <li class="active"><%= content_tag :span, "2", :class => "step" %><%= content_tag :span, "导师第一改", :class => "title" %></li>
+			 <li class="active"><%= content_tag :span, "3", :class => "step" %><%= content_tag :span, "学员第二稿", :class => "title" %></li>
+			 <li class="active"><%= content_tag :span, "4", :class => "step" %><%= content_tag :span, "导师第二改", :class => "title" %></li>
+			 <li class="active"><%= content_tag :span, "5", :class => "step" %><%= content_tag :span, "简历完成", :class => "title" %></li>
+		 </ul>
+		 <div class="clearfix"></div><br><br>
+	</div>
+</div>
+<span class="emphasis">简历辅导功能属于测试期，我会在支付后对你提交的简历进行2次修改</span>。我不会逐字逐句地修改（以后会升级研发让系统可以自动提升文案），但会根据我的经验提出修改意见。
+<br>第二稿之后的版本会是直接可以发给HR的实战版本。<br>
+<br><br>
 <h1>选择套餐</h1>
 
-<%= simple_form_for @order, url: choice_submit_order_path(@order), controller: "orders", action: "choice_submit", method: 'post' do |f|  %>
+<%= simple_form_for @order, url: choice_submit_order_path(@order),method: :post do |f|  %>
 <%= f.input :paymethod %>
 <%= f.input :money %>
 <%= f.submit "提交", class: "btn btn-default", data: { disable_with: "提交中..." } %>
