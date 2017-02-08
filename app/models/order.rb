@@ -2,7 +2,7 @@ class Order < ApplicationRecord
   before_create :generate_token
   belongs_to :resume
   belongs_to :user
-
+  validates_presence_of :paid_code, :message => "购买码不能为空！"
   def paid?
     is_paid
   end

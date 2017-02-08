@@ -27,12 +27,12 @@ class OrdersController < ApplicationController
     @order = Order.find_by_token(params[:id])
     @resume = @order.resume
     @order.update(order_params)
-    @order.save!
+    @order.save
     if @order.pay_code == @order.paid_code
       @order.is_paid = true
       @order.order_paid!
       @resume.is_paid = true
-      @order.save!
+      @order.save
       flash.keep[:notice] = "验证成功!欢迎使用"
       redirect_to user_resume_editor_path(@resume)
     else
