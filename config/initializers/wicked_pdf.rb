@@ -25,7 +25,7 @@ if Rails.env.production?
 # else
 #   wkhtmltopdf_path = "/usr/local/bin/wkhtmltopdf"
 
-font_dir = File.join(Dir.home, ".fonts")
+font_dir = File.join(Dir.home, "fonts")
 Dir.mkdir(font_dir) unless Dir.exists?(font_dir)
 
 	Dir.glob(Rails.root.join("vendor", "fonts", "*")).each do |font|

@@ -3,10 +3,10 @@
 lock "3.7.1"
 
 set :application, "ResumeHack"
-set :repo_url, "git@github.com:ResumeHack/ResumeHack.git"
+set :repo_url, "git@github.com:cndaniel/ResumeHack.git"
 set :branch, "develop"
-# set :deploy_via, :copy
-set :deploy_via, :remote_cache
+set :deploy_via, :copy
+# set :deploy_via, :remote_cache
 
 # Default branch is :master
 
