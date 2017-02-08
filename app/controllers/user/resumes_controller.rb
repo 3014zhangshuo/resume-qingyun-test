@@ -165,6 +165,25 @@ class User::ResumesController < ApplicationController
     redirect_to page1_user_resume_path(@resume)
   end
 
+# 点击new生成white模板简历跳转page1_white
+	def new_white
+		@resume = Resume.new
+		@resume.user = current_user
+		@resume.save!
+		redirect_to page1_white_user_resume_path(@resume)
+	end
+
+	def page1_white
+		@resume = current_user.resumes.find_by_id(params[:id]) or not_found		
+	end
+
+	def page1_white_commit
+		@resume = current_user.resumes.find_by_id(params[:id]) or not_found
+		@resume.update(resume_params)
+		# 重定向到下一页
+		redirect_to user_resume_preview_white_res_path(@resume)
+	end
+
   # 拆分页面
   def page1
     @resume = current_user.resumes.find_by_id(params[:id]) or not_found
@@ -177,7 +196,6 @@ class User::ResumesController < ApplicationController
     @resume.update(resume_params)
     # 重定向到下一页
     redirect_to page2_user_resume_path(@resume)
-
   end
 
   def page2
