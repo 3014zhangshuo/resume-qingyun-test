@@ -29,7 +29,11 @@ Rails.application.routes.draw do
 				post :user_state
 			end
 		end
-    resources :orders
+    resources :orders do
+      member do
+        post :send_code
+      end
+    end
 	end
 
   #订单路由
