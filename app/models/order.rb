@@ -19,13 +19,16 @@ class Order < ApplicationRecord
     ["白领套餐", "程序员套餐"]
   end
 
+  def self.default_plan_amount
+    [1,2,3]
+  end
   include AASM
 
     aasm do
       state :order_placed, initial: true
       state :paid
       state :order_cancelled
-      
+
       event :order_paid do
         transitions from: :order_placed, to: :paid
       end

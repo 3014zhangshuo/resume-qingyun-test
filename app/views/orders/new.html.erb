@@ -16,6 +16,7 @@
 <h2 style="text-align:center;">填写订单</h1>
 <%= simple_form_for @order, url: choice_submit_orders_path(id: @resume.id),method: :post do |f|  %>
 <%= f.input :plan, :collection => Order.default_plan, :selected => Order.default_plan[1] ,label: '套餐选择'  %>
+<%= f.input :plan_amount, :collection => Order.default_plan_amount, :selected => Order.default_plan_amount[0] ,label: '套餐选择'  %>
 <%= f.input :paymethod, :collection => Order.default_paymethod, :selected => Order.default_paymethod[0] ,label: '付款方式' %>
 <%= f.input :money, :collection => Order.default_money, :selected => Order.default_money[0] ,label: '金额' %>
 <%= f.submit "提交", class: "btn btn-primary", data: { disable_with: "提交中..." } %>
