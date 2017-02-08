@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170208055525) do
+ActiveRecord::Schema.define(version: 20170208060437) do
 
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
@@ -23,8 +23,10 @@ ActiveRecord::Schema.define(version: 20170208055525) do
     t.boolean  "is_paid",     default: false
     t.string   "pay_code"
     t.string   "paid_code"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.string   "aasm_state",  default: "order_placed"
+    t.index ["aasm_state"], name: "index_orders_on_aasm_state"
   end
 
   create_table "resume_htmls", force: :cascade do |t|
