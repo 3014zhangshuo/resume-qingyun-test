@@ -29,6 +29,7 @@ Rails.application.routes.draw do
 				post :user_state
 			end
 		end
+    resources :orders
 	end
 
   #订单路由
@@ -75,8 +76,8 @@ Rails.application.routes.draw do
 				post :page7_commit
         get :finish
       end
-
     end
+
   end
 
 

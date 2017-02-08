@@ -10,7 +10,7 @@
                     <td>简历个数</td>
                     <td>权限变更</td>
                     <td>发送确认信</td>
-                    <td>用户信息</td>
+                    <td>未完成订单数量</td>
                 </tr>
             </thead>
             <tbody>
@@ -29,11 +29,8 @@
                       <% end %>
                     </td>
                     <td><%= link_to("Confirm email", sent_confirm_email_admin_user_path(user), method: :post, class: "btn btn-danger" ) %></td>
-                    <td><% if user.resumes.present? %>
-                         <%= user.resumes.last.name_resume %>
-                        <% else %>
-                          无
-                        <% end %>
+                    <td>
+                      <%= link_to(user.orders.where(:is_paid => false).count, admin_orders_path(id:user.id))  %>
                     </td>
                   </tr>
                   <% end %>
