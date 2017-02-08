@@ -1,0 +1,117 @@
+<input type="hidden" id="refresh" value="no">
+<div id="notice"></div>
+
+<div class="container" style="text-align:center;">
+	<i style="font-size:25px">可以用下方编辑器对简历任意调整</i>
+
+<br><br>
+
+
+<%= render partial: "resume_content_white_res", locals: { resume: @resume } %>
+
+<br><br><br>
+
+<div class="container">
+
+	<%= link_to "#", class: "btn btn-primary pull-center", id: "save" do %>
+		<i class="fa fa-save"></i>&nbsp;完成并保存
+	<% end %>
+	<%= link_to "#", class: "btn btn-primary pull-center", id: "print" do %>
+		<i class="fa fa-cloud-download"></i>&nbsp;下载PDF格式
+	<% end %>
+
+	<% if !current_user.confirm? %>
+	  <%= link_to edit_user_path(current_user, :resume_id => @resume.id), class: "btn btn-primary pull-center" do%>
+ <%# binding.pry %>
+		  <i class="fa fa-user-o"></i>&nbsp;导师修改(测试功能)
+	  <% end %>
+
+	<% else %>
+
+	  <%= link_to user_resume_editor_path, class: "btn btn-primary pull-center" do %>
+		  <i class="fa fa-user-o"></i>&nbsp;导师修改(测试功能)
+	  <% end %>
+	<% end %>
+
+</div>
+
+</div>
+
+<br><br><br><br><br><br>
+
+
+<script type="text/javascript">
+
+	$(document).ready(function(e) {
+		var $input = $('#refresh');
+		$input.val() == 'yes' ? location.reload(true) : $input.val('yes');
+	});
+
+
+
+	$('#print').click(function(event) {
+		event.preventDefault();
+		$.ajax({
+			url: '<%= user_resume_relay_path(@resume) %>',
+			type: 'post',
+			data: { content: $('#cv').html() }
+		});
+		return false;
+	});
+
+	$('#save').click(function(event) {
+		event.preventDefault();
+		$.ajax({
+			url: '<%= user_resume_save_html_path(@resume) %>',
+			type: 'post',
+			data: { content: $('#cv').html() },
+			success: function(result){
+				$('#cv').html(result);
+      		// 加入提示的特效
+      		// $("#notice").html("<%= flash[:notice] %>");
+      	}
+      });
+		return false;
+	});
+
+
+	$(function() {
+		// $('div#froala-editor').froalaEditor({
+		// 	toolbarInline: true,
+		// 	charCounterCount: false,
+		// 	toolbarButtons: ['bold', 'italic', 'underline', 'strikeThrough', '-', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'indent', 'outdent', '-', 'insertImage', 'insertLink', 'undo', 'redo'],
+		// 	toolbarVisibleWithoutSelection: false,
+
+	    $('div#froala-editor')
+	      .on('froalaEditor.initialized', function (e, editor) {
+	        editor.events.bindClick($('body'), 'a#get-text', function () {
+	          editor.html.set('');
+	          editor.events.focus();
+	        });
+	      })
+	      .froalaEditor({
+
+					// heightMin: 200,
+					// heightMax: 1600,
+					// widthMin: 800,
+					// widthMax: 800,
+
+					imageUploadParam: 'image_content',
+
+		        // Set the image upload URL.
+		        imageUploadURL: '<%= upload_image_user_resumes_path %>.json',
+
+		        // Additional upload params.
+		        imageUploadParams: {resume_id: '<%= @resume.id %>', 'authenticity_token': $( 'meta[name="csrf-token"]' ).attr( 'content' )},
+
+		        // Set request type.
+		        imageUploadMethod: 'POST',
+
+		        // Set max image size to 5MB.
+		        imageMaxSize: 5 * 1024 * 1024,
+
+		        // Allow to upload PNG and JPG.
+		        imageAllowedTypes: ['jpeg', 'jpg', 'png']})
+	  });
+
+</script>

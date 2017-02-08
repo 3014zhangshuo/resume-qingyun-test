@@ -15,7 +15,7 @@ class Order < ApplicationRecord
   end
 
   def self.default_plan
-    ["白领套餐", "程序员套餐"]
+    ["投行标准简历修改", "程序员专业简历修改"]
   end
 
   def self.default_plan_amount

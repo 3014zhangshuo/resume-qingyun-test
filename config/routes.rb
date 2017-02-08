@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   get 'user/standard_resume' => 'user/resumes#standard_resume' ##简历标注模板页
 	get 'user/responsive_template' => 'user/resumes#responsive_template' ##可变化模板
+	post 'new_white/resumes' => 'user/resumes#new_white'
   get 'user/resumes/pdf' => 'user/resumes#download'
   # get 'user/resumes/:resume_id/preview_pdf' => 'user/resumes#preview_download', as: :preview_download
   root 'welcome#index'
@@ -58,14 +59,19 @@ Rails.application.routes.draw do
 			post :first_submit
 			post :second_submit
 			post :complete_resume
+			get :preview_white_res
+
 
       # 分页
       collection do
         post :upload_image
+				get :preview_new_white_resume
       end
       member do
         get :page1
         post :page1_commit
+				get :page1_white
+				post :page1_white_commit
         get :page2
         post :page2_commit
         get :page3
@@ -79,6 +85,9 @@ Rails.application.routes.draw do
 				get :page7
 				post :page7_commit
         get :finish
+
+
+				get :page1_white
       end
     end
 
