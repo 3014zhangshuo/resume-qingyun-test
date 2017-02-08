@@ -7,6 +7,18 @@ class Order < ApplicationRecord
     is_paid
   end
 
+  def self.default_money
+      ["￥399"]
+  end
+
+  def self.default_paymethod
+    ["微信"]
+  end
+
+  def self.default_plan
+    ["白领套餐", "程序员套餐"]
+  end
+
   include AASM
 
     aasm do

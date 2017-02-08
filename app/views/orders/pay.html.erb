@@ -1,4 +1,17 @@
+<div class="row" style="margin-top:6%;margin-bottom:200px;">
+<div class="col-md-6 col-xs-12" style="text-align:center">
+  <div>
+    <%= image_tag("wechat399.jpg", style: "max-width:300px;", alt: "微信支付二维码") %>
+  </div>
+  <div style="padding-bottom:10%;">
+  <i style="font-style:italic;">支付后请发截图到微信号"dyzpublic"进行确认 <br> 我知道你在想什么，但公司还在注册只能先这样了。。</i>
+</div>
+</div>
+<div class="col-md-3 col-xs-12" style="padding-bottom:10%; margin-right:180px; margin-top:150px;">
+  <h3 style="text-align:center;margin-top:16%;margin-bottom:20px;">或输入邮件中收到优惠码</h3>
 <%= simple_form_for(@order, url: pay_submit_order_path(@order), method: :post) do |f|  %>
-<%= f.input :paid_code %>
-<%= f.submit "提交", class: "btn btn-default", data: { disable_with: "提交中..." } %>
+<%= f.input :paid_code, label: false %>
+<%= f.submit "提交", class: "btn btn-primary", data: { disable_with: "提交中..." } %>
 <% end %>
+</div>
+</div>
