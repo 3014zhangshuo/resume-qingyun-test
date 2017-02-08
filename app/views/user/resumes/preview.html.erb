@@ -45,18 +45,15 @@
 	<% end %>
 
 
-	<% if !@resume.order.paid?  %>
+	<% if !@resume.paid? %>
 	  <%= link_to new_order_path(id:@resume), class: "btn btn-primary pull-center" do %>
-   <%# binding.pry %>
 	   <i class="fa fa-user-o"></i>&nbsp;导师修改(测试功能)
 	  <% end %>
+	<% elsif @resume.order.present?%>
 	<% else %>
-
-
 		<%= link_to edit_user_path(current_user, :resume_id => @resume.id), class: "btn btn-primary pull-center" do%>
 			<i class="fa fa-user-o"></i>&nbsp;导师修改(测试功能)
 		<% end %>
-
 	<% end %>
 
 

@@ -79,6 +79,10 @@ class Resume < ApplicationRecord
  	mount_uploader :past_project_image3, ImageUploader
   scope :recent, -> {order("created_at DESC")}
 
+	def paid?
+		is_paid
+	end
+
 include AASM
  aasm do
 	 state :drafting, initial: true
