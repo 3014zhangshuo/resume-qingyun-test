@@ -12,6 +12,7 @@ class OrdersController < ApplicationController
     @order.resume = Resume.find(params[:id])
     @order.pay_code = SecureRandom.hex
     if @order.save!
+      OrderMailer.notify_admin_send_paid_code(@order.user,@order.resume,@order).deliver!
       redirect_to pay_order_path(@order.token)
       flash[:notice] = "订单创建成功请支付"
     else
@@ -33,8 +34,6 @@ class OrdersController < ApplicationController
       @order.order_paid!
       @resume.is_paid = true
       @order.save
-      @user = current_user
-      OrderMailer.notify_admin_send_paid_code(@user,@resume,@order).deliver!
       flash.keep[:notice] = "验证成功!欢迎使用"
       redirect_to user_resume_editor_path(@resume)
     else
