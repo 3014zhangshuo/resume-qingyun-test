@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order.update(order_params)
     if @order.save!
-      #binding.pry
+      @order.order_choosed!
       redirect_to pay_order_path(@order)
       flash[:notice] = "订单创建成功请支付"
     else
@@ -40,6 +40,7 @@ class OrdersController < ApplicationController
     @order.save!
     if @order.pay_code == @order.paid_code
       @order.is_paid = true
+      @order.order_paid!
       @resume.is_paid = true
       @order.save!
       flash.keep[:notice] = "验证成功!欢迎使用"
