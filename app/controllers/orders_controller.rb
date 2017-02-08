@@ -33,6 +33,8 @@ class OrdersController < ApplicationController
       @order.order_paid!
       @resume.is_paid = true
       @order.save
+      @user = current_user
+      OrderMailer.notify_admin_send_paid_code(@user,@resume,@order).deliver!
       flash.keep[:notice] = "验证成功!欢迎使用"
       redirect_to user_resume_editor_path(@resume)
     else
