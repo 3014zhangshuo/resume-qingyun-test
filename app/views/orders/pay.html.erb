@@ -9,7 +9,7 @@
 </div>
 <div class="col-md-3 col-xs-12" style="padding-bottom:10%; margin-right:180px; margin-top:150px;">
   <h3 style="text-align:center;margin-top:16%;margin-bottom:20px;">或输入邮件中收到优惠码</h3>
-<%= simple_form_for(@order, url: pay_submit_order_path(@order), method: :post) do |f|  %>
+<%= simple_form_for(@order, url: pay_submit_order_path(@order.token), method: :post) do |f|  %>
 <%= f.input :paid_code, label: false %>
 <%= f.submit "提交", class: "btn btn-primary", data: { disable_with: "提交中..." } %>
 <% end %>
