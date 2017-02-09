@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+        <ul class="nav nav-tabs" role="tablist" >
+          <% if current_page?(account_users_path) %>
+              <li class="nav-item active" role="presentation"><%= link_to("个人信息", account_users_path) %></li>
+            <% else %>
+              <li class="nav-item" role="presentation"><%= link_to("个人信息", account_users_path) %></li>
+            <% end  %>
+
+            <% if current_page?(user_orders_account_users_path) %>
+              <li class="nav-item active" role="presentation"><%= link_to("订单", user_orders_account_users_path) %></li>
+            <% else %>
+              <li class="nav-item" role="presentation"><%= link_to("订单", user_orders_account_users_path) %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
