@@ -37,6 +37,11 @@ Rails.application.routes.draw do
     end
 	end
 
+ #用户中心的路由
+  namespace :account do
+    resources :users
+  end
+
   #订单路由
   resources :orders, only: [:new, :create] do
     member do
