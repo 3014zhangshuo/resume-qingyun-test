@@ -2,8 +2,8 @@ class Account::UsersController < ApplicationController
   def index
   end
 
-  def user_order
-    @order = current_user.orders
+  def user_orders
+    @orders = current_user.orders
   end
-  
+
 end
