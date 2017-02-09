@@ -50,11 +50,7 @@
 									 <% else %>
 									  [未命名简历]
 									 <% end %>
-									 <span>
-                    <% if resume.category == "white" %>
-									  白领简历</span>
-										<% elsif resume.category == "developer" %>
-										程序员简历</span>
+									 <%= show_what_category_resume_to_user(resume) %>
 										<% end %>
 									 <span class="pull-right">&nbsp;
 										 <% if resume.aasm_state == "drafting" %>
@@ -102,12 +98,7 @@
 										<% else %>
 										 [未命名简历]
 										<% end %>
-										<span>
-										 <% if resume.category == "white" %>
-										 白领简历</span>
-										 <% elsif resume.category == "developer" %>
-										 程序员简历</span>
-										 <% end %>
+								    <%= show_what_category_resume_to_user(resume) %>
 										<span class="pull-right">&nbsp;未生成</span><i class="fa fa-file-text-o pull-right status-r"></i>
 									</h3>
 
