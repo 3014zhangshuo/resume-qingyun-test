@@ -25,6 +25,10 @@ class ApplicationController < ActionController::Base
 		end
 	end
 
+  def after_update_path_for(resource)
+    account_users_path
+  end
+
 	def after_sign_up_path_for
 		user_resumes_path
 	end

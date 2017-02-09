@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users,:controllers => { :registrations => :registrations }
   resources :users do
     member do
       post :confirm
@@ -42,6 +42,7 @@ Rails.application.routes.draw do
     resources :users do
       collection do
         get :user_orders
+        get :change_password
       end
     end
   end
