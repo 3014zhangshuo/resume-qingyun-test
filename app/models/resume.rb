@@ -71,8 +71,8 @@
 class Resume < ApplicationRecord
 
 	has_one :order
-	has_one :resume_html
-	has_many :resume_images
+	has_one :resume_html, dependent: :destroy
+	has_many :resume_images, dependent: :destroy
 	belongs_to :user
 	mount_uploader :past_project_image1, ImageUploader
  	mount_uploader :past_project_image2, ImageUploader

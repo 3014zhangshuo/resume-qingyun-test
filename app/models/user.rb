@@ -27,8 +27,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-	has_many :resumes
-  has_many :orders
+	has_many :resumes, dependent: :destroy
+  has_many :orders, dependent: :destroy
   #attr_accessor :user_code
   #validate :create_user_code, :on => :create
 
