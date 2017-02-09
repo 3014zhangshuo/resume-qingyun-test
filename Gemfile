@@ -36,6 +36,10 @@ gem 'mini_magick'
 gem "aasm"
 gem 'awesome_rails_console'
 gem "will_paginate"
+#email css
+gem 'premailer-rails'
+gem 'nokogiri'
+
 gem 'letter_opener', group: :development
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
