@@ -75,9 +75,19 @@
 										<!-- <img src="" class="img-responsive" alt="ResumeHere"> -->
 										<%= image_tag "sampleresume.jpg", class: "img-responsive" %>
 										<div>
-											<%= link_to page1_user_resume_path(resume), class:"btn" do %>
-												<i class="fa fa-folder-open-o"></i>&nbsp;继续完成
-											<% end %>
+											<% if resume.category == "white" %>
+
+											  <%= link_to user_resume_preview_white_res_path(resume), class:"btn" do %>
+												  <i class="fa fa-folder-open-o"></i>&nbsp;继续完成
+											  <% end %>
+
+                     <% elsif resume.category == "developer" %>
+
+											  <%= link_to page1_user_resume_path(resume), class:"btn" do %>
+												  <i class="fa fa-folder-open-o"></i>&nbsp;继续完成
+											  <% end %>
+
+                     <% end %>
 										</div>
 									</div>
 									<h3>
