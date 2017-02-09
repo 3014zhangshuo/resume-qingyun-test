@@ -39,7 +39,11 @@ Rails.application.routes.draw do
 
  #用户中心的路由
   namespace :account do
-    resources :users
+    resources :users do
+      collection do
+        get :user_orders
+      end
+    end
   end
 
   #订单路由
