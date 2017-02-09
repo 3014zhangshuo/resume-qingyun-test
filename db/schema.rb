@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170208060437) do
+ActiveRecord::Schema.define(version: 20170209030327) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "resume_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -121,6 +128,7 @@ ActiveRecord::Schema.define(version: 20170208060437) do
     t.integer  "user_id"
     t.string   "aasm_state",                default: "drafting"
     t.boolean  "is_paid",                   default: false
+    t.string   "category"
     t.index ["aasm_state"], name: "index_resumes_on_aasm_state"
   end
 

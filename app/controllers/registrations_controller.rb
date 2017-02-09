@@ -30,6 +30,10 @@ class RegistrationsController < Devise::RegistrationsController
 
   private
 
+  def after_update_path_for(resource)
+    account_users_path
+  end
+
   def update_needs_confirmation?(resource, previous)
     resource.respond_to?(:pending_reconfirmation?) &&
       resource.pending_reconfirmation? &&

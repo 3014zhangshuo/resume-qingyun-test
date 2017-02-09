@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users,:controllers => { :registrations => :registrations }
   resources :users do
     member do
       post :confirm
@@ -36,6 +36,16 @@ Rails.application.routes.draw do
       end
     end
 	end
+
+ #用户中心的路由
+  namespace :account do
+    resources :users do
+      collection do
+        get :user_orders
+        get :change_password
+      end
+    end
+  end
 
   #订单路由
   resources :orders, only: [:new, :create] do

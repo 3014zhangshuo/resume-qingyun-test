@@ -161,6 +161,7 @@ class User::ResumesController < ApplicationController
   def new
     @resume = Resume.new
     @resume.user = current_user
+    @resume.category = "developer"
     @resume.save!
     redirect_to page1_user_resume_path(@resume)
   end
@@ -169,12 +170,13 @@ class User::ResumesController < ApplicationController
 	def new_white
 		@resume = Resume.new
 		@resume.user = current_user
+    @resume.category = "white"
 		@resume.save!
 		redirect_to page1_white_user_resume_path(@resume)
 	end
 
 	def page1_white
-		@resume = current_user.resumes.find_by_id(params[:id]) or not_found		
+		@resume = current_user.resumes.find_by_id(params[:id]) or not_found
 	end
 
 	def page1_white_commit
