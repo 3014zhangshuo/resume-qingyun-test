@@ -7,10 +7,12 @@
                     <td>ID</td>
                     <td colspan="2"><i class="fa fa-envelope-o" aria-hidden="true"></i></td>
                     <td>姓名</td>
-                    <td>简历个数</td>
+                    <td>全部简历数</td>
+                    <td>简历个数(已有HTML)</td>
                     <td>权限变更</td>
                     <td>发送确认信</td>
                     <td>未完成订单数量</td>
+                    <td>删除用户</td>
                 </tr>
             </thead>
             <tbody>
@@ -20,6 +22,7 @@
                     <td><%= user.id %></td>
                     <td colspan="2"><%= user.email %></td>
                     <td><%= render_user_name(user) %></td>
+                    <td><%= link_to(user.resumes.where.not(id: ResumeHtml.select(:resume_id)).count, not_have_html_admin_user_resumes_path(user)) %></td>
                     <td><%= link_to(user.resumes.joins(:resume_html).count, admin_user_resumes_path(user)) %></td>
                     <td>
                       <% if user.admin? %>
@@ -32,6 +35,7 @@
                     <td>
                       <%= link_to(user.orders.where(:is_paid => false).count, admin_orders_path(id:user.id))  %>
                     </td>
+                    <td><%= link_to("删除用户", admin_user_path(user), method: :delete, class: "btn btn-danger", :data => { :confirm => "确定是否为了清除数据而删除用户" }) %></td>
                   </tr>
                   <% end %>
                     </tbody>

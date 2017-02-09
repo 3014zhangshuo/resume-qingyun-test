@@ -24,6 +24,9 @@ Rails.application.routes.draw do
       resources :resumes do
          get :preview
          post :save_html
+         collection do
+          get :not_have_html
+         end
       end
 			member do
 				post :admin_state

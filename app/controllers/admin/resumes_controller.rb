@@ -9,6 +9,11 @@ class Admin::ResumesController < ApplicationController
     @resumes = @user.resumes
   end
 
+  def not_have_html
+    @user = User.find(params[:user_id])
+    @resumes = @user.resumes
+  end
+
   def show
     @user = User.find(params[:user_id])
     @resume = @user.resumes.find(params[:id])
@@ -44,7 +49,11 @@ class Admin::ResumesController < ApplicationController
     # flash[:notice] = 'saved'
   end
 
-
+  def destroy
+    @user = User.find(params[:user_id])
+    @resume = @user.resumes.destroy(params[:id])
+    redirect_to :back
+  end
 
 private
 
