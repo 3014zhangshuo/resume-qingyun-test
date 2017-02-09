@@ -1,4 +1,10 @@
 <%= render(partial: "bar") %>
-<div class="col-md-8 col-md-offset-2" style="margin-top:50px;">
+
+<div class="col-md-8 col-md-offset-2">
+  <h2>你好,<%= current_user.email %></h2>
+  <div class="",style:"margin-top:50px;">
+  设置按钮:
+<br>
  <%= link_to("修改密码", change_password_account_users_path, class: "btn btn-xs btn-primary") %>
+   </div>
 </div>
