@@ -7,11 +7,12 @@
                     <td>ID</td>
                     <td colspan="2"><i class="fa fa-envelope-o" aria-hidden="true"></i></td>
                     <td>姓名</td>
-                    <td>全部简历数</td>
+                    <td>未有HTML简历数</td>
                     <td>简历个数(已有HTML)</td>
                     <td>权限变更</td>
                     <td>发送确认信</td>
-                    <td>未完成订单数量</td>
+                    <td>订单数量</td>
+
                     <td>删除用户</td>
                 </tr>
             </thead>
@@ -33,7 +34,7 @@
                     </td>
                     <td><%= link_to("Confirm email", sent_confirm_email_admin_user_path(user), method: :post, class: "btn btn-danger" ) %></td>
                     <td>
-                      <%= link_to(user.orders.where(:is_paid => false).count, admin_orders_path(id:user.id))  %>
+                      <%= link_to(user.orders.count, admin_orders_path(id:user.id))  %>
                     </td>
                     <td><%= link_to("删除用户", admin_user_path(user), method: :delete, class: "btn btn-danger", :data => { :confirm => "确定是否为了清除数据而删除用户" }) %></td>
                   </tr>

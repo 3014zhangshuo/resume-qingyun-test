@@ -23,7 +23,7 @@
              <span class="pull-right">&nbsp;已生成</span><i class="fa fa-check-circle-o pull-right status-g"></i>
            </h3>
            <div class="pi-price">更新于：<%= resume.resume_html.updated_at.strftime("%m/%e, %l:%M %p") %>
-           <%= link_to("删除", admin_user_resume_path(@user,resume), method: :delete, class: "btn btn-xs btn-danger", data: { confirm: "确定删除这个未完成的简历？" }) %></div>
+          &nbsp;&nbsp;&nbsp; <%= link_to("删除", admin_user_resume_path(@user,resume), method: :delete, class: "btn btn-xs btn-danger", data: { confirm: "确定删除这个未完成的简历？" }) %></div>
          </div>
       </div>
      <% end %>

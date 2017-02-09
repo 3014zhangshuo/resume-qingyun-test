@@ -7,11 +7,13 @@ class Admin::ResumesController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @resumes = @user.resumes
+    render :layout => 'admin'
   end
 
   def not_have_html
     @user = User.find(params[:user_id])
     @resumes = @user.resumes
+    render :layout => 'admin'
   end
 
   def show

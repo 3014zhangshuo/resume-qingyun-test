@@ -9,14 +9,22 @@
       <tr>
         <td>订单编号</td>
         <td>简历编号</td>
+        <td>订单状态</td>
         <td>发送购买码</td>
+        <td>删除订单</td>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td><%= o.id %></td>
         <td><%= o.resume_id %></td>
+        <% if o.aasm_state == "order_placed"%>
+        <td>已生成</td>
+        <% elsif o.aasm_state == "paid" %>
+        <td>已付款</td>
+        <% end %>
         <td><%= link_to("发送购买码", send_code_admin_order_path(o), method: :post, class: "btn btn-primary") %></td>
+        <td><%= link_to("删除", admin_order_path(o), method: :delete, class: "btn btn-danger",data: { confirm: "不要轻易删除订单，你确定要删除此订单？" }) %></td>
       </tr>
     </tbody>
   </table>
