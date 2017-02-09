@@ -28,6 +28,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
 	has_many :resumes
+  has_many :orders
   #attr_accessor :user_code
   #validate :create_user_code, :on => :create
 
@@ -57,5 +58,5 @@ class User < ApplicationRecord
        self.save!
     end
   end
-  
+
 end
