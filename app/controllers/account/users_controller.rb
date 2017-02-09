@@ -6,10 +6,4 @@ class Account::UsersController < ApplicationController
     @orders = current_user.orders
   end
 
-  def change_password_submit
-    @user = current_user
-    @user.update_attributes(:password, :password_confirmation)
-    @user.save
-  end
-
 end
